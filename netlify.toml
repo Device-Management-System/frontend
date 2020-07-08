@@ -1,0 +1,11 @@
+[build]
+base = “/”
+publish = “/build”
+command = “yarn build”
+[[redirects]]
+from = “/*”
+to = “/index.html”
+status = 200
+
+4:23
+netlify.toml file
