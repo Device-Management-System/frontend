@@ -9,7 +9,9 @@ function initializeAnalytics() {
 }
 
 function App() {
-  initializeAnalytics;
+  if (process.env.NODE_ENV === 'production') {
+    initializeAnalytics;
+  }
   return (
     <div className="App">
       <header className="App-header">
