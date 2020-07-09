@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
+import ReactGA from 'react-ga';
 import './App.css';
 
+function initializeAnalytics() {
+  ReactGA.initialize('UA-172172642-1');
+  ReactGA.pageview('/homepage');
+}
+
 function App() {
+  initializeAnalytics;
   return (
     <div className="App">
       <header className="App-header">
