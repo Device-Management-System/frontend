@@ -4,13 +4,13 @@ import ReactGA from 'react-ga';
 import './App.css';
 
 function initializeAnalytics() {
-  ReactGA.initialize('UA-172172642-1');
+  ReactGA.initialize(process.env.REACT_APP_GA_KEY);
   ReactGA.pageview('/homepage');
 }
 
 function App() {
-  if (process.env.NODE_ENV === 'production') {
-    initializeAnalytics;
+  if (process.env.REACT_APP_ENV === 'production') {
+    initializeAnalytics();
   }
   return (
     <div className="App">
