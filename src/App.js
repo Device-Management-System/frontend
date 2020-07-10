@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
 import ReactGA from 'react-ga';
 import { axiosWithAuth } from './auth/axiosWithAuth';
 import './App.css';
