@@ -9,7 +9,7 @@ function AuthCallback(props) {
     // User is signed in.
     if (user) {
       let token = await user.getIdToken();
-      localStorage.setItem('token', token);
+      // localStorage.setItem('token', token);
       axios
         .post(`${process.env.REACT_APP_API}`, {
           token: token,
@@ -20,7 +20,7 @@ function AuthCallback(props) {
         })
         .catch((err) => {
           console.log(err);
-          window.alert('There was an error singing in');
+          // window.alert('There was an error singing in');
         });
     }
   });
