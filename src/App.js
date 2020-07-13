@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { axiosWithAuth } from './auth/axiosWithAuth';
 import './App.css';
-import Login from './Components/Login';
+import PrivateRoute from './Components/PrivateRoute';
+import Auth from './Views/Auth';
+import { Route } from 'react-router-dom';
+import ManagerDashboard from './Views/ManagerDashboard';
 
 function initializeAnalytics() {
   ReactGA.initialize(process.env.REACT_APP_GA_KEY);
@@ -16,7 +19,7 @@ function App() {
 
   useEffect(() => {
     axiosWithAuth()
-      .get('/api/users/')
+      .get(`${process.env.REACT_APP_API}/api/users/`)
       .then((res) => {
         console.log('BACKEND RES IS => ', res.data);
       })
@@ -28,7 +31,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Login />
+        <p>welcome</p>
+        <Route path="/auth" component={Auth} />
+        <PrivateRoute path="/manager-dashboard" component={ManagerDashboard} />
       </header>
     </div>
   );
