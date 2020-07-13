@@ -1,26 +1,27 @@
 import React from 'react';
 import axios from 'axios';
 import { firebase } from '../Helpers/index.js';
+import { useHistory } from 'react-router-dom';
 const firebaseUser = require('firebase/app');
 require('firebase/auth');
 
 function AuthCallback(props) {
+  let history = useHistory();
   firebaseUser.auth().onAuthStateChanged(async (user) => {
     // User is signed in.
     if (user) {
       let token = await user.getIdToken();
-      // localStorage.setItem('token', token);
+      localStorage.setItem('token', token);
       axios
-        .post(`${process.env.REACT_APP_API}`, {
+        .post(`${process.env.REACT_APP_API}/api/users/auth`, {
           token: token,
         })
         .then((res) => {
           console.log(res);
-          localStorage.setItem('token', token);
+          history.push('/manager-dashboard');
         })
         .catch((err) => {
           console.log(err);
-          // window.alert('There was an error singing in');
         });
     }
   });
