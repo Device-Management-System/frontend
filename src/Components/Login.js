@@ -1,7 +1,8 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { firebase } from '../Helpers/index.js';
 import { useHistory } from 'react-router-dom';
+import { axiosWithAuth } from '../auth/axiosWithAuth';
 const firebaseUser = require('firebase/app');
 require('firebase/auth');
 
@@ -12,8 +13,8 @@ function AuthCallback(props) {
     if (user) {
       let token = await user.getIdToken();
       localStorage.setItem('token', token);
-      axios
-        .post(`${process.env.REACT_APP_API}/api/users/auth`, {
+      axiosWithAuth()
+        .post(`${process.env.REACT_APP_API}/api/auth`, {
           token: token,
         })
         .then((res) => {
