@@ -27,5 +27,6 @@
 .navigation .nav .navlink a {
   text-decoration: none;
   color: #000;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500;
 }
