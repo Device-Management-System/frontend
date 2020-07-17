@@ -6,7 +6,7 @@ import PrivateRoute from './Components/PrivateRoute';
 import { Route } from 'react-router-dom';
 import UserState from './context/currentUser/UserState';
 import Navigation from './Components/Navigation/Navigation';
-import Homepage from './Views/Homepage';
+import Homepage from './Views/Homepage/Homepage';
 import ManagerDashboard from './Views/ManagerDashboard';
 
 function initializeAnalytics() {
@@ -35,7 +35,6 @@ function App(props) {
       <div className="App container">
         <header className="App-header">
           <Navigation {...props} />
-          <p>welcome</p>
           <Route path="/" component={Homepage} />
           <PrivateRoute
             path="/manager-dashboard"
