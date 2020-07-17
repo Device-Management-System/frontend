@@ -3,8 +3,8 @@ import ReactGA from 'react-ga';
 import { axiosWithAuth } from './auth/axiosWithAuth';
 import './App.css';
 import PrivateRoute from './Components/PrivateRoute';
-import Auth from './Views/Auth';
 import { Route } from 'react-router-dom';
+import Homepage from './Views/Homepage';
 import ManagerDashboard from './Views/ManagerDashboard';
 
 function initializeAnalytics() {
@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>welcome</p>
-        <Route path="/auth" component={Auth} />
+        <Route path="/" component={Homepage} />
         <PrivateRoute path="/manager-dashboard" component={ManagerDashboard} />
       </header>
     </div>
