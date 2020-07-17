@@ -3,8 +3,10 @@ import ReactGA from 'react-ga';
 import { axiosWithAuth } from './auth/axiosWithAuth';
 import './App.css';
 import PrivateRoute from './Components/PrivateRoute';
-import Auth from './Views/Auth';
 import { Route } from 'react-router-dom';
+import UserState from './context/currentUser/UserState';
+import Navigation from './Components/Navigation/Navigation';
+import Homepage from './Views/Homepage';
 import ManagerDashboard from './Views/ManagerDashboard';
 
 function initializeAnalytics() {
@@ -12,7 +14,7 @@ function initializeAnalytics() {
   ReactGA.pageview('/homepage');
 }
 
-function App() {
+function App(props) {
   if (process.env.REACT_APP_ENV === 'production') {
     initializeAnalytics();
   }
@@ -29,13 +31,19 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>welcome</p>
-        <Route path="/auth" component={Auth} />
-        <PrivateRoute path="/manager-dashboard" component={ManagerDashboard} />
-      </header>
-    </div>
+    <UserState>
+      <div className="App container">
+        <header className="App-header">
+          <Navigation {...props} />
+          <p>welcome</p>
+          <Route path="/" component={Homepage} />
+          <PrivateRoute
+            path="/manager-dashboard"
+            component={ManagerDashboard}
+          />
+        </header>
+      </div>
+    </UserState>
   );
 }
 
