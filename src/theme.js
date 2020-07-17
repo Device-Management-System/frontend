@@ -2,10 +2,11 @@ export const theme = {
   // Colors
   background: '#fff',
   primary: '#1998FF',
-  billboardText: '#282828',
+  darkGray: '#282828',
   hover: '#1078CE',
   fontColor: '#000',
   bgLight: '#EDF7FF',
+  bgBlue: '#74D7FF',
   googleRed: '#DB4437',
 
   // Typography

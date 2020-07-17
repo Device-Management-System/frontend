@@ -54,9 +54,67 @@ const googleSignInStyles = css`
   `}
 `;
 
+const pricingStylesDefault = css`
+  ${({ theme: { primary, small, hover } }) => css`
+    width: 14.5rem;
+    height: 3.5rem;
+    color: #fff;
+    background: ${primary};
+    font-size: ${small};
+    font-weight: 600;
+    letter-spacing: 0.14px;
+    padding: 11px 40px 11px 40px;
+    border: none;
+
+    &:hover {
+      background: ${hover};
+    }
+  `}
+`;
+
+const pricingStylesReversed = css`
+  ${({ theme: { primary, small, hover } }) => css`
+    width: 14.5rem;
+    height: 3.5rem;
+    color: ${primary};
+    background: #fff;
+    font-size: ${small};
+    font-weight: 600;
+    letter-spacing: 0.14px;
+    padding: 11px 40px 11px 40px;
+    border: none;
+
+    &:hover {
+      opacity 0.8;
+    }
+  `}
+`;
+
+const sliderStyled = css`
+  ${({ theme: { darkGray } }) => css`
+    width: 84px;
+    height: 26px;
+    background: #fff;
+    color: ${darkGray};
+    box-shadow: #000 0 2px 5px 0 0.08;
+  `}
+`;
+
 const getButtonStyle = (props) => {
   if (props.isGoogleSingIn) {
     return googleSignInStyles;
+  }
+
+  if (props.pricing) {
+    return pricingStylesDefault;
+  }
+
+  if (props.pricingR) {
+    return pricingStylesReversed;
+  }
+
+  if (props.slider) {
+    return sliderStyled;
   }
 
   return props.inverted ? inverted : defaultStyle;
