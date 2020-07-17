@@ -21,6 +21,7 @@ const defaultStyle = css`
 
 const inverted = css`
   ${({ theme: { regular, primary } }) => css`
+
   background: none;
   border: 1px solid #000;
   color: #000;
@@ -29,8 +30,10 @@ const inverted = css`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    backround: ${primary};
+    background: ${primary};
+    color: #fff !important;
     text-decoration: none;
+    border: 1px solid ${primary};
   }
 }
 `}
@@ -62,7 +65,6 @@ const getButtonStyle = (props) => {
 export const CustomButtonContainer = styled(Link)`
   ${({ theme: { regular } }) => css`
   max-width: 53.9rem;
-  min-width: 15rem;
   width: auto;
   height: 44px;
   border-radius: 0.8rem;
