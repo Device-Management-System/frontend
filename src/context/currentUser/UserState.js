@@ -2,8 +2,9 @@ import React, { useReducer } from 'react';
 
 import UserContext from './userContext';
 import userReducer from './userReducer';
-import { auth } from 'firebase/app';
 import { SET_CURRENT_USER_SUCCESS, SET_CURRENT_USER_FAIL } from '../types';
+const firebase = require('firebase/app');
+const { auth } = firebase;
 
 const UserState = (props) => {
   const initialState = {

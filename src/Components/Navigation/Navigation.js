@@ -15,11 +15,12 @@ const Navigation = (props) => {
     if (token) {
       setCurrentUser(userContext.getUserState());
     }
-  }, [userContext]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Navbar className="navigation justify-content-between">
       <Navbar.Brand className="logo" href="/">
-        <NavLink to="/">Landr</NavLink>
+        Landr
       </Navbar.Brand>
       <Nav className="nav ml-auto">
         <NavItem className="navlink">
