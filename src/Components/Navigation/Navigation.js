@@ -32,7 +32,7 @@ const Navigation = (props) => {
         <NavItem className="navlink">
           <NavLink to="#contact">Contact</NavLink>
         </NavItem>
-        {!isAuthenticated && (
+        {isAuthenticated && (
           <NavItem className="navlink">
             <button className="logout" onClick={logout}>
               Logout
