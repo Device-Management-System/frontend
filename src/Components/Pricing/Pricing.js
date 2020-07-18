@@ -24,7 +24,7 @@ const Pricing = (props) => {
         <PricingTop>
           <PricingHeader>Pricing</PricingHeader>
           <SliderBg>
-            <Slider on>Bill Yearly</Slider>
+            <Slider on="true">Bill Yearly</Slider>
             <Slider>Bill Monthly</Slider>
           </SliderBg>
         </PricingTop>
@@ -35,15 +35,19 @@ const Pricing = (props) => {
               <Price>$0</Price>
             </PricingCardHeader>
             <Features>{/*  */}</Features>
-            <CardBtn pricing>Try for free</CardBtn>
+            <CardBtn pricing="true" to="#">
+              Try for free
+            </CardBtn>
           </PricingCard>
-          <PricingCard pricingCardOn>
+          <PricingCard pricingCardOn="true">
             <PricingCardHeader>
               <PricingProduct>Starter</PricingProduct>
               <Price>$20</Price>
             </PricingCardHeader>
             <Features>{/*  */}</Features>
-            <CardBtn pricingR>Subscribe</CardBtn>
+            <CardBtn pricingr="true" to="#">
+              Subscribe
+            </CardBtn>
           </PricingCard>
           <PricingCard>
             <PricingCardHeader>
@@ -51,7 +55,9 @@ const Pricing = (props) => {
               <Price>$40</Price>
             </PricingCardHeader>
             <Features>{/*  */}</Features>
-            <CardBtn pricing>Try for free</CardBtn>
+            <CardBtn pricing="true" to="#">
+              Subscribe
+            </CardBtn>
           </PricingCard>
           <PricingCard>
             <PricingCardHeader>
@@ -59,7 +65,9 @@ const Pricing = (props) => {
               <Price>Custom</Price>
             </PricingCardHeader>
             <Features>{/*  */}</Features>
-            <CardBtn pricing>Try for free</CardBtn>
+            <CardBtn pricing="true" to="#">
+              Subscribe
+            </CardBtn>
           </PricingCard>
         </PricingBottom>
       </PricingContainer>

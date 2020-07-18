@@ -2,13 +2,14 @@ import styled, { css } from 'styled-components';
 
 export const PricingBg = styled.section`
   position: absolute;
-  top: 400px;
+  top: 630px;
   width: 100%;
   height: 670px;
   background: #74d7ff;
   padding-top: 5rem;
   padding-bottom: 5rem;
   z-index: 99;
+  opacity: 0.94;
 `;
 
 export const PricingContainer = styled.div`
@@ -93,6 +94,7 @@ export const Slider = styled.button`
     border: none;
     color: ${darkGray};
     padding: 8px auto;
+    outline: none;
 
     ${getSliderStyle};
   `}
@@ -125,7 +127,7 @@ const getCardStyle = (props) => {
 
 export const PricingCard = styled.div`
   display: grid;
-  grid-template-rows: 1fr, 3fr, 1fr;
+  grid-template-rows: 1fr, 2fr, 1fr;
   grid-gap: 1rem;
   padding: 4rem 1.8rem 1.8rem 1.8rem;
   ${getCardStyle};
@@ -138,12 +140,14 @@ export const PricingCardHeader = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 `;
 
 export const PricingProduct = styled.h4`
-  font-size: 1.4rem;
+  font-size: 1.48rem;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
+  margin: 2rem;
 `;
 
 export const Price = styled.p`
@@ -154,7 +158,7 @@ export const Price = styled.p`
 
 export const Features = styled.div`
   width: 100%;
-  height: 13.1rem;
+  height: 13.6rem;
   display: flex;
   flex-direction: column;
 `;
