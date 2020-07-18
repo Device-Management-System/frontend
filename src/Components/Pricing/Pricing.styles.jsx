@@ -45,7 +45,7 @@ export const PricingHeader = styled.h2`
   ${({ theme: { headerLarge } }) => css`
     color: #000;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: ${headerLarge};
   `}
 `;
