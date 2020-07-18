@@ -1,6 +1,7 @@
 import React from 'react';
 
 import GetStarted from '../customComponents/CustomButton/CustomButton';
+import { ReactComponent as Devices } from '../../assets/devices.svg';
 
 import './Billboard.css';
 
@@ -14,7 +15,9 @@ const Billboard = (props) => {
         </p>
         <GetStarted to="/auth">Get Started</GetStarted>
       </div>
-      <div className="billboard-image" />
+      <div className="billboard-image">
+        <Devices style={{ position: 'absolute', top: '60px', left: '-30px' }} />
+      </div>
     </div>
   );
 };
