@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GetStarted from '../customComponents/CustomButton';
+import GetStarted from '../customComponents/CustomButton/CustomButton';
 
 import './Billboard.css';
 

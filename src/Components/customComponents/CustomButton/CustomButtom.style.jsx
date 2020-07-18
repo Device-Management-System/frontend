@@ -8,6 +8,7 @@ const defaultStyle = css`
   color: #fff;
   border: 0;
   text-decoration: none;
+  padding: 11px 20px 11px 20px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -21,16 +22,20 @@ const defaultStyle = css`
 
 const inverted = css`
   ${({ theme: { regular, primary } }) => css`
+
   background: none;
   border: 1px solid #000;
   color: #000;
   font-size: ${regular};
   text-decoration: none;
+  padding: 11px 20px 11px 20px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    backround: ${primary};
+    background: ${primary};
+    color: #fff !important;
     text-decoration: none;
+    border: 1px solid ${primary};
   }
 }
 `}
@@ -42,10 +47,51 @@ const googleSignInStyles = css`
     color: #fff;
     border: none;
     text-decoration: none;
+    padding: 11px 20px 11px 20px;
     transition: all 0.2s ease-in-out;
 
     &:hover {
       background: #b92e22;
+      text-decoration: none;
+    }
+  `}
+`;
+
+const pricingStylesDefault = css`
+  ${({ theme: { primary, small, hover } }) => css`
+    width: 14.5rem;
+    height: 3.5rem;
+    color: #fff;
+    background: ${primary};
+    font-size: ${small};
+    font-weight: 600;
+    letter-spacing: 0.14px;
+    padding: 11px 40px 11px 40px;
+    border: none;
+
+    &:hover {
+      background: ${hover};
+      color: #fff;
+      text-decoration: none;
+    }
+  `}
+`;
+
+const pricingStylesReversed = css`
+  ${({ theme: { primary, small } }) => css`
+    width: 14.5rem;
+    height: 3.5rem;
+    color: ${primary};
+    background: #fff;
+    font-size: ${small};
+    font-weight: 600;
+    letter-spacing: 0.14px;
+    padding: 11px 40px 11px 40px;
+    border: none;
+
+    &:hover {
+      opacity 0.8;
+      color: ${primary};
       text-decoration: none;
     }
   `}
@@ -56,18 +102,24 @@ const getButtonStyle = (props) => {
     return googleSignInStyles;
   }
 
+  if (props.pricing) {
+    return pricingStylesDefault;
+  }
+
+  if (props.pricingR) {
+    return pricingStylesReversed;
+  }
+
   return props.inverted ? inverted : defaultStyle;
 };
 
 export const CustomButtonContainer = styled(Link)`
   ${({ theme: { regular } }) => css`
   max-width: 53.9rem;
-  min-width: 15rem;
   width: auto;
   height: 44px;
   border-radius: 0.8rem;
   letter-spacing: 0.26px;
-  padding: 11px 20px 11px 20px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: ${regular};
@@ -77,8 +129,6 @@ export const CustomButtonContainer = styled(Link)`
   outline: none;
 
   ${getButtonStyle};
-
-
   }
   `}
 `;

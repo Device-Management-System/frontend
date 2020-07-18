@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+
+import SignUp from '../customComponents/CustomButton/CustomButton';
 import UserContext from '../../context/currentUser/userContext';
 
 import './Navigation.css';
@@ -9,7 +11,7 @@ const Navigation = (props) => {
   const userContext = useContext(UserContext);
   const { isAuthenticated } = userContext;
   return (
-    <Navbar className="navigation justify-content-between">
+    <Navbar className="navigation justify-content-between container">
       <Navbar.Brand className="logo" href="/">
         Landr
       </Navbar.Brand>
@@ -30,7 +32,9 @@ const Navigation = (props) => {
         )}
         {!isAuthenticated && (
           <NavItem className="navlink">
-            <NavLink to="/auth">Sign up</NavLink>
+            <SignUp inverted to="/auth">
+              Sign up
+            </SignUp>
           </NavItem>
         )}
       </Nav>
