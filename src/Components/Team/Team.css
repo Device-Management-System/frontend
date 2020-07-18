@@ -4,6 +4,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 3rem;
 }
 
 .team .container h2 {
@@ -31,10 +32,43 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem;
 }
 
-.team-cards .team-card h4 {
+.team-cards .team-card .info h4 {
   font-size: 1.8rem;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
+}
+
+.team-cards .team-card .info p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.team-card .thumbnail {
+  width: 100px;
+  height: 100px;
+}
+
+.team-card .links {
+  width: 5.4rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.team-card .links a {
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.2s ease-in-out;
+}
+
+.team-card .links a:hover {
+  transform: scale(1.1);
 }
