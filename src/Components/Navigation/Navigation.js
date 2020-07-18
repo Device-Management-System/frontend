@@ -11,7 +11,7 @@ const Navigation = (props) => {
   const userContext = useContext(UserContext);
   const { isAuthenticated } = userContext;
   return (
-    <Navbar className="navigation justify-content-between">
+    <Navbar className="navigation justify-content-between container">
       <Navbar.Brand className="logo" href="/">
         Landr
       </Navbar.Brand>

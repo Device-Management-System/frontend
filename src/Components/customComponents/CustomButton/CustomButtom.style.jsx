@@ -8,6 +8,7 @@ const defaultStyle = css`
   color: #fff;
   border: 0;
   text-decoration: none;
+  padding: 11px 20px 11px 20px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -27,6 +28,7 @@ const inverted = css`
   color: #000;
   font-size: ${regular};
   text-decoration: none;
+  padding: 11px 20px 11px 20px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -45,6 +47,7 @@ const googleSignInStyles = css`
     color: #fff;
     border: none;
     text-decoration: none;
+    padding: 11px 20px 11px 20px;
     transition: all 0.2s ease-in-out;
 
     &:hover {
@@ -68,12 +71,14 @@ const pricingStylesDefault = css`
 
     &:hover {
       background: ${hover};
+      color: #fff;
+      text-decoration: none;
     }
   `}
 `;
 
 const pricingStylesReversed = css`
-  ${({ theme: { primary, small, hover } }) => css`
+  ${({ theme: { primary, small } }) => css`
     width: 14.5rem;
     height: 3.5rem;
     color: ${primary};
@@ -86,17 +91,9 @@ const pricingStylesReversed = css`
 
     &:hover {
       opacity 0.8;
+      color: ${primary};
+      text-decoration: none;
     }
-  `}
-`;
-
-const sliderStyled = css`
-  ${({ theme: { darkGray } }) => css`
-    width: 84px;
-    height: 26px;
-    background: #fff;
-    color: ${darkGray};
-    box-shadow: #000 0 2px 5px 0 0.08;
   `}
 `;
 
@@ -113,10 +110,6 @@ const getButtonStyle = (props) => {
     return pricingStylesReversed;
   }
 
-  if (props.slider) {
-    return sliderStyled;
-  }
-
   return props.inverted ? inverted : defaultStyle;
 };
 
@@ -127,7 +120,6 @@ export const CustomButtonContainer = styled(Link)`
   height: 44px;
   border-radius: 0.8rem;
   letter-spacing: 0.26px;
-  padding: 11px 20px 11px 20px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: ${regular};
@@ -137,8 +129,6 @@ export const CustomButtonContainer = styled(Link)`
   outline: none;
 
   ${getButtonStyle};
-
-
   }
   `}
 `;

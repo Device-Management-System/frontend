@@ -15,4 +15,7 @@ export const theme = {
   medium: '1.4rem',
   small: '1rem',
   xSmall: '0.8rem',
+
+  // global Radius
+  radius: '0.8rem',
 };

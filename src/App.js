@@ -32,7 +32,7 @@ function App(props) {
 
   return (
     <UserState>
-      <div className="App container">
+      <div className="App">
         <header className="App-header">
           <Navigation {...props} />
           <Route path="/" component={Homepage} />
