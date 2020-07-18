@@ -3,11 +3,7 @@ import ReactGA from 'react-ga';
 import { Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import {
-  fas,
-  faCheckSquare,
-  faCoffee,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 import PrivateRoute from './Components/PrivateRoute';
 import AuthState from './context/auth/AuthState';
 import Auth from './Views/Auth';
@@ -17,7 +13,7 @@ import ManagerDashboard from './Views/ManagerDashboard';
 
 import './App.css';
 
-library.add(fab, fas, faCheckSquare, faCoffee);
+library.add(fab, faCheckSquare, faCoffee);
 
 function initializeAnalytics() {
   ReactGA.initialize(process.env.REACT_APP_GA_KEY);
