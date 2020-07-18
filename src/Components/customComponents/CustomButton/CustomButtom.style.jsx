@@ -5,7 +5,7 @@ const defaultStyle = css`
   ${({ theme: { primary, hover } }) => css`
   width: 150px;
   background: ${primary};
-  color: #fff;
+  color: #fff !important;
   border: 0;
   text-decoration: none;
   padding: 11px 20px 11px 20px;
@@ -60,7 +60,7 @@ const googleSignInStyles = css`
 const pricingStylesDefault = css`
   ${({ theme: { primary, small, hover } }) => css`
     width: 14.5rem;
-    height: 3.5rem;
+    height: 3.6rem;
     color: #fff;
     background: ${primary};
     font-size: ${small};
@@ -80,7 +80,7 @@ const pricingStylesDefault = css`
 const pricingStylesReversed = css`
   ${({ theme: { primary, small } }) => css`
     width: 14.5rem;
-    height: 3.5rem;
+    height: 3.6rem;
     color: ${primary};
     background: #fff;
     font-size: ${small};
@@ -106,7 +106,7 @@ const getButtonStyle = (props) => {
     return pricingStylesDefault;
   }
 
-  if (props.pricingR) {
+  if (props.pricingr) {
     return pricingStylesReversed;
   }
 

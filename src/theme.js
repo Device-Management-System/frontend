@@ -11,7 +11,7 @@ export const theme = {
 
   // Typography
   regular: '1.6rem',
-  headerLarge: '4.5rem',
+  headerLarge: '3.4rem',
   medium: '1.4rem',
   small: '1rem',
   xSmall: '0.8rem',

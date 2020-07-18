@@ -1,19 +1,25 @@
 import React, { useReducer } from 'react';
 
-import UserContext from './userContext';
-import userReducer from './userReducer';
-import { SET_CURRENT_USER_SUCCESS, SET_CURRENT_USER_FAIL } from '../types';
+import AuthContext from './authContext';
+import authReducer from './authReducer';
+
+import {
+  SET_CURRENT_USER_SUCCESS,
+  SET_CURRENT_USER_FAIL,
+  LOGOUT,
+} from '../types';
+
 const firebase = require('firebase/app');
 const { auth } = firebase;
 
-const UserState = (props) => {
+const AuthState = (props) => {
   const initialState = {
     currentUser: null,
     isAuthenticated: null,
     error: null,
   };
 
-  const [state, dispatch] = useReducer(userReducer, initialState);
+  const [state, dispatch] = useReducer(authReducer, initialState);
   const { currentUser, isAuthenticated, error } = state;
 
   const getUserState = async () => {
@@ -26,18 +32,28 @@ const UserState = (props) => {
     }
   };
 
+  const logout = () => {
+    auth()
+      .signOut()
+      .then(() => {
+        localStorage.clear();
+        dispatch({ type: LOGOUT }).catch((err) => console.log(err));
+      });
+  };
+
   return (
-    <UserContext.Provider
+    <AuthContext.Provider
       value={{
         currentUser,
         isAuthenticated,
         error,
         getUserState,
+        logout,
       }}
     >
       {props.children}
-    </UserContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
-export default UserState;
+export default AuthState;
