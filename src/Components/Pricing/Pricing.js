@@ -39,7 +39,7 @@ const Pricing = (props) => {
           </PricingCard>
           <PricingCard pricingCardOn>
             <PricingCardHeader>
-              <PricingProduct>Free</PricingProduct>
+              <PricingProduct>Starter</PricingProduct>
               <Price>$20</Price>
             </PricingCardHeader>
             <Features>{/*  */}</Features>
@@ -47,7 +47,7 @@ const Pricing = (props) => {
           </PricingCard>
           <PricingCard>
             <PricingCardHeader>
-              <PricingProduct>Free</PricingProduct>
+              <PricingProduct>Pro</PricingProduct>
               <Price>$40</Price>
             </PricingCardHeader>
             <Features>{/*  */}</Features>
@@ -55,7 +55,7 @@ const Pricing = (props) => {
           </PricingCard>
           <PricingCard>
             <PricingCardHeader>
-              <PricingProduct>Free</PricingProduct>
+              <PricingProduct>Enterprise</PricingProduct>
               <Price>Custom</Price>
             </PricingCardHeader>
             <Features>{/*  */}</Features>
