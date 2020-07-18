@@ -1,7 +1,7 @@
 import React from 'react';
 
 import GetStarted from '../customComponents/CustomButton/CustomButton';
-import { ReactComponent as Devices } from '../../assets/devices.svg';
+import { ReactComponent as Devices } from '../../assets/Business_SVG.svg';
 
 import './Billboard.css';
 
