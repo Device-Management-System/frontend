@@ -8,6 +8,8 @@ export const theme = {
   bgLight: '#EDF7FF',
   bgBlue: '#74D7FF',
   googleRed: '#DB4437',
+  inputBg: '#DCEFFF',
+  inputBorder: '#BFE1FF',
 
   // Typography
   regular: '1.6rem',

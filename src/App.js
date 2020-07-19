@@ -10,7 +10,6 @@ import Auth from './Views/Auth';
 import Navigation from './Components/Navigation/Navigation';
 import Homepage from './Views/Homepage/Homepage';
 import ManagerDashboard from './Views/ManagerDashboard';
-import Footer from './Components/Footer/Footer';
 
 import './App.css';
 
@@ -45,7 +44,6 @@ function App(props) {
         <Route path="/auth" exact component={Auth} />
         <PrivateRoute path="/manager-dashboard" component={ManagerDashboard} />
       </div>
-      <Footer />
     </AuthState>
   );
 }
