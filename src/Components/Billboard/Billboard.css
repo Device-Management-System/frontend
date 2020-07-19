@@ -1,15 +1,18 @@
 .billboard {
-  position: relative;
   width: 100%;
-  height: 587px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  height: 420px;
+  z-index: 1;
 }
 
-.billboard .billboard-content {
-  position: absolute;
-  top: 100px;
-  width: 48rem;
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero .billboard-content {
+  width: 50rem;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -20,26 +23,28 @@
   text-align: left;
 }
 
-.billboard .billboard-content .billboard-desc {
+.billboard-content .billboard-desc {
   margin-top: 20px;
   margin-bottom: 20px;
+  line-height: 1.6;
 }
 
-.billboard .billboard-content .billboard-header {
+.billboard-content .billboard-header {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.billboard .billboard-header {
+.billboard-content .billboard-header {
   font-size: 3.4rem;
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .billboard .billboard-image {
-  width: 615px;
   height: 100%;
   position: absolute;
-  top: 20px;
-  left: 630px;
+  top: 220px;
+  right: 240px;
   z-index: 1;
+  transform: scale(1.2);
+  margin-right: 2rem;
 }

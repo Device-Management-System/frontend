@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components';
 
 export const PricingBg = styled.section`
-  position: absolute;
-  top: 630px;
+  /* position: absolute;
+  top: 680px; */
   width: 100%;
   height: 670px;
   background: #74d7ff;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  z-index: 99;
-  opacity: 0.94;
+  margin: 0;
+  z-index: 50;
 `;
 
 export const PricingContainer = styled.div`

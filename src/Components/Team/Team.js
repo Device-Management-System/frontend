@@ -9,7 +9,7 @@ import './Team.css';
 const Team = (props) => {
   return (
     <section className="team" id="team">
-      <div className="container">
+      <div className="landr-container">
         <h2>Team</h2>
         <div className="team-cards">
           <div className="team-card">

@@ -7,8 +7,9 @@ const defaultStyle = css`
   background: ${primary};
   color: #fff !important;
   border: 0;
+  height: 48px;
   text-decoration: none;
-  padding: 11px 20px 11px 20px;
+  padding: 16px 20px 16px 20px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -22,7 +23,7 @@ const defaultStyle = css`
 
 const inverted = css`
   ${({ theme: { regular, primary } }) => css`
-
+  height: 40px;
   background: none;
   border: 1px solid #000;
   color: #000;
@@ -60,13 +61,13 @@ const googleSignInStyles = css`
 const pricingStylesDefault = css`
   ${({ theme: { primary, small, hover } }) => css`
     width: 14.5rem;
-    height: 3.6rem;
+    height: 3.5rem;
     color: #fff;
     background: ${primary};
     font-size: ${small};
     font-weight: 600;
     letter-spacing: 0.14px;
-    padding: 11px 40px 11px 40px;
+    padding: 13px 40px 13px 40px;
     border: none;
 
     &:hover {
@@ -80,13 +81,13 @@ const pricingStylesDefault = css`
 const pricingStylesReversed = css`
   ${({ theme: { primary, small } }) => css`
     width: 14.5rem;
-    height: 3.6rem;
+    height: 3.5rem;
     color: ${primary};
     background: #fff;
     font-size: ${small};
     font-weight: 600;
     letter-spacing: 0.14px;
-    padding: 11px 40px 11px 40px;
+    padding: 13px 40px 13px 40px;
     border: none;
 
     &:hover {
