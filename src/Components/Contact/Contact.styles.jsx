@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const ContactContainer = styled.section`
-  ${({ theme: { bgLight } }) => css`
+  ${({ theme: { bgLight2 } }) => css`
     width: 100%;
     height: 55.7rem;
-    background: ${bgLight};
+    background: ${bgLight2};
     padding: 5rem;
 
     h4 {
@@ -58,7 +58,7 @@ const submitStyle = css`
     background: ${primary};
     transition: all 0.3s ease-in-out;
     font-size: ${regular};
-    font-weight: 500;
+    font-weight: 600;
     border: 0;
 
     &:hover {
@@ -73,15 +73,16 @@ const getInputStyle = (props) => {
 };
 
 export const ContactInput = styled.input`
-  ${({ theme: { inputBg, inputBorder, regular } }) => css`
+  ${({ theme: { inputBg, inputBorder, regular, hover } }) => css`
     background: ${inputBg};
     border-radius: 10px;
     font-size: ${regular};
-    font-weight: 500;
+    font-weight: 600;
     color: #000;
     border: 1px solid ${inputBorder};
     padding: 1.4rem 1.7rem 1.4rem 1.6rem;
     font-family: 'Montserrat', sans-serif;
+    transition: 0.2s ease-in-out;
 
     &::placeholder {
       font-family: 'Montserrat', sans-serif;
@@ -90,12 +91,17 @@ export const ContactInput = styled.input`
       color: #000;
     }
 
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px ${hover};
+    }
+
     ${getInputStyle};
   `}
 `;
 
 export const ContactTextA = styled.textarea`
-  ${({ theme: { inputBg, inputBorder, regular } }) => css`
+  ${({ theme: { inputBg, inputBorder, regular, hover } }) => css`
     width: 100%;
     height: 14.9rem;
     border-radius: 10px;
@@ -113,6 +119,11 @@ export const ContactTextA = styled.textarea`
       font-weight: 500;
       font-size: ${regular};
       color: #000;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px ${hover};
     }
   `}
 `;

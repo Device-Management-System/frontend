@@ -5,10 +5,11 @@ export const theme = {
   darkGray: '#282828',
   hover: '#1078CE',
   fontColor: '#000',
-  bgLight: '#EDF7FF',
+  bgLight: '#e6f2fc',
+  bgLight2: '#EDF7FF',
   bgBlue: '#74D7FF',
   googleRed: '#DB4437',
-  inputBg: '#DCEFFF',
+  inputBg: '#DFEFFD',
   inputBorder: '#BFE1FF',
 
   // Typography

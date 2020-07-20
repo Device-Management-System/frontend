@@ -91,6 +91,7 @@ export const Slider = styled.button`
     color: ${darkGray};
     padding: 8px auto;
     outline: none;
+    transition: all 0.2s ease-in;
     ${getSliderStyle};
     &:focus {
       outline: none;
@@ -135,12 +136,14 @@ export const PricingCardSelect = styled.button`
     z-index: 100;
     outline: none;
     border-radius: ${radius};
+    transition: all 0.2s ease-in-out;
 
     &:focus {
       outline: none;
     }
     &:hover {
       box-shadow: 0 0 0 2px ${hover};
+      transform: scale(1.02);
     }
   `}
 `;
