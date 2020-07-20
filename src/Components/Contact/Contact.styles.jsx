@@ -59,6 +59,7 @@ const submitStyle = css`
     transition: all 0.3s ease-in-out;
     font-size: ${regular};
     font-weight: 500;
+    border: 0;
 
     &:hover {
       background: ${hover};
@@ -105,6 +106,7 @@ export const ContactTextA = styled.textarea`
     font-weight: 500;
     font-size: ${regular};
     color: #000;
+    resize: none;
 
     &::placeholder {
       font-family: 'Montserrat', sans-serif;

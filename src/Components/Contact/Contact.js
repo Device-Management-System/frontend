@@ -11,12 +11,13 @@ import {
 } from './Contact.styles';
 
 const Contact = () => {
-  const [values, onChange] = useForm();
+  const getLead = () => console.log(values);
+  const [values, onChange, onSubmit] = useForm(getLead);
   return (
     <ContactContainer>
       <ContactWrapper>
         <h4>Contact</h4>
-        <ContactForm>
+        <ContactForm onSubmit={onSubmit}>
           <ContactTop>
             <ContactInput
               half
