@@ -8,7 +8,7 @@ import AuthContext from '../../context/auth/authContext';
 
 import './Navigation.css';
 
-const Navigation = (props) => {
+const Navigation = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, getUserState, logout } = authContext;
 

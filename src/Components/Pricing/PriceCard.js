@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import CardBtn from '../customComponents/CustomButton/CustomButton';
@@ -12,18 +13,16 @@ import {
   Features,
 } from './Pricing.styles';
 
-const PriceCard = ({ plan, isMonthly }) => {
-  const {
-    title,
-    monthly_price,
-    annual_price,
-    features,
-    btn_label,
-    highlight,
-  } = plan;
-
+const PriceCard = ({
+  title,
+  monthly_price,
+  annual_price,
+  features,
+  btn_label,
+  highlight,
+  isMonthly,
+}) => {
   const [selected, setSelected] = useState(highlight);
-
   useEffect(() => {
     setSelected(selected);
   }, [selected, setSelected]);
@@ -62,6 +61,16 @@ const PriceCard = ({ plan, isMonthly }) => {
       </PricingCard>
     </PricingCardSelect>
   );
+};
+
+PriceCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  monthly_price: PropTypes.string.isRequired,
+  annual_price: PropTypes.string.isRequired,
+  features: PropTypes.array.isRequired,
+  btn_label: PropTypes.string.isRequired,
+  highlight: PropTypes.bool.isRequired,
+  isMonthly: PropTypes.bool.isRequired,
 };
 
 export default PriceCard;

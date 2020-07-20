@@ -187,7 +187,7 @@ export const Features = styled.div`
 
   p {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
     margin-bottom: 1.3rem;
   }

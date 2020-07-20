@@ -43,7 +43,7 @@ function App(props) {
   return (
     <AuthState>
       <div className="App">
-        <Navigation {...props} />
+        <Navigation />
         <Route path="/" exact component={Homepage} />
         <Route path="/auth" exact component={Auth} />
         <PrivateRoute path="/manager-dashboard" component={ManagerDashboard} />

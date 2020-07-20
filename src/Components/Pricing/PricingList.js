@@ -1,6 +1,6 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import PriceCard from './PriceCard';
-import { subscriptions } from '../utils/index';
+import { subscriptions } from '../../utils/index';
 
 import {
   PricingBg,
@@ -10,7 +10,6 @@ import {
   SliderBg,
   Slider,
   PricingBottom,
-  PricingCardSelect,
 } from './Pricing.styles';
 
 const PricingList = () => {
@@ -36,10 +35,8 @@ const PricingList = () => {
           </SliderBg>
         </PricingTop>
         <PricingBottom>
-          {subscriptions.map((plan) => {
-            return (
-              <PriceCard key={plan.id} plan={plan} isMonthly={isMonthly} />
-            );
+          {subscriptions.map(({ id, ...otherProps }) => {
+            return <PriceCard key={id} {...otherProps} isMonthly={isMonthly} />;
           })}
         </PricingBottom>
       </PricingContainer>

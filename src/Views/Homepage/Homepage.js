@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Billboard from '../../Components/Billboard/Billboard';
-import PricingList from '../../Components/Pricing/PricingList';
-import Team from '../../Components/Team/Team';
+import Pricing from '../../Components/Pricing/PricingList';
+import Team from '../../Components/Team/TeamList';
 import Contact from '../../Components/Contact/Contact';
 import Footer from '../../Components/Footer/Footer';
 
@@ -12,8 +12,7 @@ const Homepage = (props) => {
   return (
     <div className="home">
       <Billboard />
-      <PricingList />
-      {/* <Pricing /> */}
+      <Pricing />
       <Team />
       <Contact />
       <Footer />
