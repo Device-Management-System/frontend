@@ -94,6 +94,7 @@ export const ContactInput = styled.input`
     &:focus {
       outline: none;
       box-shadow: 0 0 0 2px ${hover};
+      border: none;
     }
 
     ${getInputStyle};
@@ -124,6 +125,7 @@ export const ContactTextA = styled.textarea`
     &:focus {
       outline: none;
       box-shadow: 0 0 0 2px ${hover};
+      border: none;
     }
   `}
 `;
