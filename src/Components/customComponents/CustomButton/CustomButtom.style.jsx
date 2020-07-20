@@ -16,6 +16,7 @@ const defaultStyle = css`
     text-decoration: none;
     color: #fff;
     background: ${hover};
+    font-weight: 600;
   }
 }
 `}
@@ -31,6 +32,7 @@ const inverted = css`
   text-decoration: none;
   padding: 11px 20px 11px 20px;
   transition: all 0.2s ease-in-out;
+  font-weight: 500;
 
   &:hover {
     background: ${primary};
