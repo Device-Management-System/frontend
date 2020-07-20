@@ -11,7 +11,7 @@ export const ContactContainer = styled.section`
       color: #000;
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
-      font-size: 3.8rem;
+      font-size: 3.4rem;
       text-align: center;
       margin-bottom: 4rem;
     }

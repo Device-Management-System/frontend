@@ -4,7 +4,6 @@ export const useForm = (callback, initialState = {}) => {
   const [values, setValues] = useState(initialState);
 
   const onChange = (e) => {
-    e.persist();
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
