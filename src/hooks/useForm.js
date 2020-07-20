@@ -1,12 +1,18 @@
 import { useState } from 'react';
 
-export const useForm = () => {
-  const [values, setValues] = useState({});
+export const useForm = (callback, initialState = {}) => {
+  const [values, setValues] = useState(initialState);
 
   const onChange = (e) => {
     e.persist();
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  return [values, onChange];
+  const onSubmit = (e) => {
+    e.preventDefault();
+    callback();
+    setValues(initialState);
+  };
+
+  return [values, onChange, onSubmit];
 };
