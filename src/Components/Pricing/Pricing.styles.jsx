@@ -66,6 +66,7 @@ export const SliderBg = styled.div`
 const sliderOff = css`
   background: none;
   box-shadow: none;
+  outline: none;
 `;
 
 const sliderOn = css`
@@ -73,16 +74,11 @@ const sliderOn = css`
     background: #fff;
     border-radius: ${radius};
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.08);
+    outline: none;
   `}
 `;
 
-const getSliderStyle = (props) => {
-  if (props.on) {
-    return sliderOn;
-  }
-
-  return sliderOff;
-};
+const getSliderStyle = (props) => (props.sliderOn ? sliderOn : sliderOff);
 
 export const Slider = styled.button`
   ${({ theme: { darkGray, radius } }) => css`
@@ -95,8 +91,10 @@ export const Slider = styled.button`
     color: ${darkGray};
     padding: 8px auto;
     outline: none;
-
     ${getSliderStyle};
+    &:focus {
+      outline: none;
+    }
   `}
 `;
 
@@ -122,14 +120,37 @@ const pricingCardOn = css`
 `;
 
 const getCardStyle = (props) => {
-  return props.pricingCardOn ? pricingCardOn : pricingCardDefault;
+  return props.highlight ? pricingCardOn : pricingCardDefault;
 };
+
+export const PricingCardSelect = styled.button`
+  ${({ theme: { hover, radius } }) => css`
+    border: none;
+    background: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    z-index: 100;
+    outline: none;
+    border-radius: ${radius};
+
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      box-shadow: 0 0 0 2px ${hover};
+    }
+  `}
+`;
 
 export const PricingCard = styled.div`
   display: grid;
   grid-template-rows: 1fr, 2fr, 1fr;
   grid-gap: 1rem;
   padding: 4rem 1.8rem 1.8rem 1.8rem;
+  z-index: 100;
   ${getCardStyle};
 `;
 
@@ -158,7 +179,16 @@ export const Price = styled.p`
 
 export const Features = styled.div`
   width: 100%;
-  height: 13.6rem;
+  height: 11.4rem;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  margin-top: 2.2rem;
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 1.3rem;
+  }
 `;

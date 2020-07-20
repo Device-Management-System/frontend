@@ -43,7 +43,6 @@ const Contact = () => {
             placeholder="Email"
             value={values.email || ''}
           />
-
           <ContactTextA
             onChange={onChange}
             name="message"
@@ -52,7 +51,6 @@ const Contact = () => {
             placeholder="Message"
             value={values.message || ''}
           ></ContactTextA>
-
           <ContactInput submit type="submit" value="Contact" />
         </ContactForm>
       </ContactWrapper>

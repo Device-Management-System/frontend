@@ -67,7 +67,7 @@ const pricingStylesDefault = css`
     font-size: ${small};
     font-weight: 600;
     letter-spacing: 0.14px;
-    padding: 13px 40px 13px 40px;
+    padding: 13px 20px 13px 20px;
     border: none;
 
     &:hover {
@@ -87,7 +87,7 @@ const pricingStylesReversed = css`
     font-size: ${small};
     font-weight: 600;
     letter-spacing: 0.14px;
-    padding: 13px 40px 13px 40px;
+    padding: 13px 20px 13px 20px;
     border: none;
 
     &:hover {
