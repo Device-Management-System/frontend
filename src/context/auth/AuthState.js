@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { axiosWithAuth } from '../../auth/axiosWithAuth';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
 
@@ -17,7 +17,6 @@ import {
 } from '../types';
 
 const firebase = require('firebase/app');
-const { auth } = firebase;
 
 const AuthState = (props) => {
   const initialState = {
@@ -31,64 +30,11 @@ const AuthState = (props) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
   const { currentUser, isAuthenticated, token, loading, error } = state;
 
-  // Register new user
-  const register = async (name, email, password) => {
-    dispatch({ type: REGISTER_START });
-
-    try {
-      await auth().createUserWithEmailAndPassword(email, password);
-
-      const token = await auth().currentUser.getIdToken();
-      localStorage.setItem('token', token);
-
-      const res = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API_URL}api/auth`
-      );
-      dispatch({
-        type: REGISTER_SUCCESS,
-        payload: res.data,
-      });
-
-      return auth().currentUser.updateProfile({
-        displayName: name,
-      });
-    } catch (error) {
-      dispatch({
-        type: REGISTER_FAIL,
-        payload: error.message,
-      });
-    }
-  };
-
-  // Log returning user
-  const login = async (email, password) => {
-    dispatch({ type: LOGIN_START });
-    try {
-      await auth().signInWithEmailAndPassword(email, password);
-
-      const token = await auth().currentUser.getIdToken();
-      localStorage.setItem('token', token);
-
-      const res = await axiosWithAuth().get(
-        `${process.env.REACT_APP_API_URL}api/auth`
-      );
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: res.data,
-      });
-    } catch (error) {
-      dispatch({
-        type: LOGIN_FAIL,
-        payload: error.message,
-      });
-    }
-  };
-
   // Set currentUser in state
   const getUserState = async () => {
     try {
       if (localStorage.getItem('token')) {
-        await auth().onAuthStateChanged((user) => {
+        await firebase.auth().onAuthStateChanged((user) => {
           if (user) {
             return dispatch({
               type: SET_CURRENT_USER_SUCCESS,
@@ -105,14 +51,83 @@ const AuthState = (props) => {
     }
   };
 
+  // Register new user
+  const register = async (user) => {
+    dispatch({ type: REGISTER_START });
+
+    try {
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(user.email, user.password);
+
+      await firebase.auth().currentUser.updateProfile({
+        displayName: user.name,
+      });
+
+      localStorage.setItem(
+        'token',
+        await firebase.auth().currentUser.getIdToken()
+      );
+
+      const res = await axiosWithAuth().post(
+        `${process.env.REACT_APP_API}/api/auth`,
+        { name: firebase.auth().currentUser.displayName }
+      );
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.config.headers.Authorization,
+      });
+    } catch (error) {
+      dispatch({
+        type: REGISTER_FAIL,
+        payload: error.message,
+      });
+    }
+
+    await getUserState();
+  };
+
+  // Log returning user
+  const login = async (user) => {
+    dispatch({ type: LOGIN_START });
+
+    try {
+      await firebase
+        .auth()
+        .signInWithEmailAndPassword(user.email, user.password);
+
+      localStorage.setItem(
+        'token',
+        await firebase.auth().currentUser.getIdToken()
+      );
+
+      const res = await axiosWithAuth().post(
+        `${process.env.REACT_APP_API}/api/auth`
+      );
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.config.headers.Authorization,
+      });
+    } catch (error) {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: error.message,
+      });
+    }
+
+    getUserState();
+  };
+
   // logout user
   const logout = () => {
-    auth()
+    firebase
+      .auth()
       .signOut()
       .then(() => {
         localStorage.clear();
-        dispatch({ type: LOGOUT }).catch((err) => console.log(err));
-      });
+        dispatch({ type: LOGOUT });
+      })
+      .catch((err) => console.log(err));
   };
 
   // Clears errors in state

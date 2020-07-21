@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
-import AuthContext from '../../context/auth/authContext';
-import GetStarted from '../customComponents/CustomButton/CustomButton';
-import { ReactComponent as Devices } from '../../assets/Business_SVG.svg';
+import AuthContext from '../../../context/auth/authContext';
+import GetStarted from '../../customComponents/customButton/CustomButton';
+import { ReactComponent as Devices } from '../../../assets/Business_SVG.svg';
 
 import './Billboard.css';
 
-const Billboard = (props) => {
+const Billboard = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated } = authContext;
 
@@ -21,7 +21,7 @@ const Billboard = (props) => {
               application.
             </p>
             {!isAuthenticated && (
-              <GetStarted to="/auth">Get Started</GetStarted>
+              <GetStarted to="/register">Get Started</GetStarted>
             )}
             {isAuthenticated && (
               <GetStarted to="/dashboard">Dashboard</GetStarted>

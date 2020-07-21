@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -8,12 +8,13 @@ import {
   faCoffee,
   fas,
 } from '@fortawesome/free-solid-svg-icons';
-import PrivateRoute from './Components/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute';
 import AuthState from './context/auth/AuthState';
-import Auth from './Views/Auth';
-import Navigation from './Components/Navigation/Navigation';
-import Homepage from './Views/Homepage/Homepage';
-import ManagerDashboard from './Views/ManagerDashboard';
+import Navigation from './components/navigation/Navigation';
+import Homepage from './views/homepage/Homepage';
+import Register from './components/authComponents/register/Register';
+import Login from './components/authComponents/login/Login';
+import ManagerDashboard from './views/ManagerDashboard';
 
 import './App.css';
 
@@ -29,24 +30,19 @@ function App(props) {
     initializeAnalytics();
   }
 
-  // useEffect(() => {
-  //   axiosWithAuth()
-  //     .get(`${process.env.REACT_APP_API}api/users/`)
-  //     .then((res) => {
-  //       console.log('BACKEND RES IS => ', res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.response);
-  //     });
-  // }, []);
-
   return (
     <AuthState>
       <div className="App">
         <Navigation />
-        <Route path="/" exact component={Homepage} />
-        <Route path="/auth" exact component={Auth} />
-        <PrivateRoute path="/manager-dashboard" component={ManagerDashboard} />
+        <Switch>
+          <Route path="/" exact component={Homepage} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/login" exact component={Login} />
+          <PrivateRoute
+            path="/manager-dashboard"
+            component={ManagerDashboard}
+          />
+        </Switch>
       </div>
     </AuthState>
   );
