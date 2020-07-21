@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -46,11 +46,20 @@ function App(props) {
     <AuthState>
       <div className="App">
         <Navigation />
-        <Route path="/" exact component={Homepage} />
-        <Route path="/auth" exact component={Auth} />
-        <Route path="/register" exact component={Register} />
-        <Route path="/login" exact component={Login} />
-        <PrivateRoute path="/manager-dashboard" component={ManagerDashboard} />
+        <Switch>
+          <Route path="/" exact component={Homepage} />
+          <Route path="/auth" exact component={Auth} />
+          <Route
+            path="/register"
+            exact
+            render={(props) => <Register {...props} />}
+          />
+          <Route path="/login" exact component={Login} />
+          <PrivateRoute
+            path="/manager-dashboard"
+            component={ManagerDashboard}
+          />
+        </Switch>
       </div>
     </AuthState>
   );

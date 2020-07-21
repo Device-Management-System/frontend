@@ -24,7 +24,6 @@ export default (state, action) => {
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      localStorage.setItem('token', action.payload.token);
       return {
         ...state,
         token: action.payload,
@@ -56,6 +55,7 @@ export default (state, action) => {
         currentUser: null,
         error: null,
         isAuthenticated: false,
+        token: null,
       };
     case CLEAR_ERRORS:
       return {

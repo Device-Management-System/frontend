@@ -51,7 +51,7 @@ const Navigation = () => {
         )}
         {!isAuthenticated && (
           <NavItem className="navlink">
-            <SignUp inverted="true" to="/auth">
+            <SignUp inverted="true" to="/register">
               Sign up
             </SignUp>
           </NavItem>

@@ -103,7 +103,7 @@ const pricingStylesReversed = css`
 `;
 
 const getButtonStyle = (props) => {
-  if (props.isGoogleSingIn) {
+  if (props.isgooglesingin) {
     return googleSignInStyles;
   }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Billboard from '../../components/homePageComponents/Billboard';
 import Pricing from '../../components/homePageComponents/Pricing';
 import Team from '../../components/homePageComponents/Team';
