@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from './node_modules/react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import { Modal, Button, Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal, Button, Form } from './node_modules/react-bootstrap';
+import './node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const PostDevice = () => {
   const [form, setValues] = useState({
