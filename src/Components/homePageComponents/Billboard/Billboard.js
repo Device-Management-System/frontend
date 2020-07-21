@@ -21,7 +21,7 @@ const Billboard = () => {
               application.
             </p>
             {!isAuthenticated && (
-              <GetStarted to="/auth">Get Started</GetStarted>
+              <GetStarted to="/register">Get Started</GetStarted>
             )}
             {isAuthenticated && (
               <GetStarted to="/dashboard">Dashboard</GetStarted>
