@@ -124,7 +124,7 @@ export const CustomButtonContainer = styled(Link)`
   max-width: 53.9rem;
   width: auto;
   height: 44px;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   letter-spacing: 0.26px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
