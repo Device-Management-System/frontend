@@ -2,6 +2,10 @@ import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import AuthContext from '../../../context/auth/authContext';
+import RegisterForm from '../../customComponents/customForm/CustomForm';
+
+import { CustomInput as RegisterInput } from '../../customComponents/customForm/CustomForm.styles';
+import { RegisterPanel } from './Register.styes';
 
 const Register = () => {
   const history = useHistory();
@@ -15,32 +19,35 @@ const Register = () => {
   }, [currentUser, history]);
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
+    <RegisterPanel>
+      <RegisterForm onSubmit={onSubmit}>
+        <RegisterInput
+          isauth="true"
           onChange={onChange}
           type="text"
           name="name"
           value={user.name || ''}
           placeholder="Username"
         />
-        <input
+        <RegisterInput
+          isauth="true"
           onChange={onChange}
           type="email"
           name="email"
           value={user.email || ''}
           placeholder="Email"
         />
-        <input
+        <RegisterInput
+          isauth="true"
           onChange={onChange}
           type="password"
           name="password"
           value={user.password || ''}
           placeholder="Password"
         />
-        <input type="submit" value="Register" />
-      </form>
-    </div>
+        <RegisterInput isauthsubmit="true" type="submit" value="Register" />
+      </RegisterForm>
+    </RegisterPanel>
   );
 };
 

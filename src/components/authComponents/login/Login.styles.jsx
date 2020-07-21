@@ -11,12 +11,10 @@ export const LoginContainer = styled.section`
 
 export const LoginPanel = styled.div`
   ${({ theme: { radius } }) => css`
-    width: 50rem;
+    width: 38rem;
     height: 42rem;
     border-radius: ${radius};
     margin: 0 auto;
-    background: #fff;
-    box-shadow: 0 -10px 20px 0 rgba(0, 110, 163, 0.2);
     padding: 4rem;
 
     h4 {
@@ -24,11 +22,11 @@ export const LoginPanel = styled.div`
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
       font-size: 2.2rem;
-      text-align: left;
+      text-align: center;
       margin-bottom: 4rem;
 
       span {
-        font-weight: 700;
+        font-weight: 600;
         color: #000;
       }
     }
@@ -41,11 +39,13 @@ export const LoginForm = styled.form`
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 20px;
 
-  a {
+  .create-account {
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     text-align: right;
     outline: none;
+    color: #777;
+    font-weight: 600;
   }
 
   p {
@@ -56,18 +56,18 @@ export const LoginForm = styled.form`
 
 const defaultStyle = css`
   width: 100%;
-  height: 3.8rem;
+  height: 4.4rem;
 `;
 
 const submitStyle = css`
-  ${({ theme: { primary, hover, regular } }) => css`
+  ${({ theme: { primary, hover, medium } }) => css`
     width: 100%;
-    height: 3.8rem;
-    border-radius: 0.8rem;
+    height: 5rem;
+    border-radius: 0.4rem;
     color: #fff;
     background: ${primary};
     transition: all 0.3s ease-in-out;
-    font-size: ${regular};
+    font-size: ${medium};
     font-weight: 600;
     border: 0;
 
@@ -82,13 +82,13 @@ const getInputStyle = (props) => {
 };
 
 export const LoginInput = styled.input`
-  ${({ theme: { inputBg, inputBorder, regular, hover } }) => css`
-    background: ${inputBg};
-    border-radius: 10px;
-    font-size: ${regular};
+  ${({ theme: { inputBg, inputBorder, medium, hover } }) => css`
+    background: #f3f3f3;
+    border-radius: 0.4rem;
+    font-size: ${medium};
     font-weight: 600;
     color: #000;
-    border: 1px solid ${inputBorder};
+    border: 1px solid #ddd;
     padding: 1.4rem 1.7rem 1.4rem 1.6rem;
     font-family: 'Montserrat', sans-serif;
     transition: 0.2s ease-in-out;
@@ -96,8 +96,8 @@ export const LoginInput = styled.input`
     &::placeholder {
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
-      font-size: ${regular};
-      color: #000;
+      font-size: ${medium};
+      color: rgba(0, 0, 0, 0.4);
     }
 
     &:focus {

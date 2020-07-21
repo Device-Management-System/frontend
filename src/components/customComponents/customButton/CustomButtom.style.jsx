@@ -45,15 +45,16 @@ const inverted = css`
 `;
 
 const googleSignInStyles = css`
-  ${({ theme: { googleRed, regular } }) => css`
+  ${({ theme: { googleRed, medium } }) => css`
     background: ${googleRed};
     color: #fff;
     border: none;
-    height: 3.8rem;
+    height: 4.4rem;
     text-decoration: none;
-    padding: 13px 20px 13px 20px;
+    padding: 13px 18px 13px 18px;
     transition: all 0.2s ease-in-out;
-    font-size: ${regular};
+    font-size: ${medium};
+    border-radius: 0.4rem;
 
     &:hover {
       background: #b92e22;
@@ -123,7 +124,7 @@ export const CustomButtonContainer = styled(Link)`
   max-width: 53.9rem;
   width: auto;
   height: 44px;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   letter-spacing: 0.26px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
