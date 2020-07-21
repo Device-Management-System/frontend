@@ -9,7 +9,7 @@ import Footer from '../../components/homePageComponents/Footer/Footer';
 
 import './Homepage.css';
 
-const Homepage = (props) => {
+const Homepage = () => {
   const history = useHistory();
   const authContext = useContext(AuthContext);
   const { currentUser } = authContext;

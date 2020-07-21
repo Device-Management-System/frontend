@@ -17,7 +17,6 @@ import {
 } from '../types';
 
 const firebase = require('firebase/app');
-// const { auth } = firebase;
 
 const AuthState = (props) => {
   const initialState = {

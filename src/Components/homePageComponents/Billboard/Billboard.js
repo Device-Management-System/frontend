@@ -6,7 +6,7 @@ import { ReactComponent as Devices } from '../../../assets/Business_SVG.svg';
 
 import './Billboard.css';
 
-const Billboard = (props) => {
+const Billboard = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated } = authContext;
 

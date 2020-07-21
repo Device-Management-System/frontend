@@ -10,7 +10,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import PrivateRoute from './components/PrivateRoute';
 import AuthState from './context/auth/AuthState';
-import Auth from './views/Auth';
 import Navigation from './components/Navigation/Navigation';
 import Homepage from './views/Homepage/Homepage';
 import Register from './components/authComponents/Register/Register';
@@ -31,29 +30,13 @@ function App(props) {
     initializeAnalytics();
   }
 
-  // useEffect(() => {
-  //   axiosWithAuth()
-  //     .get(`${process.env.REACT_APP_API}api/users/`)
-  //     .then((res) => {
-  //       console.log('BACKEND RES IS => ', res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.response);
-  //     });
-  // }, []);
-
   return (
     <AuthState>
       <div className="App">
         <Navigation />
         <Switch>
           <Route path="/" exact component={Homepage} />
-          <Route path="/auth" exact component={Auth} />
-          <Route
-            path="/register"
-            exact
-            render={(props) => <Register {...props} />}
-          />
+          <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
           <PrivateRoute
             path="/manager-dashboard"

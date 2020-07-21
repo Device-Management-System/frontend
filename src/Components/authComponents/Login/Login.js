@@ -5,7 +5,6 @@ import { useForm } from '../../../hooks/useForm';
 import AuthContext from '../../../context/auth/authContext';
 
 import { LoginPanel, LoginForm, LoginInput } from './Login.styles';
-
 import GoogleButton from '../../customComponents/CustomButton/CustomButton';
 
 const Login = () => {
@@ -42,7 +41,6 @@ const Login = () => {
         <LoginInput submit onChange={onChange} type="submit" value="Log in" />
         <NavLink to="/register">Need to create an account?</NavLink>
         <p>Or connect with: </p>
-
         <GoogleButton isgooglesingin="true" to="#">
           Continue with Google
         </GoogleButton>

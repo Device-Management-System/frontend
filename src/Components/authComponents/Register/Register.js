@@ -3,21 +3,16 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import AuthContext from '../../../context/auth/authContext';
 
-const Register = (props) => {
+const Register = () => {
+  const history = useHistory();
   const authContext = useContext(AuthContext);
   const { register, currentUser } = authContext;
-
-  const history = useHistory();
-
-  const signUp = () => {
-    register(user);
-  };
+  const signUp = () => register(user);
+  const [user, onChange, onSubmit] = useForm(signUp);
 
   useEffect(() => {
     if (currentUser) history.push('/manager-dashboard');
   }, [currentUser, history]);
-
-  const [user, onChange, onSubmit] = useForm(signUp);
 
   return (
     <div>
