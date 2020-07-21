@@ -5,7 +5,7 @@ import { useForm } from '../../../hooks/useForm';
 import AuthContext from '../../../context/auth/authContext';
 
 import { LoginPanel, LoginForm, LoginInput } from './Login.styles';
-import GoogleButton from '../../customComponents/CustomButton/CustomButton';
+import GoogleButton from '../../customComponents/customButton/CustomButton';
 
 const Login = () => {
   const history = useHistory();

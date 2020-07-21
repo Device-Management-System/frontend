@@ -10,10 +10,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import PrivateRoute from './components/PrivateRoute';
 import AuthState from './context/auth/AuthState';
-import Navigation from './components/Navigation/Navigation';
-import Homepage from './views/Homepage/Homepage';
-import Register from './components/authComponents/Register/Register';
-import Login from './components/authComponents/Login/Login';
+import Navigation from './components/navigation/Navigation';
+import Homepage from './views/homepage/Homepage';
+import Register from './components/authComponents/register/Register';
+import Login from './components/authComponents/login/Login';
 import ManagerDashboard from './views/ManagerDashboard';
 
 import './App.css';

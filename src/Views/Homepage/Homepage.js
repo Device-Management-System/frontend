@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import { useHistory } from 'react-router-dom';
-import Billboard from '../../components/homePageComponents/Billboard/Billboard';
-import Pricing from '../../components/homePageComponents/Pricing/Pricing';
-import Team from '../../components/homePageComponents/Team/Team';
-import Contact from '../../components/homePageComponents/Contact/Contact';
-import Footer from '../../components/homePageComponents/Footer/Footer';
+import Billboard from '../../components/homePageComponents/billboard/Billboard';
+import Pricing from '../../components/homePageComponents/pricing/Pricing';
+import Team from '../../components/homePageComponents/team/Team';
+import Contact from '../../components/homePageComponents/contact/Contact';
+import Footer from '../../components/homePageComponents/footer/Footer';
 
 import './Homepage.css';
 

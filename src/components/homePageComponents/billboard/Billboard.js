@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import AuthContext from '../../../context/auth/authContext';
-import GetStarted from '../../customComponents/CustomButton/CustomButton';
+import GetStarted from '../../customComponents/customButton/CustomButton';
 import { ReactComponent as Devices } from '../../../assets/Business_SVG.svg';
 
 import './Billboard.css';
