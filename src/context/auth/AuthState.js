@@ -16,7 +16,7 @@ import {
   CLEAR_ERRORS,
 } from '../types';
 
-const firebase = require('firebase/app');
+const firebase = require('../../helpers/firebase');
 
 const AuthState = (props) => {
   const initialState = {
@@ -34,7 +34,7 @@ const AuthState = (props) => {
   const getUserState = async () => {
     try {
       if (localStorage.getItem('token')) {
-        await firebase.auth().onAuthStateChanged((user) => {
+        await firebase.default.auth().onAuthStateChanged((user) => {
           if (user) {
             return dispatch({
               type: SET_CURRENT_USER_SUCCESS,
@@ -56,22 +56,22 @@ const AuthState = (props) => {
     dispatch({ type: REGISTER_START });
 
     try {
-      await firebase
+      await firebase.default
         .auth()
         .createUserWithEmailAndPassword(user.email, user.password);
 
-      await firebase.auth().currentUser.updateProfile({
+      await firebase.default.auth().currentUser.updateProfile({
         displayName: user.name,
       });
 
       localStorage.setItem(
         'token',
-        await firebase.auth().currentUser.getIdToken()
+        await firebase.default.auth().currentUser.getIdToken()
       );
 
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`,
-        { name: firebase.auth().currentUser.displayName }
+        { name: firebase.default.auth().currentUser.displayName }
       );
       dispatch({
         type: REGISTER_SUCCESS,
@@ -92,13 +92,13 @@ const AuthState = (props) => {
     dispatch({ type: LOGIN_START });
 
     try {
-      await firebase
+      await firebase.default
         .auth()
         .signInWithEmailAndPassword(user.email, user.password);
 
       localStorage.setItem(
         'token',
-        await firebase.auth().currentUser.getIdToken()
+        await firebase.default.auth().currentUser.getIdToken()
       );
 
       const res = await axiosWithAuth().post(
@@ -120,7 +120,7 @@ const AuthState = (props) => {
 
   // logout user
   const logout = () => {
-    firebase
+    firebase.default
       .auth()
       .signOut()
       .then(() => {

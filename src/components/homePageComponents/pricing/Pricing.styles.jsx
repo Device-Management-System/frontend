@@ -10,8 +10,6 @@ export const PricingBg = styled.section`
   padding-bottom: 5rem;
   margin: 0;
   z-index: 50;
-  /* clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 100%); */
-  /* clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); */
 `;
 
 export const PricingContainer = styled.div`
@@ -54,10 +52,10 @@ export const PricingHeader = styled.h2`
 `;
 
 export const SliderBg = styled.div`
-  ${({ theme: { bgLight, radius } }) => css`
+  ${({ theme: { bgLight } }) => css`
     width: 17.8rem;
     height: 3.6rem;
-    border-radius: ${radius};
+    border-radius: 0.4rem;
     background: ${bgLight};
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -72,12 +70,10 @@ const sliderOff = css`
 `;
 
 const sliderOn = css`
-  ${({ theme: { radius } }) => css`
-    background: #fff;
-    border-radius: ${radius};
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.08);
-    outline: none;
-  `}
+  background: #fff;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.08);
+  outline: none;
 `;
 
 const getSliderStyle = (props) => (props.sliderOn ? sliderOn : sliderOff);
@@ -103,22 +99,22 @@ export const Slider = styled.button`
 
 // Pricing cards
 const pricingCardDefault = css`
-  ${({ theme: { bgLight, darkGray, radius } }) => css`
+  ${({ theme: { bgLight, darkGray } }) => css`
     widht: 100%;
     height: 34.1rem;
     background: ${bgLight};
     color: ${darkGray};
-    border-radius: ${radius};
+    border-radius: 0.4rem;
   `}
 `;
 
 const pricingCardOn = css`
-  ${({ theme: { primary, radius } }) => css`
+  ${({ theme: { primary } }) => css`
     widht: 100%;
     height: 34.1rem;
     background: ${primary};
     color: #fff;
-    border-radius: ${radius};
+    border-radius: 0.4rem;
   `}
 `;
 
@@ -127,7 +123,7 @@ const getCardStyle = (props) => {
 };
 
 export const PricingCardSelect = styled.button`
-  ${({ theme: { hover, radius } }) => css`
+  ${({ theme: { hover } }) => css`
     border: none;
     background: none;
     width: 100%;
@@ -137,7 +133,7 @@ export const PricingCardSelect = styled.button`
     text-align: left;
     z-index: 100;
     outline: none;
-    border-radius: ${radius};
+    border-radius: 0.4rem;
     transition: all 0.2s ease-in-out;
 
     &:focus {
