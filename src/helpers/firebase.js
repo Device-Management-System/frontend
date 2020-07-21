@@ -1,7 +1,7 @@
-const firebase = require('firebase');
-const firebaseui = require('firebaseui');
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyCGt2vpHkfC3FiFGD2iaJblE3o021MMOwo',
   authDomain: 'device-manager-8a0a6.firebaseapp.com',
   databaseURL: 'https://device-manager-8a0a6.firebaseio.com',
@@ -14,35 +14,44 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+export const auth = firebase.auth();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
+
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
 export default firebase;
 
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// export default firebase;
 
-var uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      return true;
-    },
-  },
-  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-  signInFlow: 'popup',
-  signInSuccessUrl: '/auth/callback',
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-  ],
-  // Terms of service url.
-  tosUrl: '/terms-of-service',
-  // Privacy policy url.
-  privacyPolicyUrl: '/privacy-policy',
-};
+// var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-function wrappedStart() {
-  ui.start('#firebaseui-auth-container', uiConfig);
-}
+// var uiConfig = {
+//   callbacks: {
+//     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+//       // User successfully signed in.
+//       // Return type determines whether we continue the redirect automatically
+//       // or whether we leave that to developer to handle.
+//       return true;
+//     },
+//   },
+//   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+//   signInFlow: 'popup',
+//   signInSuccessUrl: '/auth/callback',
+//   signInOptions: [
+//     // Leave the lines as is for the providers you want to offer your users.
+//     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+//     firebase.auth.EmailAuthProvider.PROVIDER_ID,
+//   ],
+//   // Terms of service url.
+//   tosUrl: '/terms-of-service',
+//   // Privacy policy url.
+//   privacyPolicyUrl: '/privacy-policy',
+// };
+
+// function wrappedStart() {
+//   ui.start('#firebaseui-auth-container', uiConfig);
+// }
 
 // export default wrappedStart;
