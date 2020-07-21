@@ -45,17 +45,20 @@ const inverted = css`
 `;
 
 const googleSignInStyles = css`
-  ${({ theme: { googleRed } }) => css`
+  ${({ theme: { googleRed, regular } }) => css`
     background: ${googleRed};
     color: #fff;
     border: none;
+    height: 3.8rem;
     text-decoration: none;
-    padding: 11px 20px 11px 20px;
+    padding: 13px 20px 13px 20px;
     transition: all 0.2s ease-in-out;
+    font-size: ${regular};
 
     &:hover {
       background: #b92e22;
       text-decoration: none;
+      color: #fff;
     }
   `}
 `;
@@ -73,7 +76,6 @@ const pricingStylesDefault = css`
     border: none;
 
     &:hover {
-      background: ${hover};
       color: #fff;
       text-decoration: none;
     }
@@ -93,7 +95,7 @@ const pricingStylesReversed = css`
     border: none;
 
     &:hover {
-      opacity 0.8;
+      /* opacity 0.8;*/
       color: ${primary};
       text-decoration: none;
     }

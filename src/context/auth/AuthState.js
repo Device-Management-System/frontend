@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { axiosWithAuth } from '../../auth/axiosWithAuth';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
 
@@ -61,10 +61,11 @@ const AuthState = (props) => {
   };
 
   // Log returning user
-  const login = async (email, password) => {
+  const login = async (user) => {
     dispatch({ type: LOGIN_START });
+
     try {
-      await auth().signInWithEmailAndPassword(email, password);
+      await auth().signInWithEmailAndPassword(user.email, user.password);
 
       const token = await auth().currentUser.getIdToken();
       localStorage.setItem('token', token);

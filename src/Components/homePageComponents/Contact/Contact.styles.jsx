@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const ContactContainer = styled.section`
   ${({ theme: { bgLight2 } }) => css`
     width: 100%;
-    height: 55.7rem;
+    height: 38rem;
     background: ${bgLight2};
     padding: 5rem;
 
@@ -114,6 +114,7 @@ export const ContactTextA = styled.textarea`
     font-size: ${regular};
     color: #000;
     resize: none;
+    overflow: hidden;
 
     &::placeholder {
       font-family: 'Montserrat', sans-serif;

@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-import SignUp from '../customComponents/CustomButton/CustomButton';
-import Dashboard from '../customComponents/CustomButton/CustomButton';
+import SignUp from '../customComponents/CustomButton';
+import Dashboard from '../customComponents/CustomButton';
 import AuthContext from '../../context/auth/authContext';
 
 import './Navigation.css';
@@ -46,7 +46,7 @@ const Navigation = () => {
         )}
         {!isAuthenticated && (
           <NavItem className="navlink">
-            <NavLink to="/auth">Login</NavLink>
+            <NavLink to="/login">Login</NavLink>
           </NavItem>
         )}
         {!isAuthenticated && (

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Billboard from '../../Components/Billboard/Billboard';
-import Pricing from '../../Components/Pricing/PricingList';
-import Team from '../../Components/Team/TeamList';
-import Contact from '../../Components/Contact/Contact';
-import Footer from '../../Components/Footer/Footer';
+import Billboard from '../../components/homePageComponents/Billboard';
+import Pricing from '../../components/homePageComponents/Pricing';
+import Team from '../../components/homePageComponents/Team';
+import Contact from '../../components/homePageComponents/Contact';
+import Footer from '../../components/homePageComponents/Footer';
 
 import './Homepage.css';
 

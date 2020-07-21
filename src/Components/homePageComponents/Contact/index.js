@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from '../../hooks/useForm';
+import { useForm } from '../../../hooks/useForm';
 
 import {
   ContactContainer,
@@ -7,7 +7,6 @@ import {
   ContactForm,
   ContactTop,
   ContactInput,
-  ContactTextA,
 } from './Contact.styles';
 
 const Contact = () => {
@@ -43,14 +42,6 @@ const Contact = () => {
             placeholder="Email"
             value={values.email || ''}
           />
-          <ContactTextA
-            onChange={onChange}
-            name="message"
-            cols="30"
-            rows="10"
-            placeholder="Message"
-            value={values.message || ''}
-          ></ContactTextA>
           <ContactInput submit type="submit" value="Contact" />
         </ContactForm>
       </ContactWrapper>

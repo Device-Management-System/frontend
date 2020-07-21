@@ -8,12 +8,14 @@ import {
   faCoffee,
   fas,
 } from '@fortawesome/free-solid-svg-icons';
-import PrivateRoute from './Components/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute';
 import AuthState from './context/auth/AuthState';
-import Auth from './Views/Auth';
-import Navigation from './Components/Navigation/Navigation';
-import Homepage from './Views/Homepage/Homepage';
-import ManagerDashboard from './Views/ManagerDashboard';
+import Auth from './views/Auth';
+import Navigation from './components/Navigation';
+import Homepage from './views/Homepage/Homepage';
+import Register from './components/authComponents/Register';
+import Login from './components/authComponents/Login';
+import ManagerDashboard from './views/ManagerDashboard';
 
 import './App.css';
 
@@ -46,6 +48,8 @@ function App(props) {
         <Navigation />
         <Route path="/" exact component={Homepage} />
         <Route path="/auth" exact component={Auth} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/login" exact component={Login} />
         <PrivateRoute path="/manager-dashboard" component={ManagerDashboard} />
       </div>
     </AuthState>

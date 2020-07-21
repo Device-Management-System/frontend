@@ -10,6 +10,8 @@ export const PricingBg = styled.section`
   padding-bottom: 5rem;
   margin: 0;
   z-index: 50;
+  /* clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 100%); */
+  /* clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); */
 `;
 
 export const PricingContainer = styled.div`

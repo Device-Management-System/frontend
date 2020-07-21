@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
-import AuthContext from '../../context/auth/authContext';
-import GetStarted from '../customComponents/CustomButton/CustomButton';
-import { ReactComponent as Devices } from '../../assets/Business_SVG.svg';
+import AuthContext from '../../../context/auth/authContext';
+import GetStarted from '../../customComponents/CustomButton';
+import { ReactComponent as Devices } from '../../../assets/Business_SVG.svg';
 
 import './Billboard.css';
 

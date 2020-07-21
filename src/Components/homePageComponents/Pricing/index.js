@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PriceCard from './PriceCard';
-import { subscriptions } from '../../utils/index';
+import { subscriptions } from '../../../utils/data';
 
 import {
   PricingBg,
@@ -12,7 +12,7 @@ import {
   PricingBottom,
 } from './Pricing.styles';
 
-const PricingList = () => {
+const Pricing = () => {
   const [isMonthly, setIsMonthly] = useState(false);
   return (
     <PricingBg id="pricing">
@@ -44,4 +44,4 @@ const PricingList = () => {
   );
 };
 
-export default PricingList;
+export default Pricing;

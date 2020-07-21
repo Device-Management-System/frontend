@@ -1,5 +1,5 @@
 import React from 'react';
-import PostDevice from '../Components/PostDevice';
+import PostDevice from '../components/PostDevice';
 
 const ManagerDashboard = () => {
   return (
