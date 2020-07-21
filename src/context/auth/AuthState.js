@@ -56,13 +56,15 @@ const AuthState = (props) => {
     dispatch({ type: REGISTER_START });
 
     try {
-      await auth().createUserWithEmailAndPassword(user.email, user.password);
+      await auth.createUserWithEmailAndPassword(user.email, user.password);
 
-      await auth().currentUser.updateProfile({
+      await auth.currentUser.updateProfile({
         displayName: user.name,
       });
 
-      localStorage.setItem('token', await auth().currentUser.getIdToken());
+      localStorage.setItem('token', await auth.currentUser.getIdToken());
+
+      console.log(auth.currentUser.getIdToken());
 
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`,
@@ -87,9 +89,11 @@ const AuthState = (props) => {
     dispatch({ type: LOGIN_START });
 
     try {
-      await auth().signInWithEmailAndPassword(user.email, user.password);
+      await auth.signInWithEmailAndPassword(user.email, user.password);
 
-      localStorage.setItem('token', await auth().currentUser.getIdToken());
+      localStorage.setItem('token', await auth.currentUser.getIdToken());
+
+      console.log(auth.currentUser.getIdToken());
 
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`
@@ -110,7 +114,7 @@ const AuthState = (props) => {
 
   // logout user
   const logout = () => {
-    auth()
+    auth
       .signOut()
       .then(() => {
         localStorage.clear();
