@@ -14,6 +14,8 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+export default firebase;
+
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
@@ -43,4 +45,4 @@ function wrappedStart() {
   ui.start('#firebaseui-auth-container', uiConfig);
 }
 
-export default wrappedStart;
+// export default wrappedStart;
