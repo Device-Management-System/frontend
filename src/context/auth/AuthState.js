@@ -16,7 +16,7 @@ import {
   CLEAR_ERRORS,
 } from '../types';
 
-const firebase = require('../../helpers/firebase');
+import { auth } from '../../helpers/firebase';
 
 const AuthState = (props) => {
   const initialState = {
@@ -34,7 +34,7 @@ const AuthState = (props) => {
   const getUserState = async () => {
     try {
       if (localStorage.getItem('token')) {
-        await firebase.default.auth().onAuthStateChanged((user) => {
+        await auth().onAuthStateChanged((user) => {
           if (user) {
             return dispatch({
               type: SET_CURRENT_USER_SUCCESS,
@@ -56,22 +56,17 @@ const AuthState = (props) => {
     dispatch({ type: REGISTER_START });
 
     try {
-      await firebase.default
-        .auth()
-        .createUserWithEmailAndPassword(user.email, user.password);
+      await auth().createUserWithEmailAndPassword(user.email, user.password);
 
-      await firebase.default.auth().currentUser.updateProfile({
+      await auth().currentUser.updateProfile({
         displayName: user.name,
       });
 
-      localStorage.setItem(
-        'token',
-        await firebase.default.auth().currentUser.getIdToken()
-      );
+      localStorage.setItem('token', await auth().currentUser.getIdToken());
 
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`,
-        { name: firebase.default.auth().currentUser.displayName }
+        { name: auth().currentUser.displayName }
       );
       dispatch({
         type: REGISTER_SUCCESS,
@@ -92,14 +87,9 @@ const AuthState = (props) => {
     dispatch({ type: LOGIN_START });
 
     try {
-      await firebase.default
-        .auth()
-        .signInWithEmailAndPassword(user.email, user.password);
+      await auth().signInWithEmailAndPassword(user.email, user.password);
 
-      localStorage.setItem(
-        'token',
-        await firebase.default.auth().currentUser.getIdToken()
-      );
+      localStorage.setItem('token', await auth().currentUser.getIdToken());
 
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`
@@ -120,8 +110,7 @@ const AuthState = (props) => {
 
   // logout user
   const logout = () => {
-    firebase.default
-      .auth()
+    auth()
       .signOut()
       .then(() => {
         localStorage.clear();
