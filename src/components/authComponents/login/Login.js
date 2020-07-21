@@ -39,7 +39,9 @@ const Login = () => {
           placeholder="Password"
         />
         <LoginInput submit onChange={onChange} type="submit" value="Log in" />
-        <NavLink to="/register">Need to create an account?</NavLink>
+        <NavLink to="/register" className="create-account">
+          Need to create an account?
+        </NavLink>
         <p>Or connect with: </p>
         <GoogleButton isgooglesingin="true" to="#">
           Continue with Google
