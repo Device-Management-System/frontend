@@ -34,7 +34,7 @@ const AuthState = (props) => {
   const getUserState = async () => {
     try {
       if (localStorage.getItem('token')) {
-        await auth().onAuthStateChanged((user) => {
+        await auth.onAuthStateChanged((user) => {
           if (user) {
             return dispatch({
               type: SET_CURRENT_USER_SUCCESS,
@@ -68,7 +68,7 @@ const AuthState = (props) => {
 
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`,
-        { name: auth().currentUser.displayName }
+        { name: auth.currentUser.displayName }
       );
       dispatch({
         type: REGISTER_SUCCESS,
