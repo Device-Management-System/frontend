@@ -6,7 +6,7 @@ import AuthContext from '../../../context/auth/authContext';
 
 import { LoginPanel, LoginForm, LoginInput } from './Login.styles';
 
-import GoogleButton from '../../customComponents/CustomButton';
+import GoogleButton from '../../customComponents/CustomButton/CustomButton';
 
 const Login = () => {
   const history = useHistory();

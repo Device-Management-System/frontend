@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-import SignUp from '../customComponents/CustomButton';
-import Dashboard from '../customComponents/CustomButton';
+import SignUp from '../customComponents/CustomButton/CustomButton';
+import Dashboard from '../customComponents/CustomButton/CustomButton';
 import AuthContext from '../../context/auth/authContext';
 
 import './Navigation.css';

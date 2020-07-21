@@ -103,8 +103,7 @@ const AuthState = (props) => {
       );
 
       const res = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API}/api/auth`,
-        { name: firebase.auth().currentUser.displayName }
+        `${process.env.REACT_APP_API}/api/auth`
       );
       dispatch({
         type: LOGIN_SUCCESS,

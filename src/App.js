@@ -11,10 +11,10 @@ import {
 import PrivateRoute from './components/PrivateRoute';
 import AuthState from './context/auth/AuthState';
 import Auth from './views/Auth';
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import Homepage from './views/Homepage/Homepage';
-import Register from './components/authComponents/Register';
-import Login from './components/authComponents/Login';
+import Register from './components/authComponents/Register/Register';
+import Login from './components/authComponents/Login/Login';
 import ManagerDashboard from './views/ManagerDashboard';
 
 import './App.css';
