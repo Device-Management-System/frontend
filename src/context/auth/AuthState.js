@@ -65,8 +65,6 @@ const AuthState = (props) => {
         displayName: user.name,
       });
 
-      const name = user.name;
-
       localStorage.setItem(
         'token',
         await firebase.auth().currentUser.getIdToken()
@@ -74,7 +72,7 @@ const AuthState = (props) => {
 
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`,
-        { name }
+        { name: firebase.auth().currentUser.displayName }
       );
       dispatch({
         type: REGISTER_SUCCESS,
@@ -105,11 +103,12 @@ const AuthState = (props) => {
       );
 
       const res = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API}/api/login`
+        `${process.env.REACT_APP_API}/api/auth`,
+        { name: firebase.auth().currentUser.displayName }
       );
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: res.data,
+        payload: res.config.headers.Authorization,
       });
     } catch (error) {
       dispatch({
@@ -117,6 +116,8 @@ const AuthState = (props) => {
         payload: error.message,
       });
     }
+
+    getUserState();
   };
 
   // logout user

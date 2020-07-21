@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
@@ -10,12 +11,18 @@ import './Navigation.css';
 
 const Navigation = () => {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, getUserState, logout } = authContext;
+  const { isAuthenticated, getUserState, logout, currentUser } = authContext;
+
+  const history = useHistory();
 
   useEffect(() => {
     getUserState();
+    if (!currentUser) {
+      history.push('/');
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [currentUser]);
 
   return (
     <Navbar className="navigation justify-content-between container">
