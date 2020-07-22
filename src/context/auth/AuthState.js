@@ -13,6 +13,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  LOGOUT_FAIL,
   CLEAR_ERRORS,
 } from '../types';
 
@@ -64,8 +65,6 @@ const AuthState = (props) => {
 
       localStorage.setItem('token', await auth.currentUser.getIdToken());
 
-      console.log(auth.currentUser.getIdToken());
-
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`,
         { name: auth.currentUser.displayName }
@@ -93,8 +92,6 @@ const AuthState = (props) => {
 
       localStorage.setItem('token', await auth.currentUser.getIdToken());
 
-      console.log(auth.currentUser.getIdToken());
-
       const res = await axiosWithAuth().post(
         `${process.env.REACT_APP_API}/api/auth`
       );
@@ -120,7 +117,7 @@ const AuthState = (props) => {
         localStorage.clear();
         dispatch({ type: LOGOUT });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => dispatch({ type: LOGOUT_FAIL, payload: err }));
   };
 
   const googleLogin = async () => {

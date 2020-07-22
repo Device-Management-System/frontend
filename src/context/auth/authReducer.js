@@ -8,8 +8,10 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  LOGOUT_FAIL,
   CLEAR_ERRORS,
 } from '../types';
+
 export default (state, action) => {
   switch (action.type) {
     case REGISTER_START:
@@ -41,6 +43,7 @@ export default (state, action) => {
       };
     case REGISTER_FAIL:
     case LOGIN_FAIL:
+    case LOGOUT_FAIL:
     case SET_CURRENT_USER_FAIL:
       return {
         ...state,

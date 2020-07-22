@@ -42,6 +42,10 @@ function App() {
             path="/manager-dashboard"
             component={ManagerDashboard}
           />
+          <PrivateRoute
+            path="/organization/create"
+            component={ManagerDashboard}
+          />
         </Switch>
       </div>
     </AuthState>

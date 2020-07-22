@@ -8,4 +8,15 @@ export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
+export const LOGOUT_FAIL = 'LOGOUT_FAIL';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+// ======= ORGANIZATION TYPES ============================
+export const CREATE_ORG_START = 'CREATE_ORG_START';
+export const CREATE_ORG_SUCCESS = 'CREATE_ORG_SUCCESS';
+export const CREATE_ORG_FAIL = 'CREATE_ORG_FAIL';
+export const GET_USERS_START = 'GET_USERS_START';
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
+export const GET_USERS_FAIL = 'GET_USERS_FAIL';
+export const GET_DEVICES_START = 'GET_DEVICES_START';
+export const GET_DEVICES_SUCCESS = 'GET_DEVICES_SUCCESS';
+export const GET_DEVICES_FAIL = 'GET_DEVICES_FAIL';
