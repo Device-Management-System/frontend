@@ -124,8 +124,15 @@ const AuthState = (props) => {
   };
 
   const googleLogin = async () => {
-    await signInWithGoogle();
-    await getUserState();
+    try {
+      const user = await signInWithGoogle();
+      const token = await user.user.getIdToken();
+      localStorage.setItem('token', token);
+      dispatch({ type: LOGIN_SUCCESS, payload: token });
+      dispatch({ type: SET_CURRENT_USER_SUCCESS, payload: user });
+    } catch (err) {
+      dispatch({ type: LOGIN_FAIL, paypload: err });
+    }
   };
 
   // Clears errors in state
