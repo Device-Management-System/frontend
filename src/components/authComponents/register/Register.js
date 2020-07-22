@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useForm } from '../../../hooks/useForm';
+import { useFormPersist } from '../../../hooks/useFormPersist';
 import AuthContext from '../../../context/auth/authContext';
 import RegisterForm from '../../customComponents/customForm/CustomForm';
 
@@ -12,7 +12,7 @@ const Register = () => {
   const authContext = useContext(AuthContext);
   const { register, currentUser } = authContext;
   const signUp = () => register(user);
-  const [user, onChange, onSubmit] = useForm(signUp);
+  const [user, onChange, onSubmit] = useFormPersist(signUp);
 
   useEffect(() => {
     if (currentUser) history.push('/manager-dashboard');
