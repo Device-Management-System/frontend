@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import PrivateRoute from './components/PrivateRoute';
 import AuthState from './context/auth/AuthState';
+import OrgState from './context/organization/OrgState';
 import Navigation from './components/navigation/Navigation';
 import Homepage from './views/homepage/Homepage';
 import Register from './components/authComponents/register/Register';
@@ -32,22 +33,24 @@ function App() {
 
   return (
     <AuthState>
-      <div className="App">
-        <Navigation />
-        <Switch>
-          <Route path="/" exact component={Homepage} />
-          <Route path="/register" exact component={Register} />
-          <Route path="/login" exact component={Login} />
-          <PrivateRoute
-            path="/manager-dashboard"
-            component={ManagerDashboard}
-          />
-          <PrivateRoute
-            path="/organization/create"
-            component={ManagerDashboard}
-          />
-        </Switch>
-      </div>
+      <OrgState>
+        <div className="App">
+          <Navigation />
+          <Switch>
+            <Route path="/" exact component={Homepage} />
+            <Route path="/register" exact component={Register} />
+            <Route path="/login" exact component={Login} />
+            <PrivateRoute
+              path="/manager-dashboard"
+              component={ManagerDashboard}
+            />
+            <PrivateRoute
+              path="/organization/create"
+              component={ManagerDashboard}
+            />
+          </Switch>
+        </div>
+      </OrgState>
     </AuthState>
   );
 }

@@ -33,7 +33,7 @@ const OrgState = (props) => {
     dispatch({ type: CREATE_ORG_START });
     try {
       const { data } = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API}/api/organizations`,
+        `${process.env.REACT_APP_API}/api/organization`,
         formData
       );
 
@@ -48,7 +48,7 @@ const OrgState = (props) => {
     dispatch({ type: GET_USERS_START });
     try {
       const { data } = await axiosWithAuth().get(
-        `${process.env.REACT_APP_API}/api/organizations/${id}/users`
+        `${process.env.REACT_APP_API}/api/organization/${id}/users`
       );
       dispatch({ type: GET_USERS_SUCCESS, payload: data });
     } catch ({ message }) {
@@ -62,7 +62,7 @@ const OrgState = (props) => {
 
     try {
       const { data } = await axiosWithAuth().get(
-        `${process.env.REACT_APP_API}/api/organiztions/${id}/devices`
+        `${process.env.REACT_APP_API}/api/organiztion/${id}/devices`
       );
       dispatch({ type: GET_DEVICES_SUCCESS, payload: data });
     } catch ({ message }) {
