@@ -62,7 +62,7 @@ const OrgState = (props) => {
 
     try {
       const { data } = await axiosWithAuth().get(
-        `${process.env.REACT_APP_API}/api/organiztions/devices`
+        `${process.env.REACT_APP_API}/api/organiztions/${id}/devices`
       );
       dispatch({ type: GET_DEVICES_SUCCESS, payload: data });
     } catch ({ message }) {
