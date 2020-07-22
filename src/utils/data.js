@@ -66,6 +66,7 @@ export const team = [
     title: 'Software Engineer',
     github: 'https://github.com/MarinaBaskova',
     linkedin: 'https://www.linkedin.com/in/marina-baskova',
+    portfolio: 'https://www.marinabaskova.com',
   },
   {
     id: 2,

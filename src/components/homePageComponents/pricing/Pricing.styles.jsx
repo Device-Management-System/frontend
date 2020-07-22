@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const PricingBg = styled.section`
-  /* position: absolute;
-  top: 680px; */
   width: 100%;
   height: 670px;
   background: #74d7ff;
