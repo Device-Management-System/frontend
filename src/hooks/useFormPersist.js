@@ -13,9 +13,7 @@ export const useFormPersist = (callback, key, initialState = {}) => {
     return initialState;
   };
 
-  const [values, setValues] = useState(() => {
-    return getSavedValues(key, initialState);
-  });
+  const [values, setValues] = useState(() => getSavedValues(key, initialState));
 
   useEffect(() => {
     // Set values to localStorage.
@@ -29,8 +27,11 @@ export const useFormPersist = (callback, key, initialState = {}) => {
   const onSubmit = (e) => {
     e.preventDefault();
     callback();
+
+    // Remove values from localstorage.
+    localStorage.removeItem(key);
     setValues(initialState);
   };
 
-  return [values, onChange, onSubmit, getSavedValues];
+  return [values, onChange, onSubmit];
 };
