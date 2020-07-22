@@ -126,10 +126,18 @@ const AuthState = (props) => {
   const googleLogin = async () => {
     try {
       const user = await signInWithGoogle();
-      const token = await user.user.getIdToken();
-      localStorage.setItem('token', token);
-      dispatch({ type: LOGIN_SUCCESS, payload: token });
-      dispatch({ type: SET_CURRENT_USER_SUCCESS, payload: user });
+      if (user) {
+        const token = await user.user.getIdToken();
+        localStorage.setItem('token', token);
+        const res = await axiosWithAuth().post(
+          `${process.env.REACT_APP_API}/api/auth`
+        );
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: res.config.headers.Authorization,
+        });
+        dispatch({ type: SET_CURRENT_USER_SUCCESS, payload: user });
+      }
     } catch (err) {
       dispatch({ type: LOGIN_FAIL, paypload: err });
     }
