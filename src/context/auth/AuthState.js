@@ -91,7 +91,10 @@ const AuthState = (props) => {
     try {
       await auth.signInWithEmailAndPassword(user.email, user.password);
 
-      localStorage.setItem('token', await auth.currentUser.getIdToken());
+      localStorage.setItem(
+        'token',
+        await JSON.stringify(auth.currentUser.getIdToken())
+      );
 
       console.log(auth.currentUser.getIdToken());
 
