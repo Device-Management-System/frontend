@@ -13,7 +13,7 @@ const Contact = () => {
   const getLead = () => console.log(values);
   const [values, onChange, onSubmit] = useForm(getLead);
   return (
-    <ContactContainer>
+    <ContactContainer id="contact">
       <ContactWrapper>
         <h4>Contact</h4>
         <ContactForm onSubmit={onSubmit}>

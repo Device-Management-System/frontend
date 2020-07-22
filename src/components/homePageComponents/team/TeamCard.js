@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Team.css';
 
-const Team = ({ picture, name, title, github, linkedin }) => {
+const Team = ({ picture, name, title, github, linkedin, portfolio }) => {
   return (
     <div className="team-card">
       <img className="thumbnail" src={picture} alt={name} />
@@ -12,14 +12,29 @@ const Team = ({ picture, name, title, github, linkedin }) => {
         <h4>{name}</h4>
         <p>{title}</p>
       </div>
-      <div className="links">
-        <a href={github}>
-          <FontAwesomeIcon icon={['fab', 'github-alt']} size="2x" />
-        </a>
-        <a href={linkedin}>
-          <FontAwesomeIcon icon={['fab', 'linkedin']} size="2x" />
-        </a>
-      </div>
+      {!portfolio && (
+        <div className="links">
+          <a href={github}>
+            <FontAwesomeIcon icon={['fab', 'github-alt']} size="2x" />
+          </a>
+          <a href={linkedin}>
+            <FontAwesomeIcon icon={['fab', 'linkedin']} size="2x" />
+          </a>
+        </div>
+      )}
+      {portfolio && (
+        <div className="links-complete">
+          <a href={github}>
+            <FontAwesomeIcon icon={['fab', 'github-alt']} size="2x" />
+          </a>
+          <a href={linkedin}>
+            <FontAwesomeIcon icon={['fab', 'linkedin']} size="2x" />
+          </a>
+          <a href={portfolio}>
+            <FontAwesomeIcon icon={['fa', 'code']} size="2x" />
+          </a>
+        </div>
+      )}
     </div>
   );
 };

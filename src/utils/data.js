@@ -74,6 +74,7 @@ export const team = [
     title: 'Software Engineer',
     github: 'https://github.com/guillsav',
     linkedin: 'https://www.linkedin.com/in/guillaume-savy',
+    portfolio: 'https://guillaume-savy.com',
   },
   {
     id: 3,

@@ -16,7 +16,7 @@ import {
   CLEAR_ERRORS,
 } from '../types';
 
-import { auth } from '../../helpers/firebase';
+import { auth, signInWithGoogle } from '../../helpers/firebase';
 
 const AuthState = (props) => {
   const initialState = {
@@ -112,7 +112,7 @@ const AuthState = (props) => {
     getUserState();
   };
 
-  // logout user
+  // Logout user
   const logout = () => {
     auth
       .signOut()
@@ -121,6 +121,11 @@ const AuthState = (props) => {
         dispatch({ type: LOGOUT });
       })
       .catch((err) => console.log(err));
+  };
+
+  const googleLogin = async () => {
+    await signInWithGoogle();
+    await getUserState();
   };
 
   // Clears errors in state
@@ -138,6 +143,7 @@ const AuthState = (props) => {
         login,
         getUserState,
         logout,
+        googleLogin,
         clearErrors,
       }}
     >

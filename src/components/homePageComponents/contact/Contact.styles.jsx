@@ -41,23 +41,25 @@ export const ContactTop = styled.div`
 
 const halfInputStyle = css`
   width: 25.9rem;
-  height: 5.2rem;
+  height: 4.4rem;
+  font-size: 1.4rem;
 `;
 
 const fullInputStyle = css`
   width: 100%;
-  height: 5.2rem;
+  height: 4.4rem;
+  font-size: 1.4rem;
 `;
 
 const submitStyle = css`
-  ${({ theme: { primary, hover, regular } }) => css`
+  ${({ theme: { primary, hover, medium } }) => css`
     width: 100%;
-    height: 5.2rem;
-    border-radius: 0.8rem;
+    height: 4.4rem;
+    border-radius: 0.4rem;
     color: #fff;
     background: ${primary};
     transition: all 0.3s ease-in-out;
-    font-size: ${regular};
+    font-size: ${medium};
     font-weight: 600;
     border: 0;
 
@@ -73,10 +75,10 @@ const getInputStyle = (props) => {
 };
 
 export const ContactInput = styled.input`
-  ${({ theme: { inputBg, inputBorder, regular, hover } }) => css`
+  ${({ theme: { medium, hover, inputBg, inputBorder } }) => css`
     background: ${inputBg};
-    border-radius: 10px;
-    font-size: ${regular};
+    border-radius: 0.4rem;
+    font-size: ${medium};
     font-weight: 600;
     color: #000;
     border: 1px solid ${inputBorder};
@@ -87,8 +89,8 @@ export const ContactInput = styled.input`
     &::placeholder {
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
-      font-size: ${regular};
-      color: #000;
+      font-size: 1.4rem;
+      color: rgba(0, 0, 0, 0.7);
     }
 
     &:focus {

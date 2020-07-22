@@ -10,7 +10,7 @@ import GoogleButton from '../../customComponents/customButton/CustomButton';
 const Login = () => {
   const history = useHistory();
   const authContext = useContext(AuthContext);
-  const { login, currentUser } = authContext;
+  const { login, currentUser, googleLogin } = authContext;
   const signIn = () => login(user);
   const [user, onChange, onSubmit] = useForm(signIn);
 
@@ -43,7 +43,7 @@ const Login = () => {
           Need to create an account?
         </NavLink>
         <p>Or connect with: </p>
-        <GoogleButton isgooglesingin="true" to="#">
+        <GoogleButton onClick={googleLogin} isgooglesingin="true" to="#">
           Continue with Google
         </GoogleButton>
       </LoginForm>
