@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from '../../../hooks/useForm';
+import { useFormPersist } from '../../../hooks/useFormPersist';
 
 import {
   ContactContainer,
@@ -11,7 +11,7 @@ import {
 
 const Contact = () => {
   const getLead = () => console.log(values);
-  const [values, onChange, onSubmit] = useForm(getLead);
+  const [values, onChange, onSubmit] = useFormPersist(getLead);
   return (
     <ContactContainer id="contact">
       <ContactWrapper>

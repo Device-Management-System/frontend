@@ -1,22 +1,16 @@
-import React, { useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useForm } from '../../../hooks/useForm';
+import { useFormPersist } from '../../../hooks/useFormPersist';
 import AuthContext from '../../../context/auth/authContext';
 
 import { LoginPanel, LoginForm, LoginInput } from './Login.styles';
 import GoogleButton from '../../customComponents/customButton/CustomButton';
 
 const Login = () => {
-  const history = useHistory();
   const authContext = useContext(AuthContext);
-  const { login, currentUser, googleLogin } = authContext;
+  const { login, googleLogin } = authContext;
   const signIn = () => login(user);
-  const [user, onChange, onSubmit] = useForm(signIn);
-
-  useEffect(() => {
-    if (currentUser) history.push('/manager-dashboard');
-  }, [currentUser, history]);
+  const [user, onChange, onSubmit] = useFormPersist(signIn);
 
   return (
     <LoginPanel>
