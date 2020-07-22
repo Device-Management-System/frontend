@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const ContactContainer = styled.section`
   ${({ theme: { bgLight2 } }) => css`
     width: 100%;
-    height: 38rem;
+    height: 35rem;
     background: ${bgLight2};
     padding: 5rem;
 
@@ -37,6 +37,7 @@ export const ContactTop = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 21px;
+  margin: 0;
 `;
 
 const halfInputStyle = css`

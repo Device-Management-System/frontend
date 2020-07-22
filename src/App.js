@@ -25,7 +25,7 @@ function initializeAnalytics() {
   ReactGA.pageview('/homepage');
 }
 
-function App(props) {
+function App() {
   if (process.env.REACT_APP_ENV === 'production') {
     initializeAnalytics();
   }

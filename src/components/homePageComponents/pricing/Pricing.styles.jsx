@@ -54,7 +54,7 @@ export const SliderBg = styled.div`
     width: 17.8rem;
     height: 3.6rem;
     border-radius: 0.4rem;
-    background: #f3f3f3;
+    background: #f5f5f5;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 0.5rem;
@@ -77,7 +77,7 @@ const sliderOn = css`
 const getSliderStyle = (props) => (props.sliderOn ? sliderOn : sliderOff);
 
 export const Slider = styled.button`
-  ${({ theme: { darkGray, radius } }) => css`
+  ${({ theme: { darkGray } }) => css`
     width: 84px;
     height: 26px;
     font-size: 8px;
@@ -100,7 +100,7 @@ const pricingCardDefault = css`
   ${({ theme: { darkGray } }) => css`
     widht: 100%;
     height: 34.1rem;
-    background: #f3f3f3;
+    background: #f5f5f5;
     color: ${darkGray};
     border-radius: 0.4rem;
   `}
@@ -129,7 +129,7 @@ export const PricingCardSelect = styled.button`
     margin: 0;
     padding: 0;
     text-align: left;
-    z-index: 100;
+    z-index: 99;
     outline: none;
     border-radius: 0.4rem;
     transition: all 0.2s ease-in-out;
