@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import SignUp from '../customComponents/customButton/CustomButton';
 import Dashboard from '../customComponents/customButton/CustomButton';
@@ -31,13 +32,13 @@ const Navigation = () => {
       </Navbar.Brand>
       <Nav className="nav ml-auto">
         <NavItem className="navlink">
-          <NavLink to="#pricing">Pricing</NavLink>
+          <AnchorLink href="#pricing">Pricing</AnchorLink>
         </NavItem>
         <NavItem className="navlink">
-          <NavLink to="#team">Team</NavLink>
+          <AnchorLink href="#team">Team</AnchorLink>
         </NavItem>
         <NavItem className="navlink">
-          <NavLink to="#contact">Contact</NavLink>
+          <AnchorLink href="#contact">Contact</AnchorLink>
         </NavItem>
         {isAuthenticated && (
           <NavItem className="navlink">

@@ -82,7 +82,7 @@ const getInputStyle = (props) => {
 };
 
 export const LoginInput = styled.input`
-  ${({ theme: { inputBg, inputBorder, medium, hover } }) => css`
+  ${({ theme: { medium, hover } }) => css`
     background: #f3f3f3;
     border-radius: 0.4rem;
     font-size: ${medium};

@@ -56,7 +56,7 @@ export const SliderBg = styled.div`
     width: 17.8rem;
     height: 3.6rem;
     border-radius: 0.4rem;
-    background: ${bgLight};
+    background: #f3f3f3;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 0.5rem;
@@ -99,10 +99,10 @@ export const Slider = styled.button`
 
 // Pricing cards
 const pricingCardDefault = css`
-  ${({ theme: { bgLight, darkGray } }) => css`
+  ${({ theme: { darkGray } }) => css`
     widht: 100%;
     height: 34.1rem;
-    background: ${bgLight};
+    background: #f3f3f3;
     color: ${darkGray};
     border-radius: 0.4rem;
   `}
@@ -123,7 +123,7 @@ const getCardStyle = (props) => {
 };
 
 export const PricingCardSelect = styled.button`
-  ${({ theme: { hover } }) => css`
+  ${({ theme: { primary } }) => css`
     border: none;
     background: none;
     width: 100%;
@@ -140,7 +140,7 @@ export const PricingCardSelect = styled.button`
       outline: none;
     }
     &:hover {
-      box-shadow: 0 0 0 2px ${hover};
+      box-shadow: 0 0 0 2px ${primary};
       transform: scale(1.02);
     }
   `}
