@@ -33,6 +33,7 @@ const inverted = css`
   padding: 11px 20px 11px 20px;
   transition: all 0.2s ease-in-out;
   font-weight: 500;
+  margin: 0;
 
   &:hover {
     background: ${primary};
