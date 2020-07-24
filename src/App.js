@@ -16,6 +16,7 @@ import Homepage from './views/homepage/Homepage';
 import Register from './components/authComponents/register/Register';
 import Login from './components/authComponents/login/Login';
 import ManagerDashboard from './views/ManagerDashboard';
+import VerifyEmail from './views/verifyEmail/VerifyEmail';
 
 import './App.css';
 
@@ -48,6 +49,7 @@ function App() {
               path="/organization/create"
               component={ManagerDashboard}
             />
+            <PrivateRoute path="/verify-email" component={VerifyEmail} />
           </Switch>
         </div>
       </OrgState>

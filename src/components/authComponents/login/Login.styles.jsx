@@ -4,7 +4,6 @@ export const LoginContainer = styled.section`
   ${({ theme: { bgLight } }) => css`
     width: 100vw;
     height: 520px;
-    background: ${bgLight};
     padding: 5rem;
   `}
 `;
@@ -12,10 +11,11 @@ export const LoginContainer = styled.section`
 export const LoginPanel = styled.div`
   ${({ theme: { radius } }) => css`
     width: 38rem;
-    height: 42rem;
-    border-radius: ${radius};
+    height: 46.3rem;
+    border-radius: 0.4rem;
     margin: 0 auto;
     padding: 4rem;
+    border: 1px solid #ddd;
 
     h4 {
       color: #282828;

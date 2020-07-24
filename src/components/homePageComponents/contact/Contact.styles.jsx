@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const ContactContainer = styled.section`
-  ${({ theme: { bgLight2 } }) => css`
+  ${({ theme: { bgLight } }) => css`
     width: 100%;
     height: 35rem;
-    background: ${bgLight2};
+    background: #fafafa;
     padding: 5rem;
 
     h4 {
@@ -76,13 +76,13 @@ const getInputStyle = (props) => {
 };
 
 export const ContactInput = styled.input`
-  ${({ theme: { medium, hover, inputBg, inputBorder } }) => css`
-    background: ${inputBg};
+  ${({ theme: { medium, hover, inputBorder } }) => css`
+    background: #f3f3f3;
     border-radius: 0.4rem;
     font-size: ${medium};
     font-weight: 600;
     color: #000;
-    border: 1px solid ${inputBorder};
+    border: 1px solid #ddd;
     padding: 1.4rem 1.7rem 1.4rem 1.6rem;
     font-family: 'Montserrat', sans-serif;
     transition: 0.2s ease-in-out;

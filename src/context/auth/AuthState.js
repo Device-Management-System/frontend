@@ -65,10 +65,12 @@ const AuthState = (props) => {
 
       localStorage.setItem('token', await auth.currentUser.getIdToken());
 
-      const res = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API}/api/auth`,
-        { name: auth.currentUser.displayName }
-      );
+      // Send verification Email to unverified users.
+      await auth.currentUser.sendEmailVerification();
+
+      const res = await axiosWithAuth().post(`/api/auth`, {
+        name: auth.currentUser.displayName,
+      });
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.config.headers.Authorization,
@@ -92,9 +94,7 @@ const AuthState = (props) => {
 
       localStorage.setItem('token', await auth.currentUser.getIdToken());
 
-      const res = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API}/api/auth`
-      );
+      const res = await axiosWithAuth().post(`/api/auth`);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.config.headers.Authorization,
@@ -126,9 +126,7 @@ const AuthState = (props) => {
       if (user) {
         const token = await user.user.getIdToken();
         localStorage.setItem('token', token);
-        const res = await axiosWithAuth().post(
-          `${process.env.REACT_APP_API}/api/auth`
-        );
+        const res = await axiosWithAuth().post(`/api/auth`);
         dispatch({
           type: LOGIN_SUCCESS,
           payload: res.config.headers.Authorization,

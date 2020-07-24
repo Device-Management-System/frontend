@@ -7,22 +7,17 @@ import {
   CREATE_ORG_START,
   CREATE_ORG_SUCCESS,
   CREATE_ORG_FAIL,
-  GET_USERS_START,
-  GET_USERS_SUCCESS,
-  GET_USERS_FAIL,
-  GET_DEVICES_START,
-  GET_DEVICES_SUCCESS,
-  GET_DEVICES_FAIL,
+  GET_ORG_START,
+  GET_ORG_SUCCESS,
+  GET_ORG_FAIL,
 } from '../types';
 
 const OrgState = (props) => {
   const initialState = {
     organization: null,
     error: null,
-    users: null,
-    devices: null,
-    requestOn: false,
-    isOrg: false,
+    requestOn: null,
+    orgCreated: null,
   };
 
   const [state, dispatch] = useReducer(orgReducer, initialState);
@@ -33,7 +28,7 @@ const OrgState = (props) => {
     dispatch({ type: CREATE_ORG_START });
     try {
       const { data } = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API}/api/organization`,
+        `/api/organization`,
         formData
       );
 
@@ -43,30 +38,14 @@ const OrgState = (props) => {
     }
   };
 
-  // Get organization's users
-  const getUsers = async (id) => {
-    dispatch({ type: GET_USERS_START });
+  // Get organization
+  const getOrganization = async (id) => {
+    dispatch({ type: GET_ORG_START });
     try {
-      const { data } = await axiosWithAuth().get(
-        `${process.env.REACT_APP_API}/api/organization/${id}/users`
-      );
-      dispatch({ type: GET_USERS_SUCCESS, payload: data });
+      const { data } = await axiosWithAuth().get(`/api/organization/${id}`);
+      dispatch({ type: GET_ORG_SUCCESS, payload: data });
     } catch ({ message }) {
-      dispatch({ type: GET_USERS_FAIL, payload: message });
-    }
-  };
-
-  // Get organization's devices
-  const getDevices = async (id) => {
-    dispatch({ type: GET_DEVICES_START });
-
-    try {
-      const { data } = await axiosWithAuth().get(
-        `${process.env.REACT_APP_API}/api/organiztion/${id}/devices`
-      );
-      dispatch({ type: GET_DEVICES_SUCCESS, payload: data });
-    } catch ({ message }) {
-      dispatch({ type: GET_DEVICES_FAIL, payload: message });
+      dispatch({ type: GET_ORG_FAIL, payload: message });
     }
   };
 
@@ -78,8 +57,7 @@ const OrgState = (props) => {
         users,
         devices,
         createOrg,
-        getUsers,
-        getDevices,
+        getOrganization,
       }}
     >
       {props.children}

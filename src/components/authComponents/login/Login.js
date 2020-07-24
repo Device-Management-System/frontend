@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useFormPersist } from '../../../hooks/useFormPersist';
+import { useHistory } from 'react-router-dom';
 import AuthContext from '../../../context/auth/authContext';
 
 import { LoginPanel, LoginForm, LoginInput } from './Login.styles';
@@ -8,9 +9,21 @@ import GoogleButton from '../../customComponents/customButton/CustomButton';
 
 const Login = () => {
   const authContext = useContext(AuthContext);
-  const { login, googleLogin } = authContext;
-  const signIn = () => login(user);
+  const { login, googleLogin, currentUser } = authContext;
+  const signIn = async () => {
+    await login(user);
+
+    if (currentUser && currentUser.emailVerified) {
+      if (currentUser.isAdmin)
+        history.replace(`/users/${currentUser.uid}/manager-dashboard`);
+      else history.replace(`/users/${currentUser.uid}/dashboard`);
+    } else {
+      history.replace('/verify-email');
+    }
+  };
+
   const [user, onChange, onSubmit] = useFormPersist(signIn);
+  const history = useHistory();
 
   return (
     <LoginPanel>
