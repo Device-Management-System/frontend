@@ -92,7 +92,7 @@ export const team = [
     name: 'Steve Rollins',
     title: 'Software Engineer',
     github: 'https://github.com/greenhornsr',
-    linkedin: 'linkedin.com/in/steven-rollins',
+    linkedin: 'https://linkedin.com/in/steven-rollins',
     portfolio: 'http://www.steven-rollins.com/',
   },
 ];
