@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import React, { useContext, useEffect, useRef, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
@@ -14,29 +14,30 @@ const Navigation = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, getUserState, logout, currentUser } = authContext;
 
-  const history = useHistory();
+  // const history = useHistory();
   const location = useLocation();
   const navRef = useRef();
 
-  useEffect(() => {
-    getUserState();
-    if (!currentUser) {
-      history.push('/');
+  const handleScroll = useCallback(() => {
+    if (window.pageYOffset > 30) {
+      navRef.current.classList.add('sticky');
+      navRef.current.classList.add('animated');
+      navRef.current.classList.add('fadeIn');
+      navRef.current.classList.add('fast');
+    } else {
+      navRef.current.classList.remove('sticky');
+      navRef.current.classList.remove('animated');
+      navRef.current.classList.remove('fadeIn');
+      navRef.current.classList.remove('fast');
     }
+  }, []);
 
-    const handleScroll = () => {
-      if (window.pageYOffset > 30) {
-        navRef.current.classList.add('sticky');
-        navRef.current.classList.add('animated');
-        navRef.current.classList.add('fadeIn');
-        navRef.current.classList.add('fast');
-      } else {
-        navRef.current.classList.remove('sticky');
-        navRef.current.classList.remove('animated');
-        navRef.current.classList.remove('fadeIn');
-        navRef.current.classList.remove('fast');
-      }
-    };
+  useEffect(() => {
+    handleScroll();
+    getUserState();
+    // if (!currentUser) {
+    //   history.push('/');
+    // }
 
     document.addEventListener('scroll', handleScroll);
     return () => {

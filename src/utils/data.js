@@ -1,6 +1,7 @@
 import marina from '../assets/marina.png';
 import guillaume from '../assets/guillaume.png';
 import tyler from '../assets/tyler.png';
+import steve from '../assets/steve.png';
 
 export const subscriptions = [
   {
@@ -75,7 +76,7 @@ export const team = [
     title: 'Software Engineer',
     github: 'https://github.com/guillsav',
     linkedin: 'https://www.linkedin.com/in/guillaume-savy',
-    portfolio: 'https://guillaume-savy.com',
+    portfolio: 'https://www.guillaume-savy.com',
   },
   {
     id: 3,
@@ -84,5 +85,14 @@ export const team = [
     title: 'Software Engineer',
     github: 'https://github.com/tjforeman',
     linkedin: 'https://www.linkedin.com/in/tylerforeman1',
+  },
+  {
+    id: 4,
+    picture: steve,
+    name: 'Steve Rollins',
+    title: 'Software Engineer',
+    github: 'https://github.com/greenhornsr',
+    linkedin: 'linkedin.com/in/steven-rollins',
+    portfolio: 'http://www.steven-rollins.com/',
   },
 ];

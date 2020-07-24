@@ -18,7 +18,7 @@ export const useFormPersist = (callback, key, initialState = {}) => {
   useEffect(() => {
     // Set values to localStorage.
     localStorage.setItem(key, JSON.stringify(values));
-  });
+  }, [key, values]);
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });

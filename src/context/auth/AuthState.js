@@ -13,6 +13,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  LOGOUT_FAIL,
   CLEAR_ERRORS,
 } from '../types';
 
@@ -64,12 +65,12 @@ const AuthState = (props) => {
 
       localStorage.setItem('token', await auth.currentUser.getIdToken());
 
-      console.log(auth.currentUser.getIdToken());
+      // Send verification Email to unverified users.
+      await auth.currentUser.sendEmailVerification();
 
-      const res = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API}/api/auth`,
-        { name: auth.currentUser.displayName }
-      );
+      const res = await axiosWithAuth().post(`/api/auth`, {
+        name: auth.currentUser.displayName,
+      });
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.config.headers.Authorization,
@@ -93,11 +94,7 @@ const AuthState = (props) => {
 
       localStorage.setItem('token', await auth.currentUser.getIdToken());
 
-      console.log(auth.currentUser.getIdToken());
-
-      const res = await axiosWithAuth().post(
-        `${process.env.REACT_APP_API}/api/auth`
-      );
+      const res = await axiosWithAuth().post(`/api/auth`);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.config.headers.Authorization,
@@ -120,7 +117,7 @@ const AuthState = (props) => {
         localStorage.clear();
         dispatch({ type: LOGOUT });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => dispatch({ type: LOGOUT_FAIL, payload: err }));
   };
 
   const googleLogin = async () => {
@@ -129,9 +126,7 @@ const AuthState = (props) => {
       if (user) {
         const token = await user.user.getIdToken();
         localStorage.setItem('token', token);
-        const res = await axiosWithAuth().post(
-          `${process.env.REACT_APP_API}/api/auth`
-        );
+        const res = await axiosWithAuth().post(`/api/auth`);
         dispatch({
           type: LOGIN_SUCCESS,
           payload: res.config.headers.Authorization,
