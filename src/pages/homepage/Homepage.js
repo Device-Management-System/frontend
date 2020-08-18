@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import AuthContext from '../../context/auth/authContext';
 import { useHistory } from 'react-router-dom';
 import Billboard from '../../components/homePageComponents/billboard/Billboard';
 import Pricing from '../../components/homePageComponents/pricing/Pricing';
@@ -11,13 +10,13 @@ import './Homepage.css';
 
 const Homepage = () => {
   const history = useHistory();
-  const authContext = useContext(AuthContext);
-  const { currentUser } = authContext;
+  // const authContext = useContext(AuthContext);
+  // const { currentUser } = authContext;
 
   useEffect(() => {
-    if (currentUser) {
-      history.push('/manager-dashboard');
-    }
+    // if (currentUser) {
+    //   history.push('/manager-dashboard');
+    // }
   });
 
   return (
