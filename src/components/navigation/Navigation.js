@@ -1,15 +1,19 @@
 import React, { useContext, useEffect, useRef, useCallback } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-
+import { AuthContext } from '../../context/auth/AuthContext';
 import SignUp from '../customComponents/customButton/CustomButton';
 import Dashboard from '../customComponents/customButton/CustomButton';
 
 import './Navigation.css';
 
 const Navigation = () => {
+  const authContext = useContext(AuthContext);
+  const { token } = authContext;
+  const { isAuthenticated, logout, loginWithRedirect } = useAuth0();
   // const history = useHistory();
   const location = useLocation();
   const navRef = useRef();
@@ -41,60 +45,58 @@ const Navigation = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return <div>Navbar</div>;
-  // <Navbar ref={navRef} className="justify-content-between navigation">
-  //   <div className="container">
-  //     <Navbar.Brand className="logo" href="/">
-  //       Landr
-  //     </Navbar.Brand>
-  //     <Nav className="nav ml-auto">
-  //       {location.pathname === '/' ? (
-  //         <>
-  //           <NavItem className="navlink">
-  //             <AnchorLink href="#pricing">Pricing</AnchorLink>
-  //           </NavItem>
-  //           <NavItem className="navlink">
-  //             <AnchorLink href="#team">Team</AnchorLink>
-  //           </NavItem>
-  //           <NavItem className="navlink">
-  //             <AnchorLink href="#contact">Contact</AnchorLink>
-  //           </NavItem>
-  //         </>
-  //       ) : (
-  //         <>
-  //           <NavItem className="navlink">
-  //             <NavLink to="/">Home</NavLink>
-  //           </NavItem>
-  //         </>
-  //       )}
-  //       {isAuthenticated && (
-  //         <NavItem className="navlink">
-  //           <button className="logout" onClick={logout}>
-  //             Logout
-  //           </button>
-  //         </NavItem>
-  //       )}
-  //       {isAuthenticated && (
-  //         <NavItem className="navlink">
-  //           <Dashboard to="/dashboard">Dashboard</Dashboard>
-  //         </NavItem>
-  //       )}
-  //       {!isAuthenticated && (
-  //         <NavItem className="navlink">
-  //           <NavLink to="/login">Login</NavLink>
-  //         </NavItem>
-  //       )}
-  //       {!isAuthenticated && (
-  //         <NavItem className="navlink">
-  //           <SignUp inverted="true" to="/register">
-  //             Sign up
-  //           </SignUp>
-  //         </NavItem>
-  //       )}
-  //     </Nav>
-  //   </div>
-  // </Navbar>
-  // );
+  return (
+    <Navbar ref={navRef} className="justify-content-between navigation">
+      <div className="container">
+        <Navbar.Brand className="logo" href="/">
+          Landr
+        </Navbar.Brand>
+        <Nav className="nav ml-auto">
+          {location.pathname === '/' ? (
+            <>
+              <NavItem className="navlink">
+                <AnchorLink href="#pricing">Pricing</AnchorLink>
+              </NavItem>
+              <NavItem className="navlink">
+                <AnchorLink href="#team">Team</AnchorLink>
+              </NavItem>
+              <NavItem className="navlink">
+                <AnchorLink href="#contact">Contact</AnchorLink>
+              </NavItem>
+            </>
+          ) : (
+            <>
+              <NavItem className="navlink">
+                <NavLink to="/">Home</NavLink>
+              </NavItem>
+            </>
+          )}
+          {isAuthenticated && (
+            <NavItem className="navlink">
+              <button className="logout" onClick={logout}>
+                Logout
+              </button>
+            </NavItem>
+          )}
+          {isAuthenticated && (
+            <NavItem className="navlink">
+              <Dashboard to="/dashboard">Dashboard</Dashboard>
+            </NavItem>
+          )}
+          {!isAuthenticated && (
+            <NavItem className="navlink">
+              <NavLink to="/login">Login</NavLink>
+            </NavItem>
+          )}
+          {!isAuthenticated && (
+            <NavItem className="navlink">
+              <button onClick={loginWithRedirect}>Sign up</button>
+            </NavItem>
+          )}
+        </Nav>
+      </div>
+    </Navbar>
+  );
 };
 
 export default Navigation;
