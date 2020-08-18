@@ -1,5 +1,4 @@
 import React from 'react';
-import { useFormPersist } from '../../../hooks/useFormPersist';
 
 import {
   ContactContainer,
@@ -10,38 +9,26 @@ import {
 } from './Contact.styles';
 
 const Contact = () => {
-  const getLead = () => console.log(values);
-  const [values, onChange, onSubmit] = useFormPersist(getLead);
   return (
     <ContactContainer id="contact">
       <ContactWrapper>
         <h4>Contact</h4>
-        <ContactForm onSubmit={onSubmit}>
+        <ContactForm>
           <ContactTop>
             <ContactInput
               half
-              onChange={onChange}
               type="text"
               name="firstname"
               placeholder="First Name"
-              value={values.firstname || ''}
             />
             <ContactInput
               half
-              onChange={onChange}
               type="text"
               name="lastname"
               placeholder="Last Name"
-              value={values.lastname || ''}
             />
           </ContactTop>
-          <ContactInput
-            onChange={onChange}
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={values.email || ''}
-          />
+          <ContactInput type="email" name="email" placeholder="Email" />
           <ContactInput submit type="submit" value="Contact" />
         </ContactForm>
       </ContactWrapper>
