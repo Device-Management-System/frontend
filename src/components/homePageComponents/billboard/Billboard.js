@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import GetStarted from '../../customComponents/customButton/CustomButton';
+import GetStarted from '../../common/customButton/CustomButton';
 import { ReactComponent as Devices } from '../../../assets/landr.svg';
 
 import './Billboard.css';

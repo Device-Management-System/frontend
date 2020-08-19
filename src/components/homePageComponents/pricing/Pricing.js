@@ -21,13 +21,13 @@ const Pricing = () => {
           <PricingHeader>Pricing</PricingHeader>
           <SliderBg>
             <Slider
-              onClick={() => setIsMonthly(!isMonthly)}
+              onClick={() => (isMonthly ? setIsMonthly(!isMonthly) : null)}
               sliderOn={isMonthly ? false : true}
             >
               Bill Yearly
             </Slider>
             <Slider
-              onClick={() => setIsMonthly(!isMonthly)}
+              onClick={() => (!isMonthly ? setIsMonthly(!isMonthly) : null)}
               sliderOn={isMonthly ? true : false}
             >
               Bill Monthly

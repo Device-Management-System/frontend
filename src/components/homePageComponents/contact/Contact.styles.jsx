@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const ContactContainer = styled.section`
   ${({ theme: { bgLight } }) => css`
     width: 100%;
-    height: 35rem;
+    height: auto;
     background: #fafafa;
     padding: 5rem;
 
@@ -28,7 +28,7 @@ export const ContactForm = styled.form`
   width: 53.9rem;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 1fr 1fr 3fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 20px;
 `;
 
@@ -38,70 +38,6 @@ export const ContactTop = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 21px;
   margin: 0;
-`;
-
-const halfInputStyle = css`
-  width: 25.9rem;
-  height: 4.4rem;
-  font-size: 1.4rem;
-`;
-
-const fullInputStyle = css`
-  width: 100%;
-  height: 4.4rem;
-  font-size: 1.4rem;
-`;
-
-const submitStyle = css`
-  ${({ theme: { primary, hover, medium } }) => css`
-    width: 100%;
-    height: 4.4rem;
-    border-radius: 0.4rem;
-    color: #fff;
-    background: ${primary};
-    transition: all 0.3s ease-in-out;
-    font-size: ${medium};
-    font-weight: 600;
-    border: 0;
-
-    &:hover {
-      background: ${hover};
-    }
-  `}
-`;
-
-const getInputStyle = (props) => {
-  if (props.submit) return submitStyle;
-  return props.half ? halfInputStyle : fullInputStyle;
-};
-
-export const ContactInput = styled.input`
-  ${({ theme: { medium, hover, inputBorder } }) => css`
-    background: #f3f3f3;
-    border-radius: 0.4rem;
-    font-size: ${medium};
-    font-weight: 600;
-    color: #000;
-    border: 1px solid #ddd;
-    padding: 1.4rem 1.7rem 1.4rem 1.6rem;
-    font-family: 'Montserrat', sans-serif;
-    transition: 0.2s ease-in-out;
-
-    &::placeholder {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: 1.4rem;
-      color: rgba(0, 0, 0, 0.7);
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px ${hover};
-      border: none;
-    }
-
-    ${getInputStyle};
-  `}
 `;
 
 export const ContactTextA = styled.textarea`
