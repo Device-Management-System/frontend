@@ -12,7 +12,6 @@ export const AuthState = ({ children }) => {
     try {
       const accessToken = await getAccessTokenSilently();
       setToken(accessToken);
-      console.log(token);
     } catch (err) {
       console.log(err);
     }
@@ -21,7 +20,7 @@ export const AuthState = ({ children }) => {
   useEffect(() => {
     fetchAccessToken();
     if (token) localStorage.setItem('token', token);
-  }, [fetchAccessToken]);
+  }, [fetchAccessToken, token]);
 
   const authAxios = axios.create({
     baseURL: process.env.REACT_APP_API_URL,

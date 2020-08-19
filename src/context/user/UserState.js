@@ -1,8 +1,7 @@
-import React, { useReducer } from 'react';
-import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import React, { useReducer, useContext } from 'react';
+import { AuthContext } from '../auth/AuthContext';
 import UserContext from './userContext';
 import userReducer from './userReducer';
-import auth from '../../helpers/firebase';
 
 import {
   CREATE_USER_START,
@@ -33,6 +32,9 @@ const UserState = ({ children }) => {
     userRemoved: null,
   };
 
+  const authContext = useContext(AuthContext);
+  const { authAxios } = authContext;
+
   const [state, dispatch] = useReducer(userReducer, initialState);
   const { user, requestOn, userCreated, error } = state;
 
@@ -55,7 +57,7 @@ const UserState = ({ children }) => {
     dispatch({ type: GET_USERS_START });
 
     try {
-      const { data } = await axiosWithAuth().get(`/api/users`);
+      const { data } = await authAxios().get(`/api/users`);
       dispatch({ type: GET_USERS_SUCCESS, payload: data });
     } catch ({ message }) {
       dispatch({ type: GET_USERS_FAIL, paypload: message });
@@ -67,7 +69,7 @@ const UserState = ({ children }) => {
     dispatch({ type: SELECT_USER_START });
 
     try {
-      const { data } = await axiosWithAuth().get(`/api/users/${id}`);
+      const { data } = await authAxios().get(`/api/users/${id}`);
       dispatch({ type: SELECT_USER_SUCCESS, payload: data });
     } catch ({ message }) {
       dispatch({ type: SELECT_USER_FAIL, paypload: message });
@@ -79,7 +81,7 @@ const UserState = ({ children }) => {
     dispatch({ type: UPDATE_USER_START });
 
     try {
-      const { data } = axiosWithAuth().put(`api/users/${user.id}`, user);
+      const { data } = authAxios().put(`api/users/${user.id}`, user);
       dispatch({ type: UPDATE_USER_SUCCESS, payload: data });
     } catch ({ message }) {
       dispatch({ type: UPDATE_USER_FAIL, payload: message });
@@ -91,7 +93,7 @@ const UserState = ({ children }) => {
     dispatch({ type: REMOVE_USER_START });
 
     try {
-      const { data } = await axiosWithAuth().delete(`/api/users/${id}`);
+      const { data } = await authAxios().delete(`/api/users/${id}`);
       dispatch({ type: REMOVE_USER_SUCCESS, payload: data });
     } catch ({ message }) {
       dispatch({ type: REMOVE_USER_FAIL, payload: message });

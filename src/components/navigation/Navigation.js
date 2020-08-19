@@ -1,20 +1,14 @@
-import React, { useContext, useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { AuthContext } from '../../context/auth/AuthContext';
-import SignUp from '../common/customButton/CustomButton';
-import Dashboard from '../common/customButton/CustomButton';
 
 import './Navigation.css';
 
 const Navigation = () => {
-  const authContext = useContext(AuthContext);
-  const { token } = authContext;
   const { isAuthenticated, logout, loginWithRedirect } = useAuth0();
-  // const history = useHistory();
   const location = useLocation();
   const navRef = useRef();
 
@@ -34,11 +28,6 @@ const Navigation = () => {
 
   useEffect(() => {
     handleScroll();
-
-    // if (!currentUser) {
-    //   history.push('/');
-    // }
-
     document.addEventListener('scroll', handleScroll);
     return () => {
       document.removeEventListener('scroll', handleScroll);
