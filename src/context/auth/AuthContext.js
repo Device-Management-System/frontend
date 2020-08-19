@@ -16,12 +16,12 @@ export const AuthState = ({ children }) => {
     } catch (err) {
       console.log(err);
     }
-  }, [getAccessTokenSilently]);
+  }, [getAccessTokenSilently, token]);
 
   useEffect(() => {
     fetchAccessToken();
     if (token) localStorage.setItem('token', token);
-  }, [fetchAccessToken]);
+  }, [fetchAccessToken, token]);
 
   const authAxios = axios.create({
     baseURL: process.env.REACT_APP_API_URL,

@@ -1,12 +1,15 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-// import AuthContext from '../context/auth/authContext';
+import { useAuth0 } from '@auth0/auth0-react';
 import PostDevice from '../components/PostDevice';
 
-const ManagerDashboard = () => {
-  // const authContext = useContext(AuthContext);
-  // const { currentUser } = authContext;
+const Dashboard = () => {
   const history = useHistory();
+  const { isAuthenticated } = useAuth0();
+
+  useEffect(() => {
+    if (!isAuthenticated) history.push('/login');
+  }, [history, isAuthenticated]);
 
   return (
     <div className="ManagerDashboardContainer">
@@ -16,4 +19,4 @@ const ManagerDashboard = () => {
   );
 };
 
-export default ManagerDashboard;
+export default Dashboard;
