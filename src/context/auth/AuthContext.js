@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(null);
   const { getAccessTokenSilently } = useAuth0();
 
   const fetchAccessToken = useCallback(async () => {
@@ -20,6 +20,7 @@ export const AuthState = ({ children }) => {
 
   useEffect(() => {
     fetchAccessToken();
+    if (token) localStorage.setItem('token', token);
   }, [fetchAccessToken]);
 
   const authAxios = axios.create({

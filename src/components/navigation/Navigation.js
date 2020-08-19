@@ -78,11 +78,6 @@ const Navigation = () => {
               </button>
             </NavItem>
           )}
-          {isAuthenticated && (
-            <NavItem className="navlink">
-              <Dashboard to="/dashboard">Dashboard</Dashboard>
-            </NavItem>
-          )}
           {!isAuthenticated && (
             <NavItem className="navlink">
               <NavLink to="/login">Login</NavLink>
