@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import PostDevice from '../components/PostDevice';
+import PostDevice from '../../components/PostDevice';
 
 const Dashboard = () => {
   const history = useHistory();

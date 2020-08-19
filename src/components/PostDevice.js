@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { Modal, Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,16 +33,16 @@ const PostDevice = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     clearState();
-    axiosWithAuth()
-      .post(`${process.env.REACT_APP_API}/api/devices/`, form)
-      .then((res) => {
-        console.log(res.data);
-        handleClose();
-      })
-      .catch((err) => {
-        console.log('error with posting a new device ', err);
-        window.alert(`there was an error ${err.message}`);
-      });
+    // axiosWithAuth()
+    //   .post(`${process.env.REACT_APP_API}/api/devices/`, form)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     handleClose();
+    //   })
+    //   .catch((err) => {
+    //     console.log('error with posting a new device ', err);
+    //     window.alert(`there was an error ${err.message}`);
+    //   });
   };
 
   return (

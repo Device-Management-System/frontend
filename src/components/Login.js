@@ -2,7 +2,7 @@ import React from 'react';
 // import axios from 'axios';
 import { firebase } from '../helpers/index.js';
 import { useHistory } from 'react-router-dom';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
 const firebaseUser = require('firebase/app');
 require('firebase/auth');
 

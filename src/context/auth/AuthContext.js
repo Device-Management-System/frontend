@@ -12,11 +12,10 @@ export const AuthState = ({ children }) => {
     try {
       const accessToken = await getAccessTokenSilently();
       setToken(accessToken);
-      console.log(token);
     } catch (err) {
       console.log(err);
     }
-  }, [getAccessTokenSilently, token]);
+  }, [getAccessTokenSilently]);
 
   useEffect(() => {
     fetchAccessToken();
