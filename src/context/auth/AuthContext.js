@@ -5,13 +5,14 @@ import { useAuth0 } from '@auth0/auth0-react';
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
+  const [token, setToken] = useState();
   const { getAccessTokenSilently } = useAuth0();
-  const [token, setToken] = useState(null);
 
   const fetchAccessToken = useCallback(async () => {
     try {
       const accessToken = await getAccessTokenSilently();
       setToken(accessToken);
+      console.log(token);
     } catch (err) {
       console.log(err);
     }
