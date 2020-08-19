@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import CardBtn from '../../customComponents/customButton/CustomButton';
+import CardBtn from '../../common/customButton/CustomButton';
 
 import {
   PricingCardSelect,

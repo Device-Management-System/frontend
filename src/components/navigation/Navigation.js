@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { AuthContext } from '../../context/auth/AuthContext';
-import SignUp from '../customComponents/customButton/CustomButton';
-import Dashboard from '../customComponents/customButton/CustomButton';
+import SignUp from '../common/customButton/CustomButton';
+import Dashboard from '../common/customButton/CustomButton';
 
 import './Navigation.css';
 
