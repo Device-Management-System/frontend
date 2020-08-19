@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import Navbar from '../../components/navigation/Navigation';
 import Billboard from '../../components/homePageComponents/billboard/Billboard';
 import Pricing from '../../components/homePageComponents/pricing/Pricing';
 import Team from '../../components/homePageComponents/team/Team';
@@ -21,6 +22,7 @@ const Homepage = () => {
 
   return (
     <div className="home">
+      <Navbar />
       <Billboard />
       <Pricing />
       <Team />
