@@ -20,6 +20,7 @@ function App() {
   if (process.env.REACT_APP_ENV === 'production') {
     initializeAnalytics();
   }
+  console.log(window.location.origin);
   return (
     <Auth0Provider {...config}>
       <AuthState>
