@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build",
     "test": "CI=react-scripts test",
     "test:cypress": "cypress run",
     "eject": "react-scripts eject"
