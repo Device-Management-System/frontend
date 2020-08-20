@@ -67,9 +67,8 @@ const Navigation = () => {
             </>
           ) : (
             <li className="navlink-logout">
-              <FontAwesomeIcon icon={faSignOutAlt} size="lg" />
               <button className="logout" onClick={logout}>
-                Logout
+                <FontAwesomeIcon icon={faSignOutAlt} size="lg" /> Logout
               </button>
             </li>
           )}
