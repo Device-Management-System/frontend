@@ -54,7 +54,7 @@ export const AuthState = ({ children }) => {
           email: user.email,
         };
 
-        const { data } = authAxios.post('/api/auth', newUser);
+        const { data } = await authAxios.post('/api/auth', newUser);
         console.log('data= ', data);
         setCurrentUser(data);
       }
