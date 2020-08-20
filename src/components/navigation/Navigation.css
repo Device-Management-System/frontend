@@ -29,6 +29,7 @@
 
 .navigation .logo {
   color: #000;
+  text-decoration: none;
 }
 
 .navigation .logo a:hover {

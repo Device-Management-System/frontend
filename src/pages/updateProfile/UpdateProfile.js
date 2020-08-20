@@ -8,7 +8,7 @@ const UpdateProfile = () => {
   const { currentUser } = authContext;
 
   useEffect(() => {
-    if (currentUser && currentUser.isCompleted) history.push('/dashboard');
+    if (currentUser && currentUser.is_completed) history.push('/dashboard');
   });
   return <div>UpdateProfile</div>;
 };

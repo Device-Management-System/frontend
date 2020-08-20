@@ -49,9 +49,15 @@ export const SidebarLink = styled(NavLink)`
   color: #fff;
   margin-bottom: 1rem;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-left: 1.5rem;
+  text-decoration: none;
+
   &:hover {
     color: #fff;
+  }
+
+  &::active {
+    font-weight: 600 !important;
   }
 `;

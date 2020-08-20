@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!isAuthenticated) history.push('/login');
-    if (currentUser && !currentUser.isCompleted)
+    if (currentUser && !currentUser.is_completed)
       history.push('/update-profile');
   }, [history, isAuthenticated, currentUser]);
 
