@@ -47,7 +47,7 @@ export const AuthState = ({ children }) => {
 
   const saveUser = useCallback(async () => {
     try {
-      if (token && user) {
+      if (user) {
         const newUser = {
           id: user.sub.slice(6),
           name: user.nickname,
@@ -70,6 +70,7 @@ export const AuthState = ({ children }) => {
     }
   }, [fetchAccessToken, token, saveUser]);
 
+  console.log('currentUser= ', currentUser);
   return (
     <AuthContext.Provider value={{ authAxios, currentUser }}>
       {children}
