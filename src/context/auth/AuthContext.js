@@ -62,7 +62,8 @@ export const AuthState = ({ children }) => {
     } catch (err) {
       return err;
     }
-  }, [token, user, authAxios]);
+    // eslint-disable-next-line
+  }, [user, authAxios]);
 
   useEffect(() => {
     fetchAccessToken();
@@ -70,7 +71,8 @@ export const AuthState = ({ children }) => {
       localStorage.setItem('token', token);
       saveUser();
     }
-  }, [fetchAccessToken, token, saveUser]);
+    // eslint-disable-next-line
+  }, [fetchAccessToken, token]);
 
   console.log('currentUser= ', currentUser);
   return (
