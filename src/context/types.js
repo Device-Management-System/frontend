@@ -1,35 +1,3 @@
-// ======= AUTH TYPES ============================
-
-export const SET_CURRENT_USER_SUCCESS = 'SET_CURRENT_USER_SUCCESS';
-export const SET_CURRENT_USER_FAIL = 'SET_CURRENT_USER_FAIL';
-export const REGISTER_START = 'REGISTER_START';
-export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
-export const REGISTER_FAIL = 'REGISTER_FAIL';
-export const LOGIN_START = 'LOGIN_START';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
-export const LOGOUT = 'LOGOUT';
-export const LOGOUT_FAIL = 'LOGOUT_FAIL';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
-
-// ======= ORGANIZATION TYPES ============================
-
-export const CREATE_ORG_START = 'CREATE_ORG_START';
-export const CREATE_ORG_SUCCESS = 'CREATE_ORG_SUCCESS';
-export const CREATE_ORG_FAIL = 'CREATE_ORG_FAIL';
-export const GET_ORG_START = 'GET_ORG_START';
-export const GET_ORG_SUCCESS = 'GET_ORG_SUCCESS';
-export const GET_ORG_FAIL = 'GET_ORG_FAIL';
-export const SELECT_ORG_START = 'SELECT_ORG_START';
-export const SELECT_ORG_SUCCESS = 'SELECT_ORG_SUCCESS';
-export const SELECT_ORG_FAIL = 'SELECT_ORG_FAIL';
-export const UPDATE_ORG_START = 'UPDATE_ORG_START';
-export const UPDATE_ORG_SUCCESS = 'UPDATE_ORG_SUCCESS';
-export const UPDATE_ORG_FAIL = 'UPDATE_ORG_FAIL';
-export const REMOVE_ORG_START = 'REMOVE_ORG_START';
-export const REMOVE_ORG_SUCCESS = 'REMOVE_ORG_SUCCESS';
-export const REMOVE_ORG_FAIL = 'REMOVE_ORG_FAIL';
-
 // ======= USER TYPES ============================
 
 export const CREATE_USER_START = 'CREATE_USER_START';

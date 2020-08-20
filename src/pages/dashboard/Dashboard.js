@@ -12,7 +12,7 @@ const Dashboard = () => {
   }, [history, isAuthenticated]);
 
   return (
-    <div className="ManagerDashboardContainer">
+    <div>
       <p>You're authenticated</p>
       <PostDevice />
     </div>
