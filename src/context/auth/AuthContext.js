@@ -63,7 +63,7 @@ export const AuthState = ({ children }) => {
       return err;
     }
     // eslint-disable-next-line
-  }, [user, authAxios]);
+  }, []);
 
   useEffect(() => {
     fetchAccessToken();
@@ -72,7 +72,7 @@ export const AuthState = ({ children }) => {
       saveUser();
     }
     // eslint-disable-next-line
-  }, [fetchAccessToken, token]);
+  }, []);
 
   console.log('currentUser= ', currentUser);
   return (
