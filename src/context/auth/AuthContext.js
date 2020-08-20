@@ -54,9 +54,10 @@ export const AuthState = ({ children }) => {
           email: user.email,
         };
 
-        const { data } = await authAxios.post('/api/auth', newUser);
-        console.log('data= ', data);
-        setCurrentUser(data);
+        const res = await authAxios.post('/api/auth', newUser);
+
+        console.log('data= ', res.data);
+        setCurrentUser(res.data);
       }
     } catch (err) {
       return err;
