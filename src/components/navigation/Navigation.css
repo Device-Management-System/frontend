@@ -1,14 +1,25 @@
 .navigation {
-  position: sticky !important;
-  top: 0 !important;
+  position: sticky;
+  top: 0;
   width: 100%;
   font-size: 1.6rem;
-  margin: 0 !important;
-  margin-bottom: 8rem !important;
-  padding: 0 !important;
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+  margin: 0;
+  margin-bottom: 8rem;
+  padding: 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   z-index: 100;
+  margin-top: 2rem !important;
+  margin-bottom: 8rem !important;
+  height: 3.2rem;
+}
+
+.navigation .content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navigation .logo {
@@ -16,7 +27,7 @@
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.navigation .logo a {
+.navigation .logo {
   color: #000;
 }
 
@@ -32,6 +43,12 @@
   padding: 0 !important;
 }
 
+.navigation .nav-right {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .navigation .nav .navlink a {
   text-decoration: none;
   color: #000;
@@ -41,7 +58,23 @@
   transition: all 0.2s ease-in-out;
 }
 
+.navigation .nav-right .navlink a {
+  text-decoration: none;
+  color: #000;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500;
+  margin-left: 2.8rem;
+  transition: all 0.2s ease-in-out;
+}
+
 .navigation .nav .navlink a:hover {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500;
+  color: #1078ce;
+}
+
+.navigation .nav-right .navlink a:hover {
   text-decoration: none;
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 500;
@@ -62,18 +95,42 @@
   outline: none;
 }
 
+.navigation .nav-right .navlink button {
+  text-decoration: none;
+  color: #000;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500;
+  background: none;
+  margin-left: 2.8rem;
+  border: 1px solid #000;
+  border-radius: 0.3rem;
+  padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+  transition: all 0.2s ease-in;
+  outline: none;
+}
+
 .navigation .nav .navlink button:hover {
   background: #1998ff;
   border: 1px solid #1998ff;
   color: #fff;
 }
 
-.navigation .logout {
-  border: 0;
+.navigation .nav-right .navlink button:hover {
+  background: #1998ff;
+  border: 1px solid #1998ff;
+  color: #fff;
+}
+
+.navigation .navlink-logout {
+  display: flex;
+}
+
+.navigation .navlink-logout .logout {
+  border: 0 !important;
   background: none;
   font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   outline: none;
 }

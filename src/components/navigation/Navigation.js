@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import './Navigation.css';
@@ -13,18 +13,20 @@ const Navigation = () => {
   const navRef = useRef();
 
   const handleScroll = useCallback(() => {
-    if (window.pageYOffset > 30) {
-      navRef.current.classList.add('sticky');
-      navRef.current.classList.add('animated');
-      navRef.current.classList.add('fadeIn');
-      navRef.current.classList.add('fast');
-    } else {
-      navRef.current.classList.remove('sticky');
-      navRef.current.classList.remove('animated');
-      navRef.current.classList.remove('fadeIn');
-      navRef.current.classList.remove('fast');
+    if (location.pathname === '/') {
+      if (window.pageYOffset > 30) {
+        navRef.current.classList.add('sticky');
+        navRef.current.classList.add('animated');
+        navRef.current.classList.add('fadeIn');
+        navRef.current.classList.add('fast');
+      } else {
+        navRef.current.classList.remove('sticky');
+        navRef.current.classList.remove('animated');
+        navRef.current.classList.remove('fadeIn');
+        navRef.current.classList.remove('fast');
+      }
     }
-  }, []);
+  }, [location]);
 
   useEffect(() => {
     handleScroll();
@@ -35,46 +37,44 @@ const Navigation = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <Navbar ref={navRef} className="justify-content-between navigation">
-      <div className="container">
-        <Navbar.Brand className="logo" href="/">
-          Landr
-        </Navbar.Brand>
-        <Nav className="nav ml-auto">
-          {location.pathname === '/' ? (
+    <div ref={navRef} className="navigation">
+      <div
+        className={`${
+          location.pathname === '/' ? 'landr-container' : ''
+        } content`}
+      >
+        {!isAuthenticated && (
+          <a className="logo" href="/">
+            Landr
+          </a>
+        )}
+        <ul className={`${location.pathname === '/' ? 'nav' : 'nav-right'}`}>
+          {!isAuthenticated && location.pathname === '/' ? (
             <>
-              <NavItem className="navlink">
+              <li className="navlink">
                 <AnchorLink href="#pricing">Pricing</AnchorLink>
-              </NavItem>
-              <NavItem className="navlink">
+              </li>
+              <li className="navlink">
                 <AnchorLink href="#team">Team</AnchorLink>
-              </NavItem>
-              <NavItem className="navlink">
+              </li>
+              <li className="navlink">
                 <AnchorLink href="#contact">Contact</AnchorLink>
-              </NavItem>
+              </li>
+              <li className="navlink">
+                <button onClick={loginWithRedirect}>Login</button>
+              </li>
             </>
           ) : (
-            <>
-              <NavItem className="navlink">
-                <NavLink to="/">Home</NavLink>
-              </NavItem>
-            </>
-          )}
-          {isAuthenticated && (
-            <NavItem className="navlink">
+            <li className="navlink-logout">
+              <FontAwesomeIcon icon={faSignOutAlt} size="lg" />
               <button className="logout" onClick={logout}>
                 Logout
               </button>
-            </NavItem>
+            </li>
           )}
-          {!isAuthenticated && (
-            <NavItem className="navlink">
-              <button onClick={loginWithRedirect}>Login</button>
-            </NavItem>
-          )}
-        </Nav>
+        </ul>
       </div>
-    </Navbar>
+    </div>
   );
 };
 
