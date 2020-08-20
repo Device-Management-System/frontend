@@ -9,7 +9,7 @@ const UpdateProfile = () => {
 
   useEffect(() => {
     if (currentUser && currentUser.is_completed) history.push('/dashboard');
-  });
+  }, [currentUser]);
   return <div>UpdateProfile</div>;
 };
 
