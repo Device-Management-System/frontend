@@ -5,6 +5,7 @@ import * as yup from 'yup';
 
 import Input from '../../common/input/Input';
 import MSG from '../../common/formError/FormError';
+import ContactBtn from '../../common/customButton/CustomButton';
 
 import {
   ContactContainer,
@@ -64,7 +65,7 @@ const Contact = () => {
             />
             {errors.email && <MSG message="Email is required" />}
           </div>
-          <Input submit type="submit" value="Contact" />
+          <ContactBtn contact type="submit" text="Contact" />
         </ContactForm>
       </ContactWrapper>
     </ContactContainer>

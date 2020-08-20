@@ -43,10 +43,29 @@
 
 .navigation .nav .navlink a:hover {
   text-decoration: none;
-  color: #000;
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 500;
   color: #1078ce;
+}
+
+.navigation .nav .navlink button {
+  text-decoration: none;
+  color: #000;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500;
+  background: none;
+  margin-left: 2.8rem;
+  border: 1px solid #000;
+  border-radius: 0.3rem;
+  padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+  transition: all 0.2s ease-in;
+  outline: none;
+}
+
+.navigation .nav .navlink button:hover {
+  background: #1998ff;
+  border: 1px solid #1998ff;
+  color: #fff;
 }
 
 .navigation .logout {

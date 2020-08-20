@@ -120,7 +120,7 @@ const getCardStyle = (props) => {
   return props.highlight ? pricingCardOn : pricingCardDefault;
 };
 
-export const PricingCardSelect = styled.button`
+export const PricingCardSelect = styled.div`
   ${({ theme: { primary } }) => css`
     border: none;
     background: none;
@@ -133,6 +133,7 @@ export const PricingCardSelect = styled.button`
     outline: none;
     border-radius: 0.4rem;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
     &:focus {
       outline: none;

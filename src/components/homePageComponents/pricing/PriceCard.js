@@ -50,13 +50,9 @@ const PriceCard = ({
           })}
         </Features>
         {selected ? (
-          <CardBtn pricingr="true" to="#">
-            {btn_label}
-          </CardBtn>
+          <CardBtn pricingr="true" text={btn_label} />
         ) : (
-          <CardBtn pricing="true" to="#">
-            {btn_label}
-          </CardBtn>
+          <CardBtn pricing="true" text={btn_label} />
         )}
       </PricingCard>
     </PricingCardSelect>
