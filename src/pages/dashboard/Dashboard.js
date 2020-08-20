@@ -1,20 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import PostDevice from '../../components/PostDevice';
+import { AuthContext } from '../../context/auth/AuthContext';
+// import PostDevice from '../../components/PostDevice';
 
 const Dashboard = () => {
   const history = useHistory();
   const { isAuthenticated } = useAuth0();
+  const authContext = useContext(AuthContext);
+  const { currentUser } = authContext;
 
   useEffect(() => {
     if (!isAuthenticated) history.push('/login');
-  }, [history, isAuthenticated]);
+    if (currentUser && !currentUser.isCompleted)
+      history.push('/update-profile');
+  }, [history, isAuthenticated, currentUser]);
 
   return (
     <div>
-      <p>You're authenticated</p>
-      <PostDevice />
+      Dashboard
+      {/* <PostDevice /> */}
     </div>
   );
 };

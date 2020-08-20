@@ -5,6 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useState(null);
   const { getAccessTokenSilently, user } = useAuth0();
 
@@ -44,22 +45,33 @@ export const AuthState = ({ children }) => {
     }
   );
 
+  const saveUser = useCallback(async () => {
+    try {
+      if (token && user) {
+        const newUser = {
+          id: user.sub.slice(6),
+          name: user.nickname,
+          email: user.email,
+        };
+
+        const { data } = authAxios.post('/api/auth', newUser);
+        setCurrentUser(data);
+      }
+    } catch (err) {
+      return err;
+    }
+  }, [token, user, authAxios]);
+
   useEffect(() => {
     fetchAccessToken();
-    if (token) localStorage.setItem('token', token);
-
-    if (token && user) {
-      const newUser = {
-        id: user.sub.slice(6),
-        name: user.name,
-        email: user.email,
-      };
-      authAxios.post('/api/auth', newUser);
+    if (token) {
+      localStorage.setItem('token', token);
+      saveUser();
     }
-  }, [fetchAccessToken, token, user, authAxios]);
+  }, [fetchAccessToken, token, saveUser]);
 
   return (
-    <AuthContext.Provider value={{ authAxios }}>
+    <AuthContext.Provider value={{ authAxios, currentUser }}>
       {children}
     </AuthContext.Provider>
   );
