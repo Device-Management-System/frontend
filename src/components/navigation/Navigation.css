@@ -121,12 +121,16 @@
   color: #fff;
 }
 
-.navigation .logout {
-  border: 0;
+.navigation .navlink-logout {
+  display: flex;
+}
+
+.navigation .navlink-logout .logout {
+  border: 0 !important;
   background: none;
   font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   outline: none;
 }
