@@ -56,7 +56,7 @@ export const AuthState = ({ children }) => {
       };
       authAxios.post('/api/auth', newUser);
     }
-  }, [fetchAccessToken, token, user]);
+  }, [fetchAccessToken, token, user, authAxios]);
 
   return (
     <AuthContext.Provider value={{ authAxios }}>

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const defaultStyle = css`
   ${({ theme: { primary, hover } }) => css`
