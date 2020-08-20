@@ -6,7 +6,7 @@ import { ReactComponent as Devices } from '../../../assets/landr.svg';
 import './Billboard.css';
 
 const Billboard = () => {
-  const { isAuthenticated } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <div className="billboard">
@@ -18,11 +18,7 @@ const Billboard = () => {
               Manage your devices accross your teams in a one stop shop
               application.
             </p>
-            {isAuthenticated ? (
-              <GetStarted to="/dashboard">Dashboard</GetStarted>
-            ) : (
-              <GetStarted to="/register">Get Started</GetStarted>
-            )}
+            <GetStarted text="Get Started" onClick={loginWithRedirect} />
           </div>
           <div className="billboard-image">
             <Devices alt="landr-hero" />

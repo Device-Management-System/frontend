@@ -22,6 +22,22 @@ const defaultStyle = css`
 `}
 `;
 
+const contactStyle = css`
+  ${({ theme: { primary, hover } }) => css`
+    width: 100%;
+    background: ${primary};
+    color: #fff;
+    border: 0;
+    padding: 16px 20px 16px 20px;
+
+    &:hover {
+      text-decoration: none;
+      background: ${hover};
+      font-weight: 600;
+    }
+  `}
+`;
+
 const inverted = css`
   ${({ theme: { regular, primary } }) => css`
   height: 40px;
@@ -117,10 +133,14 @@ const getButtonStyle = (props) => {
     return pricingStylesReversed;
   }
 
+  if (props.contact) {
+    return contactStyle;
+  }
+
   return props.inverted ? inverted : defaultStyle;
 };
 
-export const CustomButtonContainer = styled(Link)`
+export const CustomButtonContainer = styled.button`
   ${({ theme: { regular } }) => css`
   max-width: 53.9rem;
   width: auto;

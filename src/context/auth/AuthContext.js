@@ -6,21 +6,16 @@ export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
   const [token, setToken] = useState(null);
-  const { getAccessTokenSilently } = useAuth0();
+  const { getAccessTokenSilently, user } = useAuth0();
 
   const fetchAccessToken = useCallback(async () => {
     try {
       const accessToken = await getAccessTokenSilently();
       setToken(accessToken);
     } catch (err) {
-      console.log(err);
+      return err;
     }
   }, [getAccessTokenSilently]);
-
-  useEffect(() => {
-    fetchAccessToken();
-    if (token) localStorage.setItem('token', token);
-  }, [fetchAccessToken, token]);
 
   const authAxios = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
@@ -48,6 +43,20 @@ export const AuthState = ({ children }) => {
       return Promise.reject(err);
     }
   );
+
+  useEffect(() => {
+    fetchAccessToken();
+    if (token) localStorage.setItem('token', token);
+
+    if (token && user) {
+      const newUser = {
+        id: user.sub.slice(6),
+        name: user.name,
+        email: user.email,
+      };
+      authAxios.post('/api/auth', newUser);
+    }
+  }, [fetchAccessToken, token, user]);
 
   return (
     <AuthContext.Provider value={{ authAxios }}>

@@ -69,12 +69,7 @@ const Navigation = () => {
           )}
           {!isAuthenticated && (
             <NavItem className="navlink">
-              <NavLink to="/login">Login</NavLink>
-            </NavItem>
-          )}
-          {!isAuthenticated && (
-            <NavItem className="navlink">
-              <button onClick={loginWithRedirect}>Sign up</button>
+              <button onClick={loginWithRedirect}>Login</button>
             </NavItem>
           )}
         </Nav>
