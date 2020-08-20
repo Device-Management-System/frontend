@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Route, Redirect } from 'react-router-dom';
-import Layout from '../Layout';
+import Layout from '../layout/Layout';
 
 const AdminRoute = ({ children, ...otherProps }) => {
   const { isAuthenticated, user } = useAuth0();
