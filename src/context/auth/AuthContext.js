@@ -55,6 +55,7 @@ export const AuthState = ({ children }) => {
         };
 
         const { data } = authAxios.post('/api/auth', newUser);
+        console.log('data= ', data);
         setCurrentUser(data);
       }
     } catch (err) {
