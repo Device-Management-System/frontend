@@ -21,9 +21,8 @@ import {
 } from './Sidebar.styles';
 
 const Sidebar = () => {
-  const [roles, setRoles] = useState();
+  const [roles, setRoles] = useState(null);
   const { user } = useAuth0();
-  console.log(roles);
 
   useEffect(() => {
     if (user) {
@@ -37,35 +36,35 @@ const Sidebar = () => {
       </LogoContainer>
       <LinkContainer>
         <SidebarLinkContent>
-          <FontAwesomeIcon icon={faTachometerAlt} size="lg" />{' '}
+          <FontAwesomeIcon icon={faTachometerAlt} size="lg" />
           <SidebarLink to="/dashboard">Dashboard</SidebarLink>
         </SidebarLinkContent>
         <SidebarLinkContent>
-          <FontAwesomeIcon icon={faMobileAlt} size="lg" />{' '}
+          <FontAwesomeIcon icon={faMobileAlt} size="lg" />
           <SidebarLink to="/devices/:id">My Devices</SidebarLink>
         </SidebarLinkContent>
         <SidebarLinkContent>
-          <FontAwesomeIcon icon={faQuestionCircle} size="lg" />{' '}
+          <FontAwesomeIcon icon={faQuestionCircle} size="lg" />
           <SidebarLink to="/requests/:id">My Requests</SidebarLink>
         </SidebarLinkContent>
-        {roles && roles.includes('admin') && (
+        {user && roles && roles.includes('admin') && (
           <>
             <SidebarLinkContent>
-              <FontAwesomeIcon icon={faUsers} size="lg" />{' '}
+              <FontAwesomeIcon icon={faUsers} size="lg" />
               <SidebarLink to="/users">Users</SidebarLink>
             </SidebarLinkContent>
             <SidebarLinkContent>
-              <FontAwesomeIcon icon={faDesktop} size="lg" />{' '}
+              <FontAwesomeIcon icon={faDesktop} size="lg" />
               <SidebarLink to="/devices">Devices</SidebarLink>
             </SidebarLinkContent>
             <SidebarLinkContent>
-              <FontAwesomeIcon icon={faList} size="lg" />{' '}
+              <FontAwesomeIcon icon={faList} size="lg" />
               <SidebarLink to="/requests/">Requests</SidebarLink>
             </SidebarLinkContent>
           </>
         )}
         <SidebarLinkContent>
-          <FontAwesomeIcon icon={faCogs} size="lg" />{' '}
+          <FontAwesomeIcon icon={faCogs} size="lg" />
           <SidebarLink to="/settings/:id">Settings</SidebarLink>
         </SidebarLinkContent>
       </LinkContainer>

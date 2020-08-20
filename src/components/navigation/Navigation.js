@@ -36,6 +36,7 @@ const Navigation = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <div ref={navRef} className="navigation">
       <div
