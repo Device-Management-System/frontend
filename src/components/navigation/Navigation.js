@@ -71,7 +71,9 @@ const Navigation = () => {
                 className="logout"
                 onClick={async () => {
                   await logout();
-                  localStorage.removeItem('token');
+                  if (process.env.NODE_ENV === 'development') {
+                    localStorage.removeItem('token');
+                  }
                 }}
               >
                 <FontAwesomeIcon icon={faSignOutAlt} size="lg" /> Logout

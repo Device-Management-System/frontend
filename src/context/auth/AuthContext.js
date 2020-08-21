@@ -65,7 +65,9 @@ export const AuthState = ({ children }) => {
   useEffect(() => {
     fetchAccessToken();
     if (token) {
-      localStorage.setItem('token', token);
+      if (process.env.NODE_ENV === 'development') {
+        localStorage.setItem('token', token);
+      }
       saveUser();
     }
     // eslint-disable-next-line
