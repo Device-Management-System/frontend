@@ -67,7 +67,13 @@ const Navigation = () => {
             </>
           ) : (
             <li className="navlink-logout">
-              <button className="logout" onClick={logout}>
+              <button
+                className="logout"
+                onClick={async () => {
+                  await logout();
+                  localStorage.removeItem('token');
+                }}
+              >
                 <FontAwesomeIcon icon={faSignOutAlt} size="lg" /> Logout
               </button>
             </li>
