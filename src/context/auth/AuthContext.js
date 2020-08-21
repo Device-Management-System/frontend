@@ -51,7 +51,6 @@ export const AuthState = ({ children }) => {
       if (token && user) {
         const newUser = {
           id: user.sub.slice(6),
-          // name: user.nickname,
           email: user.email,
         };
         const res = await authAxios.post('/api/auth', newUser);

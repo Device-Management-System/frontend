@@ -1,7 +1,7 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../context/auth/AuthContext';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
 import axios from 'axios';
@@ -16,7 +16,13 @@ import {
   ContactTop as UpdateProfileContactTop,
 } from '../../components/homePageComponents/contact/Contact.styles';
 
-const UpdateProfile = () => {
+const UpdateProfile = (props) => {
+  const [input, setInput] = useState({
+    firstname: '',
+    lastname: '',
+    role: '',
+  });
+  const [userToUpdate, setUserToUpdate] = useState();
   const history = useHistory();
   const authContext = useContext(AuthContext);
 
@@ -28,21 +34,38 @@ const UpdateProfile = () => {
     role: yup.string().trim().required(),
   });
 
-  const { handleSubmit, register, errors } = useForm({
-    resolver: yupResolver(schema),
-  });
+  // const { handleSubmit, register, errors } = useForm({
+  //   resolver: yupResolver(schema),
+  // });
+  const handleChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
-  // Error ?
-  const onSubmit = (updateInfo) => {
-    console.log(currentUser);
-
-    console.log(updateInfo);
+  // const onSubmit = async (updateInfo) => {
+  //   try {
+  //     const res = await authAxios.put(
+  //       `/api/users/${currentUser.id}`,
+  //       updateInfo
+  //     );
+  //     if (res) {
+  //       // props.history.push('/dashboard');
+  //       console.log(res.data);
+  //       await setUserToUpdate(res.data);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  const handleSubmit = (e) => {
+    console.log(input);
+    e.preventDefault();
 
     authAxios
-      .put(`/api/users/${currentUser.id}`, updateInfo)
+      .put(`/api/users/${currentUser.id}`, input)
       .then((res) => {
-        console.log('PUT', res.data);
-        history.push('/dashboard');
+        console.log(res.data.is_completed);
+        setUserToUpdate(res.data);
+        // props.history.push('/dashboard');
       })
       .catch((err) => {
         console.log(err);
@@ -50,15 +73,17 @@ const UpdateProfile = () => {
   };
 
   useEffect(() => {
-    if (currentUser && currentUser.is_completed) history.push('/dashboard');
-  }, [currentUser, history]);
+    if (userToUpdate) {
+      props.history.push('/dashboard');
+    }
+  }, [userToUpdate]);
 
   return (
     <div>
       <UpdateProfileContainer id="contact">
         <UpdateProfileContactWrapper>
           <h4>Create Profile</h4>
-          <UpdateProfileContactForm onSubmit={handleSubmit(onSubmit)}>
+          <UpdateProfileContactForm onSubmit={handleSubmit}>
             <UpdateProfileContactTop>
               <div>
                 <Input
@@ -66,9 +91,9 @@ const UpdateProfile = () => {
                   type="text"
                   name="firstname"
                   placeholder="First Name"
-                  ref={register}
+                  onChange={handleChange}
                 />
-                {errors.fullname && <MSG message="First Name is required" />}
+                {/* {errors.fullname && <MSG message="First Name is required" />} */}
               </div>
               <div>
                 <Input
@@ -76,9 +101,9 @@ const UpdateProfile = () => {
                   type="text"
                   name="lastname"
                   placeholder="Last Name"
-                  ref={register}
+                  onChange={handleChange}
                 />
-                {errors.fullname && <MSG message="Last Name is required" />}
+                {/* {errors.fullname && <MSG message="Last Name is required" />} */}
               </div>
             </UpdateProfileContactTop>
             <div>
@@ -86,9 +111,9 @@ const UpdateProfile = () => {
                 type="text"
                 name="role"
                 placeholder="Role"
-                ref={register}
+                onChange={handleChange}
               />
-              {errors.role && <MSG message="Role is required" />}
+              {/* {errors.role && <MSG message="Role is required" />} */}
             </div>
             <ContactBtn contact type="submit" text="Submit" />
           </UpdateProfileContactForm>
