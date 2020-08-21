@@ -9,7 +9,6 @@ const Dashboard = () => {
   const { isAuthenticated } = useAuth0();
   const authContext = useContext(AuthContext);
   const { currentUser } = authContext;
-  console.log(currentUser);
 
   useEffect(() => {
     if (!isAuthenticated) history.push('/login');
