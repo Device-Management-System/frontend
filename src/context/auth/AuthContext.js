@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState();
   const { getAccessTokenSilently, user } = useAuth0();
 
   const fetchAccessToken = useCallback(async () => {
@@ -47,23 +47,20 @@ export const AuthState = ({ children }) => {
 
   const saveUser = useCallback(async () => {
     try {
-      if (user) {
+      if (token && user) {
         const newUser = {
           id: user.sub.slice(6),
           name: user.nickname,
           email: user.email,
         };
-
         const res = await authAxios.post('/api/auth', newUser);
-
-        console.log('data= ', res.data);
         setCurrentUser(res.data);
       }
     } catch (err) {
       return err;
     }
     // eslint-disable-next-line
-  }, []);
+  }, [user, token]);
 
   useEffect(() => {
     fetchAccessToken();
@@ -72,9 +69,8 @@ export const AuthState = ({ children }) => {
       saveUser();
     }
     // eslint-disable-next-line
-  }, []);
+  }, [saveUser, token]);
 
-  console.log('currentUser= ', currentUser);
   return (
     <AuthContext.Provider value={{ authAxios, currentUser }}>
       {children}
