@@ -16,6 +16,9 @@ const Approutes = () => {
   return (
     <>
       <PublicRoute />
+      <SettingRoute exact path="/update-profile/:id">
+        <UpdateProfile />
+      </SettingRoute>
       <PrivateRoute exact path="/dashboard">
         <Dashboard />
       </PrivateRoute>
@@ -37,9 +40,6 @@ const Approutes = () => {
       <PrivateRoute exact path="/settings/:id">
         <Settings />
       </PrivateRoute>
-      <SettingRoute exact path="/update-profile/:id">
-        <UpdateProfile />
-      </SettingRoute>
     </>
   );
 };

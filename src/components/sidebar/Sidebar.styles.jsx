@@ -20,9 +20,9 @@ export const LogoContainer = styled.div`
 `;
 
 export const SidebarLogo = styled.h2`
-  font-size: 2.4rem;
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
 `;
 
 export const SidebarHeader = styled.h4`

@@ -45,7 +45,7 @@ const Navigation = () => {
       >
         {!isAuthenticated && (
           <a className="logo" href="/">
-            Landr
+            LANDR
           </a>
         )}
         <ul className={`${location.pathname === '/' ? 'nav' : 'nav-right'}`}>

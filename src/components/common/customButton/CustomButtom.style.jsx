@@ -83,7 +83,7 @@ const googleSignInStyles = css`
 const pricingStylesDefault = css`
   ${({ theme: { primary, small, hover } }) => css`
     width: 14.5rem;
-    height: 3.5rem;
+    height: 3.8rem !important;
     color: #fff;
     background: ${primary};
     font-size: ${small};
@@ -102,7 +102,7 @@ const pricingStylesDefault = css`
 const pricingStylesReversed = css`
   ${({ theme: { primary, small } }) => css`
     width: 14.5rem;
-    height: 3.5rem;
+    height: 3.8rem;
     color: ${primary};
     background: #fff;
     font-size: ${small};
@@ -143,7 +143,6 @@ export const CustomButtonContainer = styled.button`
   ${({ theme: { regular } }) => css`
   max-width: 53.9rem;
   width: auto;
-  height: 44px;
   border-radius: 0.4rem;
   letter-spacing: 0.26px;
   font-family: 'Montserrat', sans-serif;

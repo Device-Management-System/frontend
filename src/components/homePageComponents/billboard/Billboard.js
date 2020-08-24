@@ -13,7 +13,9 @@ const Billboard = () => {
       <div className="landr-container">
         <div className="hero">
           <div className="billboard-content">
-            <h2 className="billboard-header">Discover Landr</h2>
+            <h2 className="billboard-header">
+              Discover <span>LANDR</span>
+            </h2>
             <p className="billboard-desc">
               Manage your devices accross your teams in a one stop shop
               application.

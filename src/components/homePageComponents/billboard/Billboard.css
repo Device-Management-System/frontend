@@ -39,6 +39,13 @@
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
+.billboard-content .billboard-header span {
+  font-weight: 900;
+  font-size: 3rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #6dbdff;
+}
+
 .billboard .billboard-image {
   height: 100%;
   position: absolute;

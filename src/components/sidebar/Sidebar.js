@@ -31,7 +31,7 @@ const Sidebar = () => {
   return (
     <SidebarContainer>
       <LogoContainer>
-        <SidebarLogo>Landr</SidebarLogo>
+        <SidebarLogo>LANDR</SidebarLogo>
       </LogoContainer>
       {currentUser && currentUser.is_completed ? (
         <LinkContainer>

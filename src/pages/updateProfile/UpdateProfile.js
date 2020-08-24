@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth/AuthContext';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
@@ -14,10 +14,12 @@ import {
   UpdateProfileTop,
   UpdateProfileDesc,
 } from './UpdateProfile.styles';
+import Success from '../../components/common/success/Success';
 
 const UpdateProfile = () => {
   const authContext = useContext(AuthContext);
   const { updateUser } = authContext;
+  const [done, setDone] = useState(false);
 
   const schema = yup.object().shape({
     firstname: yup.string().trim().required(),
@@ -29,8 +31,9 @@ const UpdateProfile = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    updateUser(data);
+  const onSubmit = async (data) => {
+    await updateUser(data);
+    await setDone(true);
   };
 
   return (
@@ -78,6 +81,7 @@ const UpdateProfile = () => {
             {errors.role && <UpdateMsg message="Role is required" />}
           </div>
           <UpdateBtn contact type="submit" text="Submit" />
+          {done && <Success message="Profile Successfully Updated" />}
         </UpdateProfileForm>
       </UpdateProfileWrapper>
     </UpdateProfileContainer>
