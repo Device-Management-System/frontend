@@ -41,9 +41,12 @@ const UpdateProfile = () => {
       <UpdateProfileWrapper>
         <h4>Create Profile</h4>
         <UpdateProfileForm onSubmit={handleSubmit(onSubmit)}>
-          <UpdateProfileDesc>
-            Complete your profile in order to continue!
-          </UpdateProfileDesc>
+          {!done && (
+            <UpdateProfileDesc>
+              Complete your profile in order to continue!
+            </UpdateProfileDesc>
+          )}
+          {done && <Success message="Profile Successfully Updated" />}
           <UpdateProfileTop>
             <div>
               <Input
@@ -81,7 +84,6 @@ const UpdateProfile = () => {
             {errors.role && <UpdateMsg message="Role is required" />}
           </div>
           <UpdateBtn contact type="submit" text="Submit" />
-          {done && <Success message="Profile Successfully Updated" />}
         </UpdateProfileForm>
       </UpdateProfileWrapper>
     </UpdateProfileContainer>
