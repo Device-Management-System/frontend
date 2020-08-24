@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import * as Unicons from '@iconscout/react-unicons';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import './Navigation.css';
@@ -76,7 +77,12 @@ const Navigation = () => {
                   }
                 }}
               >
-                <FontAwesomeIcon icon={faSignOutAlt} size="lg" /> Logout
+                <Unicons.UilSignOutAlt
+                  fill="#0C0C0C"
+                  width="2.2rem"
+                  height="2.2rem"
+                />{' '}
+                Logout
               </button>
             </li>
           )}

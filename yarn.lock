@@ -1311,6 +1311,20 @@
   resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-0.1.0.tgz#30f5cf17a3a5590ca90dcfa834492e515e17d0a5"
   integrity sha512-/6cnDycgWhmvUpRmYY7506qJlym+hirk4tbt2waY3C2rOjFn+4/Gt4CuVLzjrsNJvOJkN36bx+OSlccecBgsrg==
 
+"@iconscout/react-unicons-solid@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@iconscout/react-unicons-solid/-/react-unicons-solid-0.0.2.tgz#cce429f922127e9963f4b013f848ce9888658cc9"
+  integrity sha512-BRdAEZIJrgw6KGGkDahHaU98sp6X4jPd6Cvs9cpEWPBfElx7hhndBEsJHlzzS1VP4lTxcAW6d2S1TCmXWuJg+g==
+  dependencies:
+    react ">=15.0.0 <17.0.0"
+
+"@iconscout/react-unicons@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@iconscout/react-unicons/-/react-unicons-1.1.5.tgz#2bb37e117a5cb9ddde70b2dbbc8c55021aac5cbb"
+  integrity sha512-1Y2VPR7pCtwz4grPMDcPBJjXZL5sG0d8yvdPAZcnaBPGSiWHNchUgcqvkIJVL7cmy2/rC25W0M+Dx2hw/imyRA==
+  dependencies:
+    react ">=15.0.0 <17.0.0"
+
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.9.0.tgz#79b1bc06fb74a8cfb01cbdedf945584b1b9707f0"
@@ -9518,7 +9532,7 @@ react-transition-group@^4.0.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.13.1:
+"react@>=15.0.0 <17.0.0", react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==

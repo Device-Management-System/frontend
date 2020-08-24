@@ -31,10 +31,10 @@ const Approutes = () => {
       <AdminRoute exact path="/requests">
         <Requests />
       </AdminRoute>
-      <PrivateRoute exact path="/devices/:id">
+      <PrivateRoute exact path="/my-devices/:id">
         <UserDevices />
       </PrivateRoute>
-      <PrivateRoute exact path="/requests/:id">
+      <PrivateRoute exact path="/my-requests/:id">
         <UserRequests />
       </PrivateRoute>
       <PrivateRoute exact path="/settings/:id">
