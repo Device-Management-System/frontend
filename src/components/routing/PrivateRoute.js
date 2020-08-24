@@ -22,11 +22,7 @@ const PrivateRoute = ({ children, ...otherProps }) => {
         if (isAuthenticated && currentUser && isCompleted) {
           return <Layout>{children}</Layout>;
         } else if (isAuthenticated && currentUser && !isCompleted) {
-          return (
-            <Layout>
-              <Redirect to="/update-profile" />
-            </Layout>
-          );
+          return <Redirect to="/update-profile" />;
         } else {
           return <Redirect to="/" />;
         }

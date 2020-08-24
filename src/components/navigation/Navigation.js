@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import * as Unicons from '@iconscout/react-unicons';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 

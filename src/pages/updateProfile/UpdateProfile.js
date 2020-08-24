@@ -1,13 +1,13 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../context/auth/AuthContext';
 // import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers';
-import * as yup from 'yup';
-import axios from 'axios';
+// import { yupResolver } from '@hookform/resolvers';
+// import * as yup from 'yup';
+// import axios from 'axios';
 
 import Input from '../../components/common/input/Input';
-import MSG from '../../components/common/formError/FormError';
+// import MSG from '../../components/common/formError/FormError';
 import ContactBtn from '../../components/common/customButton/CustomButton';
 import {
   ContactContainer as UpdateProfileContainer,
@@ -23,16 +23,16 @@ const UpdateProfile = (props) => {
     role: '',
   });
   const [userToUpdate, setUserToUpdate] = useState();
-  const history = useHistory();
+  // const history = useHistory();
   const authContext = useContext(AuthContext);
 
   const { currentUser, authAxios } = authContext;
 
-  const schema = yup.object().shape({
-    firstname: yup.string().trim().required(),
-    lastname: yup.string().trim().required(),
-    role: yup.string().trim().required(),
-  });
+  // const schema = yup.object().shape({
+  //   firstname: yup.string().trim().required(),
+  //   lastname: yup.string().trim().required(),
+  //   role: yup.string().trim().required(),
+  // });
 
   // const { handleSubmit, register, errors } = useForm({
   //   resolver: yupResolver(schema),
@@ -57,8 +57,8 @@ const UpdateProfile = (props) => {
   //   }
   // };
   const handleSubmit = (e) => {
-    console.log(input);
     e.preventDefault();
+    console.log(input);
 
     authAxios
       .put(`/api/users/${currentUser.id}`, input)
@@ -76,7 +76,7 @@ const UpdateProfile = (props) => {
     if (userToUpdate) {
       props.history.push('/dashboard');
     }
-  }, [userToUpdate]);
+  }, [userToUpdate, props.history]);
 
   return (
     <div>
