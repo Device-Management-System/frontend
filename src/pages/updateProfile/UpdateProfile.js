@@ -1,72 +1,125 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers';
 import { AuthContext } from '../../context/auth/AuthContext';
+// import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers';
+import * as yup from 'yup';
+import axios from 'axios';
 
-import UpdateForm from '../../components/common/customForm/CustomForm';
-import UpdateInput from '../../components/common/input/Input';
-import UpdateSubmit from '../../components/common/customButton/CustomButton';
 import Input from '../../components/common/input/Input';
-import UpdateError from '../../components/common/formError/FormError';
+import MSG from '../../components/common/formError/FormError';
+import ContactBtn from '../../components/common/customButton/CustomButton';
+import {
+  ContactContainer as UpdateProfileContainer,
+  ContactWrapper as UpdateProfileContactWrapper,
+  ContactForm as UpdateProfileContactForm,
+  ContactTop as UpdateProfileContactTop,
+} from '../../components/homePageComponents/contact/Contact.styles';
 
-const UpdateProfile = () => {
+const UpdateProfile = (props) => {
+  const [input, setInput] = useState({
+    firstname: '',
+    lastname: '',
+    role: '',
+  });
+  const [userToUpdate, setUserToUpdate] = useState();
   const history = useHistory();
   const authContext = useContext(AuthContext);
+
   const { currentUser, authAxios } = authContext;
 
   const schema = yup.object().shape({
-    firstName: yup.string().trim().required(),
-    lastName: yup.string().trim().required(),
+    firstname: yup.string().trim().required(),
+    lastname: yup.string().trim().required(),
     role: yup.string().trim().required(),
   });
 
-  const { handleSubmit, register, errors } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const registerUser = (update) => {
-    console.log(update);
-    // try {
-    //   const { data } = await authAxios.put(
-    //     `/api/user/${currentUser.id}`,
-    //     update
-    //   );
-    //   if (data) {
-    //     await history.push('/dashboard');
-    //   }
-    // } catch ({ message }) {
-    //   console.log(message);
-    // }
+  // const { handleSubmit, register, errors } = useForm({
+  //   resolver: yupResolver(schema),
+  // });
+  const handleChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+  // const onSubmit = async (updateInfo) => {
+  //   try {
+  //     const res = await authAxios.put(
+  //       `/api/users/${currentUser.id}`,
+  //       updateInfo
+  //     );
+  //     if (res) {
+  //       // props.history.push('/dashboard');
+  //       console.log(res.data);
+  //       await setUserToUpdate(res.data);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  const handleSubmit = (e) => {
+    console.log(input);
+    e.preventDefault();
+
+    authAxios
+      .put(`/api/users/${currentUser.id}`, input)
+      .then((res) => {
+        console.log(res.data.is_completed);
+        setUserToUpdate(res.data);
+        // props.history.push('/dashboard');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    if (userToUpdate) {
+      props.history.push('/dashboard');
+    }
+  }, [userToUpdate]);
+
   return (
-    <form onSubmit={handleSubmit(registerUser)}>
-      <div>
-        <input
-          type="text"
-          name="firstname"
-          placeholder="First Name"
-          ref={register}
-        />
-        {errors.firstname && <UpdateError message="First Name is required" />}
-      </div>
-      <div>
-        <input
-          type="text"
-          name="lastname"
-          placeholder="Last Name"
-          ref={register}
-        />
-        {errors.lastname && <UpdateError message="Last Name is required" />}
-      </div>
-      <div>
-        <input type="text" name="role" placeholder="Role" ref={register} />
-        {errors.role && <UpdateError message="Role Name is required" />}
-      </div>
-      <input type="submit" text="submit" />
-    </form>
+    <div>
+      <UpdateProfileContainer id="contact">
+        <UpdateProfileContactWrapper>
+          <h4>Create Profile</h4>
+          <UpdateProfileContactForm onSubmit={handleSubmit}>
+            <UpdateProfileContactTop>
+              <div>
+                <Input
+                  half
+                  type="text"
+                  name="firstname"
+                  placeholder="First Name"
+                  onChange={handleChange}
+                />
+                {/* {errors.fullname && <MSG message="First Name is required" />} */}
+              </div>
+              <div>
+                <Input
+                  half
+                  type="text"
+                  name="lastname"
+                  placeholder="Last Name"
+                  onChange={handleChange}
+                />
+                {/* {errors.fullname && <MSG message="Last Name is required" />} */}
+              </div>
+            </UpdateProfileContactTop>
+            <div>
+              <Input
+                type="text"
+                name="role"
+                placeholder="Role"
+                onChange={handleChange}
+              />
+              {/* {errors.role && <MSG message="Role is required" />} */}
+            </div>
+            <ContactBtn contact type="submit" text="Submit" />
+          </UpdateProfileContactForm>
+        </UpdateProfileContactWrapper>
+      </UpdateProfileContainer>
+    </div>
   );
 };
 

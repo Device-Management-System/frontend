@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
+import App from '../../App';
 
 export const AuthContext = createContext();
 
@@ -50,7 +51,6 @@ export const AuthState = ({ children }) => {
       if (token && user) {
         const newUser = {
           id: user.sub.slice(6),
-          name: user.nickname,
           email: user.email,
         };
         const res = await authAxios.post('/api/auth', newUser);

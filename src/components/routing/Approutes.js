@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute';
@@ -12,12 +12,12 @@ import UserDevices from '../../pages/userDevices/UserDevices';
 import UserRequests from '../../pages/userRequests/UserRequests';
 import UpdateProfile from '../../pages/updateProfile/UpdateProfile';
 
-const Approutes = () => {
+const Approutes = (props) => {
   return (
     <>
       <PublicRoute />
       <PrivateRoute exact path="/update-profile">
-        <UpdateProfile />
+        <UpdateProfile {...props} />
       </PrivateRoute>
       <PrivateRoute exact path="/dashboard">
         <Dashboard />
@@ -44,4 +44,4 @@ const Approutes = () => {
   );
 };
 
-export default Approutes;
+export default withRouter(Approutes);
