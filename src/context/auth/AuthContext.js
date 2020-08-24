@@ -1,12 +1,10 @@
 import React, { createContext, useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useHistory } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
-  const history = useHistory();
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useState();
   const { getAccessTokenSilently, user } = useAuth0();
@@ -72,13 +70,12 @@ export const AuthState = ({ children }) => {
         );
 
         await setCurrentUser(data);
-        history.push('/dashboard');
       } catch (err) {
         console.log(err);
       }
     },
     // eslint-disable-next-line
-    [history, authAxios]
+    [authAxios]
   );
 
   useEffect(() => {

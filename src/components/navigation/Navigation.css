@@ -23,8 +23,9 @@
 }
 
 .navigation .logo {
-  font-size: 2.4rem;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
 }
 
 .navigation .logo {
@@ -129,7 +130,7 @@
 .navigation .navlink-logout .logout {
   border: 0 !important;
   background: none;
-  font-size: 1.6rem;    
+  font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   cursor: pointer;

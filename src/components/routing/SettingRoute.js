@@ -12,7 +12,9 @@ const SettingRoute = ({ children, ...otherProps }) => {
 
   useEffect(() => {
     if (currentUser && currentUser.is_completed) {
-      setIsCompleted(currentUser.is_completed);
+      setTimeout(() => {
+        setIsCompleted(currentUser.is_completed);
+      }, 400);
     }
   }, [currentUser]);
   return (
@@ -27,7 +29,12 @@ const SettingRoute = ({ children, ...otherProps }) => {
           return <Redirect to="/" />;
         }
 
-        if (isAuthenticated && currentUser && isCompleted) {
+        if (
+          isAuthenticated &&
+          currentUser &&
+          currentUser.is_completed &&
+          isCompleted
+        ) {
           return <Redirect to="/dashboard" />;
         }
       }}
