@@ -123,17 +123,26 @@
 }
 
 .navigation .navlink-logout {
-  display: flex;
+  width: 98px;
 }
 
 .navigation .navlink-logout .logout {
   border: 0 !important;
   background: none;
-  font-size: 1.6rem;
+  font-size: 1.6rem;    
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   cursor: pointer;
   outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.navigation .navlink-logout .logout:hover {
+  color: #1998ff;
 }
 
 .sticky {

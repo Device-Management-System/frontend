@@ -40,6 +40,7 @@ const Contact = () => {
                 half
                 type="text"
                 name="firstname"
+                error={errors.firstname ? true : false}
                 placeholder="First Name"
                 ref={register}
               />
@@ -50,6 +51,7 @@ const Contact = () => {
                 half
                 type="text"
                 name="lastname"
+                error={errors.lastname ? true : false}
                 placeholder="Last Name"
                 ref={register}
               />
@@ -60,6 +62,7 @@ const Contact = () => {
             <Input
               type="email"
               name="email"
+              error={errors.email ? true : false}
               placeholder="Email"
               ref={register}
             />

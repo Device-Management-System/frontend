@@ -1,6 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import PublicRoute from './PublicRoute';
+import SettingRoute from './SettingRoute';
 import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute';
 import Dashboard from '../../pages/dashboard/Dashboard';
@@ -12,13 +12,10 @@ import UserDevices from '../../pages/userDevices/UserDevices';
 import UserRequests from '../../pages/userRequests/UserRequests';
 import UpdateProfile from '../../pages/updateProfile/UpdateProfile';
 
-const Approutes = (props) => {
+const Approutes = () => {
   return (
     <>
       <PublicRoute />
-      <PrivateRoute exact path="/update-profile">
-        <UpdateProfile {...props} />
-      </PrivateRoute>
       <PrivateRoute exact path="/dashboard">
         <Dashboard />
       </PrivateRoute>
@@ -31,17 +28,20 @@ const Approutes = (props) => {
       <AdminRoute exact path="/requests">
         <Requests />
       </AdminRoute>
-      <PrivateRoute exact path="/devices/:id">
+      <PrivateRoute exact path="/my-devices/:id">
         <UserDevices />
       </PrivateRoute>
-      <PrivateRoute exact path="/requests/:id">
+      <PrivateRoute exact path="/my-requests/:id">
         <UserRequests />
       </PrivateRoute>
       <PrivateRoute exact path="/settings/:id">
         <Settings />
       </PrivateRoute>
+      <SettingRoute exact path="/update-profile/:id">
+        <UpdateProfile />
+      </SettingRoute>
     </>
   );
 };
 
-export default withRouter(Approutes);
+export default Approutes;

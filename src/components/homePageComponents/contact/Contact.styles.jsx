@@ -1,21 +1,19 @@
 import styled, { css } from 'styled-components';
 
 export const ContactContainer = styled.section`
-  ${({ theme: { bgLight } }) => css`
-    width: 100%;
-    height: auto;
-    background: #fafafa;
-    padding: 5rem;
+  width: 100%;
+  height: auto;
+  background: #fafafa;
+  padding: 5rem;
 
-    h4 {
-      color: #000;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 3.4rem;
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-  `}
+  h4 {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 3.4rem;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
 `;
 
 export const ContactWrapper = styled.div`
