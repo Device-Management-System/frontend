@@ -1,10 +1,12 @@
 import React, { createContext, useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
+import { useHistory } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
+  const history = useHistory();
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useState();
   const { getAccessTokenSilently, user } = useAuth0();
@@ -61,6 +63,24 @@ export const AuthState = ({ children }) => {
     // eslint-disable-next-line
   }, [user, token]);
 
+  const updateUser = useCallback(
+    async (update) => {
+      try {
+        const { data } = await authAxios.put(
+          `/api/users/${user.sub.slice(6)}`,
+          update
+        );
+
+        await setCurrentUser(data);
+        history.push('/dashboard');
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    // eslint-disable-next-line
+    [history, authAxios]
+  );
+
   useEffect(() => {
     fetchAccessToken();
     if (token) {
@@ -73,7 +93,7 @@ export const AuthState = ({ children }) => {
   }, [saveUser, token]);
 
   return (
-    <AuthContext.Provider value={{ authAxios, currentUser }}>
+    <AuthContext.Provider value={{ authAxios, currentUser, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

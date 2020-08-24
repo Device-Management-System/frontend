@@ -18,13 +18,19 @@ const SettingRoute = ({ children, ...otherProps }) => {
   return (
     <Route
       {...otherProps}
-      render={() =>
-        isAuthenticated && currentUser && !isCompleted ? (
-          <Layout>{children}</Layout>
-        ) : (
-          <Redirect to="/" />
-        )
-      }
+      render={() => {
+        if (isAuthenticated && currentUser && !isCompleted) {
+          return <Layout>{children}</Layout>;
+        }
+
+        if (!isAuthenticated && !currentUser) {
+          return <Redirect to="/" />;
+        }
+
+        if (isAuthenticated && currentUser && isCompleted) {
+          return <Redirect to="/dashboard" />;
+        }
+      }}
     />
   );
 };

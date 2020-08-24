@@ -37,7 +37,7 @@ const Approutes = () => {
       <PrivateRoute exact path="/settings/:id">
         <Settings />
       </PrivateRoute>
-      <SettingRoute exact path="/update-profile">
+      <SettingRoute exact path="/update-profile/:id">
         <UpdateProfile />
       </SettingRoute>
     </>

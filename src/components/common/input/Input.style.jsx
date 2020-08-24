@@ -31,14 +31,21 @@ const submitStyle = css`
   `}
 `;
 
+const errorStyle = css`
+  border: 1px solid red;
+  width: 100%;
+  height: 4.4rem;
+`;
+
 const getInputStyle = (props) => {
   if (props.submit) return submitStyle;
+  if (props.error) return errorStyle;
   return props.half ? halfInputStyle : fullInputStyle;
 };
 
 export const ContactInput = styled.input`
   ${({ theme: { medium, hover, inputBorder } }) => css`
-    background: #f3f3f3;
+    background: #fff;
     border-radius: 0.4rem;
     font-size: ${medium};
     font-weight: 600;
@@ -52,7 +59,7 @@ export const ContactInput = styled.input`
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
       font-size: 1.4rem;
-      color: rgba(0, 0, 0, 0.7);
+      color: #bbb;
     }
 
     &:focus {

@@ -76,7 +76,7 @@ export const SidebarLink = styled(NavLink)`
   transition: all 0.8s ease-in-out;
 
   &.active {
-    font-weight: 800 !important;
+    font-weight: 600 !important;
     color: #fff;
     background: #f4f9ff26;
   }
@@ -84,4 +84,12 @@ export const SidebarLink = styled(NavLink)`
 
 export const SidebarLabel = styled.span`
   margin-left: 1.2rem;
+`;
+
+export const BlankLink = styled.div`
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 0.2rem;
+  background: #f4f9ff26;
+  margin-bottom: 1.8rem;
 `;

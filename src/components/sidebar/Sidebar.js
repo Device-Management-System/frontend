@@ -12,6 +12,7 @@ import {
   SidebarHeader,
   SidebarLink,
   SidebarLabel,
+  BlankLink,
 } from './Sidebar.styles';
 
 const Sidebar = () => {
@@ -144,18 +145,7 @@ const Sidebar = () => {
         </LinkContainer>
       ) : (
         <LinkContainer>
-          <SidebarLink to="/update-profile">
-            {location.pathname === '/update-profile' && (
-              <>
-                <Unicons.UilUserSquare
-                  fill="#FFF"
-                  width="1.6rem"
-                  height="1.6rem"
-                />
-                <SidebarLabel>Update Profile</SidebarLabel>
-              </>
-            )}
-          </SidebarLink>
+          <BlankLink />
         </LinkContainer>
       )}
     </SidebarContainer>
