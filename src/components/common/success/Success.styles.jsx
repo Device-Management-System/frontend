@@ -7,13 +7,12 @@ export const SuccessContainer = styled.div`
   width: 100%;
   height: auto;
   text-align: center;
-  /* background: rgba(152, 217, 86, 0.21); */
-  background: #599e0a;
+  background: rgba(152, 217, 86, 0.11);
   padding: 1.5rem;
   border-radius: 0.2rem;
-  border: 1px solid #fff;
+  border: 1px solid #599e0a;
   p {
-    color: #fff;
+    color: #000;
     font-size: 1.4rem;
     font-weight: 500;
     margin-left: 0.6rem;

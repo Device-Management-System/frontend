@@ -130,20 +130,62 @@
 .navigation .navlink-logout .logout {
   border: 0 !important;
   background: none;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   cursor: pointer;
   outline: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  width: 100%;
   transition: all 0.2s ease-in-out;
+  width: 180px;
+  height: 3.8rem;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(15, 15, 15, 0.2);
+  border-radius: 2.2rem;
 }
 
 .navigation .navlink-logout .logout:hover {
   color: #1998ff;
+}
+
+.navigation .user-menu {
+  padding-top: 2.5rem;
+}
+
+.navigation .current-user {
+  width: 180px;
+  height: 4rem;
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+  color: #000;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.navigation .current-user .avatar {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 2rem;
+  margin-right: 1rem;
+}
+
+.navigation .chevron {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  border: 0;
+  background: none;
 }
 
 .sticky {
@@ -155,4 +197,8 @@
   padding: 0 !important;
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
+}
+
+.hidden {
+  display: none;
 }

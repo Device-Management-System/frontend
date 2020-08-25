@@ -14,7 +14,7 @@ const SettingRoute = ({ children, ...otherProps }) => {
     if (currentUser && currentUser.is_completed) {
       setTimeout(() => {
         setIsCompleted(currentUser.is_completed);
-      }, 400);
+      }, 800);
     }
   }, [currentUser]);
   return (

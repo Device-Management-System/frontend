@@ -1,15 +1,27 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
+import { AuthContext } from '../../context/auth/AuthContext';
 import * as Unicons from '@iconscout/react-unicons';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import './Navigation.css';
 
 const Navigation = () => {
-  const { isAuthenticated, logout, loginWithRedirect } = useAuth0();
+  const [show, setShow] = useState(false);
+  const authContext = useContext(AuthContext);
+  const { currentUser } = authContext;
+  const { isAuthenticated, logout, loginWithRedirect, user } = useAuth0();
   const location = useLocation();
   const navRef = useRef();
+
+  const toggleShow = () => setShow(!show);
 
   const handleScroll = useCallback(() => {
     if (location.pathname === '/') {
@@ -35,7 +47,7 @@ const Navigation = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  console.log(user);
   return (
     <div ref={navRef} className="navigation">
       <div
@@ -65,24 +77,51 @@ const Navigation = () => {
               </li>
             </>
           ) : (
-            <li className="navlink-logout">
-              <button
-                className="logout"
-                onClick={async () => {
-                  await logout();
-                  if (process.env.NODE_ENV === 'development') {
-                    localStorage.removeItem('token');
-                  }
-                }}
-              >
-                <Unicons.UilSignOutAlt
-                  fill="#0C0C0C"
-                  width="2.2rem"
-                  height="2.2rem"
-                />{' '}
-                Logout
-              </button>
-            </li>
+            <>
+              {location.pathname !== `/update-profile/${user.sub.slice(6)}` &&
+                user &&
+                currentUser &&
+                currentUser.first_name &&
+                currentUser.last_name && (
+                  <div className="user-menu">
+                    <button className="current-user" onClick={toggleShow}>
+                      <img
+                        className="avatar"
+                        src={user.picture}
+                        alt="profile-picture"
+                      />
+                      <div>
+                        {`${currentUser.first_name} ${currentUser.last_name}`}
+                      </div>
+                      <div className="chevron">
+                        <Unicons.UilAngleDown
+                          fill="#3c3c3c"
+                          width="1.9rem"
+                          height="1.9rem"
+                        />
+                      </div>
+                    </button>
+                    <li className={`navlink-logout ${show ? '' : 'hidden'}`}>
+                      <button
+                        className="logout"
+                        onClick={async () => {
+                          await logout();
+                          if (process.env.NODE_ENV === 'development') {
+                            localStorage.removeItem('token');
+                          }
+                        }}
+                      >
+                        <Unicons.UilSignOutAlt
+                          fill="#0C0C0C"
+                          width="2.2rem"
+                          height="2.2rem"
+                        />{' '}
+                        Logout
+                      </button>
+                    </li>
+                  </div>
+                )}
+            </>
           )}
         </ul>
       </div>
