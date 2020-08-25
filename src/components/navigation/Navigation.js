@@ -88,7 +88,7 @@ const Navigation = () => {
                       <img
                         className="avatar"
                         src={user.picture}
-                        alt="profile-picture"
+                        alt="profile"
                       />
                       <div>
                         {`${currentUser.first_name} ${currentUser.last_name}`}
