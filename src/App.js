@@ -10,6 +10,7 @@ import {
   fas,
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthState } from './context/auth/AuthContext';
+import { DeviceState } from './context/device/DeviceContext';
 import Approutes from './components/routing/Approutes';
 import { config } from './utils/auth0Config';
 import { initializeAnalytics } from './utils/analytics';
@@ -28,7 +29,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <AuthState>
-            <Approutes />
+            <DeviceState>
+              <Approutes />
+            </DeviceState>
           </AuthState>
         </Router>
       </ThemeProvider>
