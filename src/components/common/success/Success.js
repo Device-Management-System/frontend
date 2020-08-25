@@ -6,7 +6,7 @@ import { SuccessContainer } from './Success.styles';
 const Success = ({ message }) => {
   return (
     <SuccessContainer>
-      <UilCheckCircle fill="#fff" width="2rem" height="2rem" />
+      <UilCheckCircle fill="#599E0A" width="2rem" height="2rem" />
       <p>{message}</p>
     </SuccessContainer>
   );
