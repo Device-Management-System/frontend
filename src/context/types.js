@@ -1,5 +1,4 @@
 // ======= DEVICE TYPES ============================
-
 export const CREATE_DEVICE_START = 'CREATE_DEVICE_START';
 export const CREATE_DEVICE_SUCCESS = 'CREATE_DEVICE_SUCCESS';
 export const CREATE_DEVICE_FAIL = 'CREATE_DEVICE_FAIL';
