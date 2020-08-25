@@ -157,8 +157,8 @@
 .navigation .current-user {
   width: 180px;
   height: 4rem;
-  border: 1px solid #ccc;
-  border-radius: 2rem;
+  border: 0px solid #ccc;
+  border-radius: 0.8rem;
   color: #000;
   padding: 1rem;
   font-size: 1.5rem;
@@ -166,7 +166,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: none;
+  background: rgb(237, 237, 237);
   outline: none;
   cursor: pointer;
 }
