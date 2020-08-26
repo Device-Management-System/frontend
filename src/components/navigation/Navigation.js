@@ -83,7 +83,11 @@ const Navigation = () => {
                 currentUser.first_name &&
                 currentUser.last_name && (
                   <div className="user-menu">
-                    <button className="current-user" onClick={toggleShow}>
+                    <button
+                      className="current-user"
+                      onMouseEnter={() => setShow(true)}
+                      onMouseLeave={() => setShow(false)}
+                    >
                       <img
                         className="avatar"
                         src={user.picture}
@@ -100,7 +104,11 @@ const Navigation = () => {
                         />
                       </div>
                     </button>
-                    <li className={`navlink-logout ${show ? '' : 'hidden'}`}>
+                    <li
+                      onMouseEnter={() => setShow(true)}
+                      onMouseLeave={() => setShow(false)}
+                      className={`navlink-logout ${show ? '' : 'hidden'}`}
+                    >
                       <button
                         className="logout"
                         onClick={async () => {
@@ -115,7 +123,7 @@ const Navigation = () => {
                           width="2.2rem"
                           height="2.2rem"
                         />{' '}
-                        Logout
+                        <span>Logout</span>
                       </button>
                     </li>
                   </div>
