@@ -148,7 +148,7 @@
   padding: 2rem;
   box-shadow: 0 0 10px rgba(15, 15, 15, 0.2);
   border-radius: 0.8rem;
-  opacity: 0.1;
+  opacity: 0.8;
 }
 
 .navigation .navlink-logout .logout:hover {
