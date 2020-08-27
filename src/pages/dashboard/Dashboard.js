@@ -1,10 +1,11 @@
 import React from 'react';
-// import PostDevice from '../../components/PostDevice';
+
+import DashboardHeader from '../../components/common/globalHeader/GlobalHeader';
 
 const Dashboard = () => {
   return (
     <div>
-      Dashboard
+      <DashboardHeader text="Dashboard" />
       {/* <PostDevice /> */}
     </div>
   );

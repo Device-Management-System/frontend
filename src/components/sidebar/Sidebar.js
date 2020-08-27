@@ -35,7 +35,7 @@ const Sidebar = () => {
       </LogoContainer>
       {currentUser && currentUser.is_completed ? (
         <LinkContainer>
-          <SidebarHeader>Profile</SidebarHeader>
+          <SidebarHeader>General</SidebarHeader>
           <SidebarLink to="/dashboard">
             {location.pathname === '/dashboard' ? (
               <Unicons.UilApps fill="#FFF" width="1.6rem" height="1.6rem" />
