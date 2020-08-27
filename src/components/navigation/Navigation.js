@@ -21,8 +21,6 @@ const Navigation = () => {
   const location = useLocation();
   const navRef = useRef();
 
-  const toggleShow = () => setShow(!show);
-
   const handleScroll = useCallback(() => {
     if (location.pathname === '/') {
       if (window.pageYOffset > 30) {

@@ -71,7 +71,7 @@ export const AuthState = ({ children }) => {
 
         await setCurrentUser(data);
       } catch (err) {
-        console.log(err);
+        return err;
       }
     },
     // eslint-disable-next-line

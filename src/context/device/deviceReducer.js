@@ -2,9 +2,9 @@ import {
   CREATE_DEVICE_START,
   CREATE_DEVICE_SUCCESS,
   CREATE_DEVICE_FAIL,
-  // GET_DEVICES_START,
-  // GET_DEVICES_SUCCESS,
-  // GET_DEVICES_FAIL,
+  GET_DEVICES_START,
+  GET_DEVICES_SUCCESS,
+  GET_DEVICES_FAIL,
   // FETCH_DEVICE_START,
   // FETCH_DEVICE_SUCCESS,
   // FETCH_DEVICE_FAIL,
@@ -39,6 +39,7 @@ export default (state, action) => {
         error: null,
       };
     case CREATE_DEVICE_FAIL:
+    case GET_DEVICES_FAIL:
       return {
         ...state,
         devices: null,
@@ -47,6 +48,23 @@ export default (state, action) => {
         isCreated: false,
         isLoading: false,
         error: action.payload,
+      };
+    case GET_DEVICES_START:
+      return {
+        ...state,
+        isFetching: true,
+        isCreated: false,
+        isLoading: true,
+        error: null,
+      };
+    case GET_DEVICES_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        isCreated: false,
+        isLoading: false,
+        devices: action.payload,
+        error: null,
       };
     default:
       return state;
