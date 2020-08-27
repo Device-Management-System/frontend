@@ -9,7 +9,7 @@ import CreateDeviceForm from '../../common/customForm/CustomForm';
 import CreateDeviceInput from '../../common/input/Input';
 import CreatdDeviceBtn from '../../common/customButton/CustomButton';
 import CreateDeviceError from '../../common/formError/FormError';
-import CreateDeviceSuccess from '../../common/success/Success';
+// import CreateDeviceSuccess from '../../common/success/Success';
 
 const CreateDevice = () => {
   const deviceContext = useContext(DeviceContext);
@@ -17,10 +17,30 @@ const CreateDevice = () => {
   // const history = useHistory()
 
   const schema = yup.object().shape({
-    device_model: yup.string().min(1).max(255).trim().required(),
-    serial_number: yup.string().min(6).max(255).trim().required(),
-    os: yup.string().min(1).max(128).trim().required(),
-    brand: yup.string().min(1).max(128).trim().required(),
+    device_model: yup
+      .string()
+      .min(3, 'Device model must be at least 3 characters!')
+      .max(255, 'Device model must be 255 maximum!')
+      .trim()
+      .required('Device model is required'),
+    serial_number: yup
+      .string()
+      .min(6, 'Serial number must be at least 6 characters!')
+      .max(255, 'Serial number must be 255 maximum!')
+      .trim()
+      .required(),
+    os: yup
+      .string()
+      .min(3, 'OS must be at least 3 characters!')
+      .max(128, 'OS must be 128 maximum!')
+      .trim()
+      .required('OS is required'),
+    brand: yup
+      .string()
+      .min(3, 'Brand must be at least 3 characters!')
+      .max(128, 'Brand must be 128 maximum!')
+      .trim()
+      .required('Brand is required'),
   });
 
   const { register, handleSubmit, errors } = useForm({
@@ -42,7 +62,7 @@ const CreateDevice = () => {
           ref={register}
         />
         {errors.device_model && (
-          <CreateDeviceError message="Device model is required" />
+          <CreateDeviceError message={errors.device_model.message} />
         )}
       </div>
       <div>
@@ -54,7 +74,7 @@ const CreateDevice = () => {
           ref={register}
         />
         {errors.serial_number && (
-          <CreateDeviceError message="Serial Number is required" />
+          <CreateDeviceError message={errors.serial_number.message} />
         )}
       </div>
       <div>
@@ -65,7 +85,7 @@ const CreateDevice = () => {
           placeholder="os"
           ref={register}
         />
-        {errors.os && <CreateDeviceError message="OS is required" />}
+        {errors.os && <CreateDeviceError message={errors.os.message} />}
       </div>
       <div>
         <CreateDeviceInput
@@ -75,7 +95,7 @@ const CreateDevice = () => {
           placeholder="brand"
           ref={register}
         />
-        {errors.brand && <CreateDeviceError message="Brand is required" />}
+        {errors.brand && <CreateDeviceError message={errors.brand.message} />}
       </div>
       <CreatdDeviceBtn contact type="submit" text="Create Device" />
     </CreateDeviceForm>
