@@ -90,7 +90,7 @@ const Sidebar = () => {
           </SidebarLink>
           {user && roles && roles.includes('admin') && (
             <>
-              <SidebarHeader>Admin</SidebarHeader>
+              <SidebarHeader>Manage</SidebarHeader>
               <SidebarLink to="/users">
                 {location.pathname === '/users' ? (
                   <Unicons.UilUsersAlt

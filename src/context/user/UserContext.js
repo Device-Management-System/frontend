@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useContext } from 'react';
 import logger from 'use-reducer-logger';
 import { AuthContext } from '../auth/AuthContext';
 import userReducer from './userReducer';
