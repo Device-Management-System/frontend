@@ -6,7 +6,7 @@ export const SidebarContainer = styled.div`
   height: 100%;
   background: #197ee2;
   color: #fff;
-  padding: 2rem;
+  padding-top: 2rem;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -23,6 +23,7 @@ export const SidebarLogo = styled.h2`
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
+  margin-left: 2rem;
 `;
 
 export const SidebarHeader = styled.h4`
@@ -33,6 +34,7 @@ export const SidebarHeader = styled.h4`
   font-weight: 700;
   margin-top: 3rem;
   margin-bottom: 3rem;
+  margin-left: 2rem;
 `;
 
 export const LinkContainer = styled.div`
@@ -65,14 +67,12 @@ export const SidebarLink = styled(NavLink)`
   align-items: center;
   color: #fffffd91;
   margin-bottom: 1.8rem;
-  /* margin-left: 0.5rem; */
   font-size: 1.4rem;
   font-weight: 500;
   text-decoration: none;
   width: 100%;
   height: 2.5rem;
-  border-radius: 0.2rem;
-  padding: 1.5rem;
+  padding: 2rem;
   transition: all 0.8s ease-in-out;
 
   &.active {

@@ -1,6 +1,7 @@
 import React from 'react';
 // import { useHistory } from 'react-router-dom';
 // import { AuthContext } from '../../context/auth/AuthContext';
+import SettingsHeader from '../../components/common/globalHeader/GlobalHeader';
 
 const Settings = () => {
   // const history = useHistory();
@@ -12,7 +13,11 @@ const Settings = () => {
   //     history.push('/update-profile');
   // }, [currentUser, history]);
 
-  return <div>Settings</div>;
+  return (
+    <div>
+      <SettingsHeader text="Settings" />
+    </div>
+  );
 };
 
 export default Settings;

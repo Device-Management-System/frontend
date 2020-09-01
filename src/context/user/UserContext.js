@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useContext } from 'react';
 import logger from 'use-reducer-logger';
 import { AuthContext } from '../auth/AuthContext';
 import userReducer from './userReducer';
@@ -10,6 +10,9 @@ import {
   FETCH_USER_START,
   FETCH_USER_SUCCESS,
   FETCH_USER_FAIL,
+  UPDATE_USER_START,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAIL,
   REMOVE_USER_START,
   REMOVE_USER_SUCCESS,
   REMOVE_USER_FAIL,
@@ -55,6 +58,16 @@ export const UserState = ({ children }) => {
     }
   };
 
+  const updateUser = async (id, update) => {
+    await dispatch({ type: UPDATE_USER_START });
+    try {
+      const { data } = await authAxios.put(`/api/users/${id}`, update);
+      await dispatch({ type: UPDATE_USER_SUCCESS, payload: data });
+    } catch ({ message }) {
+      await dispatch({ type: UPDATE_USER_FAIL, payload: message });
+    }
+  };
+
   const deleteUser = async (id) => {
     await dispatch({ type: REMOVE_USER_START });
     try {
@@ -75,6 +88,7 @@ export const UserState = ({ children }) => {
         error,
         getUsers,
         fetchUser,
+        updateUser,
         deleteUser,
       }}
     >
