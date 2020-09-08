@@ -9,7 +9,7 @@ const Usercard = ({ user, updateRole, removeRole }) => {
       <UserName>{`${first_name} ${last_name}`}</UserName>
       <UserRole>{role}</UserRole>
 
-      {!is_admin && (
+      {is_admin && (
         <button
           onClick={async () => {
             await removeRole(id);
@@ -20,7 +20,7 @@ const Usercard = ({ user, updateRole, removeRole }) => {
         </button>
       )}
 
-      {is_admin && (
+      {!is_admin && (
         <button
           onClick={async () => {
             await removeRole(id);
