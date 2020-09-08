@@ -16,6 +16,12 @@ import {
   REMOVE_USER_START,
   REMOVE_USER_SUCCESS,
   REMOVE_USER_FAIL,
+  UPDATE_USER_ROLE_START,
+  UPDATE_USER_ROLE_SUCCESS,
+  UPDATE_USER_ROLE_FAIL,
+  REMOVE_USER_ROLE_START,
+  REMOVE_USER_ROLE_SUCCESS,
+  REMOVE_USER_ROLE_FAIL,
 } from '../types';
 
 export const UserContext = createContext();
@@ -78,6 +84,32 @@ export const UserState = ({ children }) => {
     }
   };
 
+  const updateRole = async (id, role) => {
+    await dispatch({ type: UPDATE_USER_ROLE_START });
+    try {
+      const { data } = await authAxios.put(`api/users/${id}/role`, {
+        id,
+        role,
+      });
+
+      // eslint-disable-next-line
+      await dispatch({ type: UPDATE_USER_ROLE_SUCCESS, payload: data });
+    } catch ({ message }) {
+      await dispatch({ type: UPDATE_USER_ROLE_FAIL, payload: message });
+    }
+  };
+
+  const removeRole = async (id) => {
+    await dispatch({ type: REMOVE_USER_ROLE_START });
+    try {
+      // eslint-disable-next-line
+      const { data } = await authAxios.delete(`/api/users/${id}/role`);
+      await dispatch({ type: REMOVE_USER_ROLE_SUCCESS });
+    } catch (err) {
+      await dispatch({ type: REMOVE_USER_ROLE_FAIL });
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -90,6 +122,8 @@ export const UserState = ({ children }) => {
         fetchUser,
         updateUser,
         deleteUser,
+        updateRole,
+        removeRole,
       }}
     >
       {children}

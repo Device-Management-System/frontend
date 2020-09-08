@@ -5,7 +5,7 @@ import { UsersListContainer } from './UsersList.styles';
 
 const UsersList = () => {
   const userContext = useContext(UserContext);
-  const { getUsers, users } = userContext;
+  const { getUsers, users, updateRole, removeRole } = userContext;
 
   useEffect(() => {
     getUsers();
@@ -14,7 +14,15 @@ const UsersList = () => {
   console.log(users);
   return (
     <UsersListContainer>
-      {users && users.map((user) => <UserCard key={user.id} user={user} />)}
+      {users &&
+        users.map((user) => (
+          <UserCard
+            key={user.id}
+            user={user}
+            updateRole={updateRole}
+            removeRole={removeRole}
+          />
+        ))}
     </UsersListContainer>
   );
 };

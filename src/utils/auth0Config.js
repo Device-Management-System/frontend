@@ -14,6 +14,10 @@ const scope = [
   'read:settings',
   'read:profile',
   'edit:profile',
+  'read:roles',
+  'write:roles',
+  'update:roles',
+  'delete:roles',
 ];
 
 export const config = {
