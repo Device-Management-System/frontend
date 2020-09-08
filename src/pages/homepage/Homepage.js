@@ -18,7 +18,7 @@ const Homepage = () => {
     if (isAuthenticated) {
       history.push('/dashboard');
     }
-  });
+  }, [history, isAuthenticated]);
 
   return (
     <div className="home">
