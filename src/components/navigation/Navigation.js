@@ -110,7 +110,7 @@ const Navigation = () => {
                       <button
                         className="logout"
                         onClick={async () => {
-                          await logout();
+                          await logout({ returnTo: window.location.origin });
                           if (process.env.NODE_ENV === 'development') {
                             localStorage.removeItem('token');
                           }

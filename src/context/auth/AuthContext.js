@@ -78,6 +78,14 @@ export const AuthState = ({ children }) => {
     [authAxios]
   );
 
+  // const register = (userData) => {
+  //   try {
+  //     const
+  //   } catch({message}) {
+
+  //   }
+  // }
+
   useEffect(() => {
     fetchAccessToken();
     if (token) {
